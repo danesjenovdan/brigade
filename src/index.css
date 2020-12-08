@@ -6,3 +6,40 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+
+
+body {
+  background: white;
+  color: black;
+  font-family: "Space Grotesk", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+.container-text {
+  margin: 0 auto;
+  margin-top: 150px;
+  margin-bottom: 60px;
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 80%;
+}
+
+
+.container-banner {
+  margin: 0 auto;
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* Style for "Rectangle" */
+  width: 80%;
+}
+
+@font-face {
+  font-family: "Buran USSR";
+  src: local("Buran USSR"),  url('./fonts/Buran USSR.ttf') format("truetype");
+  }
+@import url('https://use.typekit.net/phc4njt.css')
