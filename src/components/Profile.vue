@@ -5,7 +5,7 @@
           <img alt="yellow circle" :src="`${imageUrl}`" />
         </div>
         <div class="right">
-         <span class="title">{{title}}
+         <span class="title">{{title}}</span>
           <h2>{{subtitle}}</h2>
         </div>
     </div>
