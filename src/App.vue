@@ -51,7 +51,7 @@ export default {
   h1 {
     /* Style for "Activity (" */
     color: #000000;
-    font-family: "acumin-pro";
+    font-family: "acumin-pro", sans-serif;
     font-size: 33px;
     font-weight: 900;
     font-style: normal;
@@ -107,7 +107,7 @@ export default {
     /* Style for "Lorem ipsu" */
     width: 50%;
     color: #000000;
-    font-family: "acumin-pro";
+    font-family: "acumin-pro", sans-serif;
     font-size: 24px;
     font-weight: 300;
     font-style: normal;
@@ -130,7 +130,7 @@ export default {
   }
   .visualisations img {
     flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%
+    width: 100%;
+    height: 100%
 }
 </style>

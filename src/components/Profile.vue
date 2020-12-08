@@ -5,7 +5,7 @@
           <img alt="yellow circle" :src="`${imageUrl}`" />
         </div>
         <div class="right">
-          <span class="title">{{title}}</h1>
+         <span class="title">{{title}}
           <h2>{{subtitle}}</h2>
         </div>
     </div>
@@ -35,7 +35,6 @@
   flex-direction: column;
   justify-content: center;
   border: 1px solid;
-  min-width: 225px;
   padding: 10px;
 }
 .body {
@@ -72,7 +71,7 @@ img {
 p {
   /* Style for "Lorem ipsu" */
   color: #000000;
-  font-family: "acumin-pro";
+  font-family: "acumin-pro", sans-serif;
   font-size: 12px;
   font-weight: 400;
   font-style: normal;
@@ -89,7 +88,7 @@ h2 {
   width: 65px;
   height: 11px;
   color: #000000;
-  font-family: "acumin-pro";
+  font-family: "acumin-pro", sans-serif;
   font-size: 12px;
   font-weight: 400;
   font-style: normal;
@@ -101,14 +100,14 @@ h2 {
   letter-spacing: normal;
   line-height: normal;
 }
-title {
+.title {
   /* Style for "Kontrolni" */
   width: 72px;
   height: 28px;
   color: #000000;
   font-family: "acumin-pro", sans-serif;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 700;
   font-style: normal;
   letter-spacing: normal;
   line-height: 16px;

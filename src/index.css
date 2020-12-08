@@ -39,7 +39,10 @@ body {
 }
 
 @font-face {
-  font-family: "Buran USSR";
-  src: local("Buran USSR"),  url('./fonts/Buran USSR.ttf') format("truetype");
-  }
+  font-family: 'buran_ussrregular';
+  src: url('./fonts/buran_ussr-webfont.woff2') format('woff2'),
+       url('./fonts/buran_ussr-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 @import url('https://use.typekit.net/phc4njt.css')

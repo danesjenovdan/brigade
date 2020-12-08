@@ -21,7 +21,7 @@ import SocialMediaIcon from './SocialMediaIcon.vue'
 	h1 {
 		/* Style for "POVEJ NAPR" */
 		color: #000000;
-		font-family: "Buran - USSR";
+		font-family: "buran_ussrregular";
 		font-size: 33px;
 		font-weight: 400;
 		font-style: normal;
@@ -33,6 +33,7 @@ import SocialMediaIcon from './SocialMediaIcon.vue'
 		font-style: normal;
 		letter-spacing: 6.67px;
 		line-height: normal;
+		padding-left: 20px;
 	}
 	.container-banner {
 		background-color: #f9e96f;

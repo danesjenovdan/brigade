@@ -23,7 +23,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin: 1.2rem;
   }
 
   img {

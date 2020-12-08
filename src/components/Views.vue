@@ -15,10 +15,7 @@
 		<img class="image" alt="Vue logo" src="./../assets/Layer-bottom.png" />
   </div>
 </template>
-
-
     <script> 
-    //   background-image:url('./../assets/yellow-background.png');
 		export default {
 		data(){
     	return {
@@ -42,11 +39,13 @@
   justify-content: center
 }
 .items {
+  margin: 0 auto;
   display: flex; /* or inline-flex */
+  overflow-x:auto; 
   flex-direction: row;
+  flex-shrink: 0;
   justify-content: space-evenly;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .image {
@@ -64,7 +63,7 @@
     width: 184px;
     height: 23px;
     color: #000000;
-    font-family: "Buran - USSR";
+    font-family: "buran_ussrregular";
     font-size: 21px;
     font-weight: 400;
     font-style: normal;

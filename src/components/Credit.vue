@@ -20,7 +20,7 @@
 	p {
 		/* Style for "Projekt je" */
 		color: #000000;
-		font-family: "acumin-pro";
+		font-family: "acumin-pro", sans-serif;
 		font-size: 12px;
 		font-weight: 400;
 		font-style: normal;
