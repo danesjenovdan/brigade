@@ -47,10 +47,21 @@
 		letter-spacing: normal;
 		line-height: normal; 
 	}
+
+	@media only screen and (max-width: 768px) {
+   p {
+		font-size: 12px;
+	}
+}
+
+@media only screen and (min-width: 769px) {
+  p {
+		font-size: 16px;
+	}
+}
 	p {
       color: #000000;
 			font-family: "acumin-pro";
-			font-size: 16px;
 			font-weight: 400;
 			font-style: normal;
 			letter-spacing: normal;

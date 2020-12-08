@@ -25,6 +25,7 @@
 		}
     </script>
 <style scoped>
+
 .background {
 		background-image:url('./../assets/yellow-background.png');
     background-position:center;
@@ -38,14 +39,46 @@
   flex-direction: column;
   justify-content: center
 }
-.items {
-  margin: 0 auto;
-  display: flex; /* or inline-flex */
-  overflow-x:auto; 
-  flex-direction: row;
-  flex-shrink: 0;
-  justify-content: space-evenly;
-  white-space: nowrap;
+
+@media only screen and (max-width: 768px) {
+  .items {
+    margin: 0 auto;
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .items {
+    margin: 0 auto;
+    width: 80%;
+    display: flex; /* or inline-flex */
+    overflow-x:auto; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    white-space: nowrap;
+  }
+}
+
+.items-text {
+    /* Style for "Prostorski" */
+    width: 184px;
+    height: 23px;
+    color: #000000;
+    font-size: 23px;
+    font-family: "buran_ussrregular";
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 33.33px;
+    text-align: left;
+    /* Text style for "Prostorski" */
+    font-style: normal;
+    letter-spacing: 2.13px;
+    line-height: normal;
 }
 
 .image {
@@ -58,22 +91,4 @@
   padding: 15px;
 }
 
-.items-text {
-    /* Style for "Prostorski" */
-    width: 184px;
-    height: 23px;
-    color: #000000;
-    font-family: "buran_ussrregular";
-    font-size: 21px;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: 33.33px;
-    text-align: left;
-    /* Text style for "Prostorski" */
-    font-style: normal;
-    letter-spacing: 2.13px;
-    line-height: normal;
-}
 </style>
-
