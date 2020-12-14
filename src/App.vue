@@ -111,17 +111,4 @@
     line-height: normal;
     margin: 0 auto;
   }
-  .visualisations {
-    margin: 0 auto;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden
-  }
-  .visualisations img {
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%
-}
 </style>
