@@ -3,13 +3,13 @@
 		<img class="image" alt="Vue logo" src="./../assets/Layer-top.png" />
 		<div class="items">
 			<div id="1" :class="show === 1? 'background' : null" >
-				<p class="items-text"  @click="show = 1"> Makro pogled</p>
+				<p class="items-text"  @click="show = 1;goTo('makro')"> Makro pogled</p>
 			</div>
 			<div id="2" :class="show === 2? 'background' : null">
-				<p class="items-text" @click="show = 2">Mikro pogled</p>
+				<p class="items-text" @click="show = 2;goTo('mikro')">Mikro pogled</p>
 			</div>
 			<div id="3" :class="show === 3? 'background' : null">
-				<p class="items-text" @click="show = 3">Prostorski pogled</p>
+				<p class="items-text" @click="show = 3;goTo('prostorski')">Prostorski pogled</p>
 			</div>
 		</div>
 		<img class="image" alt="Vue logo" src="./../assets/Layer-bottom.png" />
@@ -21,11 +21,15 @@
     	return {
 					show: 1,
 			}
-			}
+			},
+    methods: {
+      goTo(route) {
+        this.$router.push(route);
+      }
 		}
+    }
     </script>
 <style scoped>
-
 .background {
 		background-image:url('./../assets/yellow-background.png');
     background-position:center;

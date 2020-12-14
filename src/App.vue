@@ -3,15 +3,10 @@
     <img class ='header-image' alt="Vue logo" src="./assets/twitter-brigade.png" />
     <div class="container-body">
       <div class='body-text'>
-        {{text}} {{text}} {{text}} {{text}} {{text}} {{text}}
+       {{text}} {{text}} {{text}} {{text}} {{text}} {{text}}
       </div>
       <views/>
-      <left-text :title="`${profile.mainTitle}`"/>
-      <profile-groups />
-      <left-text :text="`${text2.text}`" :title= "`${text2.title}`"/>
-      <div class="visualisations"><img alt="Vue logo" src="./assets/sample.png" /></div>
-      <left-text :text="`${text2.text}`" :title= "`${text2.title}`"/>
-      <div class="visualisations"><img alt="Vue logo" src="./assets/sample.png" /></div>
+      <router-view></router-view>
       <social-media-banner/>
       <donation-banner/>
       <credit/>
@@ -20,31 +15,31 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Views from './components/Views.vue'
-import ProfileGroups from './components/ProfileGroups.vue'
-import text from './assets/text.js'
-import LeftText from './components/LeftText.vue'
-import SocialMediaBanner from './components/SocialMediaBanner.vue'
-import DonationBanner from './components/DonationBanner.vue'
-import Credit from './components/Credit.vue'
+  import HelloWorld from './components/HelloWorld.vue'
+  import Views from './components/Views.vue'
+  import ProfileGroups from './components/ProfileGroups.vue'
+  import text from './assets/text.js'
+  import LeftText from './components/LeftText.vue'
+  import SocialMediaBanner from './components/SocialMediaBanner.vue'
+  import DonationBanner from './components/DonationBanner.vue'
+  import Credit from './components/Credit.vue'
 
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-    Views,
-    ProfileGroups,
-    LeftText,
-    SocialMediaBanner,
-    DonationBanner,
-    Credit
-  },
-  data() {
-    return text
-  } 
-}
+  export default {
+    name: 'App',
+    components: {
+      HelloWorld,
+      Views,
+      ProfileGroups,
+      LeftText,
+      SocialMediaBanner,
+      DonationBanner,
+      Credit
+    },
+    data() {
+      return text
+    }
+  }
 </script>
 
 <style scoped>
