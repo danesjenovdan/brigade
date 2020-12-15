@@ -4,6 +4,7 @@
   <left-text :text="`${text2.text}`" :title= "`${text2.title}`"/>
   <div class="visualisations"><bar/></div>
   <left-text :text="`${text2.text}`" :title= "`${text2.title}`"/>
+  <div class="visualisations"><hashtag-bar/></div>
 </template>
 
 <script>
@@ -12,6 +13,8 @@ import text from './../../assets/text.js'
 import LeftText from './../LeftText.vue'
 import ProfileGroups from './../ProfileGroups.vue'
 import Bar from './../Charts/Bar.vue'
+import HashtagBar from './../Charts/HashtagBar.vue'
+
 
 
 export default {
@@ -20,7 +23,8 @@ export default {
   components: {
     LeftText,
     ProfileGroups,
-    Bar
+    Bar,
+    HashtagBar
   },
   data() {
     return text

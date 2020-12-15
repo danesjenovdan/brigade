@@ -1,4 +1,4 @@
-export const planetChartData = {
+export const chartData = {
     type: 'bar',
     data: {
       labels: [ '2019-10',
@@ -53,4 +53,4 @@ export const planetChartData = {
     }
   }
   
-  export default planetChartData;
+  export default chartData;
