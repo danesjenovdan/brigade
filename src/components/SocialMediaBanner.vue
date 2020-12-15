@@ -1,9 +1,9 @@
 <template>
 	<div class="container-banner">
 		<h1>Povej naprej!</h1>
-		<social-media-icon src="src/assets/facebook.png"/>
-		<social-media-icon src="src/assets/twitter.png"/>
-		<social-media-icon src="src/assets/mail.png"/>
+		<social-media-icon url="/facebook.png"/>
+		<social-media-icon url="/twitter.png"/>
+		<social-media-icon url="/mail.png"/>
 	</div>
 </template>
 

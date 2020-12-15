@@ -7,7 +7,7 @@
 			<p>Želiš podpreti naše delo?</p>
 			<div class="rectangle">
 				<span class="acumin">Doniraj!</span>
-				<img src="./../assets/heart.png" alt=""/>
+				<img src="/heart.png" alt=""/>
 			</div>
 		</div>
 	</div>

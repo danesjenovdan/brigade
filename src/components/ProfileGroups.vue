@@ -1,9 +1,9 @@
 <template>
 	<div class="flex-grid">
-		<profile class="flex-grid-item" :title="`${profile.control.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="src/assets/yellow.png"></profile>
-		<profile class="flex-grid-item" :title="`${profile.fake.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="src/assets/green.png"></profile>
-		<profile class="flex-grid-item" :title="`${profile.right.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="src/assets/red.png"></profile>
-		<profile class="flex-grid-item" :title="`${profile.left.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="src/assets/blue.png"></profile>
+		<profile class="flex-grid-item" :title="`${profile.control.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="/yellow.png"></profile>
+		<profile class="flex-grid-item" :title="`${profile.fake.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="/green.png"></profile>
+		<profile class="flex-grid-item" :title="`${profile.right.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="/red.png"></profile>
+		<profile class="flex-grid-item" :title="`${profile.left.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="/blue.png"></profile>
 	</div >
 </template>
 

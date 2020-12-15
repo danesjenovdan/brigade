@@ -1,21 +1,21 @@
 <template>
-    <canvas id="bar"></canvas>
+    <canvas :id="id"></canvas>
   </template>
 
 <script>
 import Chart from 'chart.js';
-import data from './data.js';
 
 export default {
   name: "Bar",
-  data() {
-    return {
-      data: data,
-    }
+    props: {
+      id: { type: String, required: true },
+      data: { type: Object, required: true },
   },
     methods: {
     createChart(chartId, chartData) {
       const ctx = document.getElementById(chartId);
+      ctx.fillStyle = 'white';
+      ctx.style.backgroundColor = 'white';
       const myChart = new Chart(ctx, {
         type: chartData.type,
         data: chartData.data,
@@ -24,7 +24,7 @@ export default {
     }
   },
   mounted() {
-    this.createChart('bar', this.data);
+    this.createChart(this.id, this.data);
   }
 };
 </script>

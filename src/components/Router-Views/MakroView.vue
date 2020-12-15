@@ -1,10 +1,10 @@
 <template>
-  <left-text :title="`${profile.mainTitle}`"/>
+  <left-text :title="`${text.profile.mainTitle}`"/>
   <profile-groups />
-  <left-text :text="`${text2.text}`" :title= "`${text2.title}`"/>
-  <div class="visualisations"><bar/></div>
-  <left-text :text="`${text2.text}`" :title= "`${text2.title}`"/>
-  <div class="visualisations"><hashtag-bar/></div>
+  <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
+  <div class="visualisations"><bar :data="monthlyData" id="monthly"/></div>
+  <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
+  <div class="visualisations"><bar :data="top100Data" id="hashtags"/></div>
 </template>
 
 <script>
@@ -13,9 +13,8 @@ import text from './../../assets/text.js'
 import LeftText from './../LeftText.vue'
 import ProfileGroups from './../ProfileGroups.vue'
 import Bar from './../Charts/Bar.vue'
-import HashtagBar from './../Charts/HashtagBar.vue'
-
-
+import monthlyData from './../Charts/data.js'
+import top100Data from './../Charts/top100data.js'
 
 export default {
   name: 'App',
@@ -23,11 +22,14 @@ export default {
   components: {
     LeftText,
     ProfileGroups,
-    Bar,
-    HashtagBar
+    Bar
   },
   data() {
-    return text
+    return { 
+      text,
+      monthlyData,
+      top100Data
+     }
   }
 }
 </script>

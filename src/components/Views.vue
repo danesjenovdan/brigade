@@ -1,6 +1,6 @@
 <template>
   <div class="container-view">
-		<img class="image" alt="Vue logo" src="./../assets/Layer-top.png" />
+		<img class="image" alt="Vue logo" src="/Layer-top.png" />
 		<div class="items">
 			<div id="1" :class="show === 1? 'background' : null" >
 				<p class="items-text"  @click="show = 1;goTo('makro')"> Makro pogled</p>
@@ -12,7 +12,7 @@
 				<p class="items-text" @click="show = 3;goTo('prostorski')">Prostorski pogled</p>
 			</div>
 		</div>
-		<img class="image" alt="Vue logo" src="./../assets/Layer-bottom.png" />
+		<img class="image" alt="Vue logo" src="/Layer-bottom.png" />
   </div>
 </template>
     <script> 
@@ -31,7 +31,7 @@
     </script>
 <style scoped>
 .background {
-		background-image:url('./../assets/yellow-background.png');
+		background-image:url('/yellow-background.png');
     background-position:center;
     background-repeat: no-repeat;
     background-size: 100%;

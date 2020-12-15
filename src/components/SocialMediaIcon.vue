@@ -1,13 +1,13 @@
 <template>
 	<div>
-    <img :src="`${src}`" alt=""/>
+    <img :src="url" alt=""/>
 	</div>
 </template>
 
 <script>
   export default {
     props: {
-      src: { type: String, required: true },
+      url: { type: String, required: true },
     },
   }
 

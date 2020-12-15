@@ -1,4 +1,4 @@
-export const chartData = {
+export default {
     type: 'bar',
     data: {
       labels: [ '2019-10',
@@ -53,4 +53,3 @@ export const chartData = {
     }
   }
   
-  export default chartData;

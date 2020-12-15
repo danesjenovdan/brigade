@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img class ='header-image' alt="Vue logo" src="./assets/twitter-brigade.png" />
+    <img class ='header-image' alt="Vue logo" src="/twitter-brigade.png" />
     <div class="container-body">
       <div class='body-text'>
        {{text}} {{text}} {{text}} {{text}} {{text}} {{text}}

@@ -1,7 +1,7 @@
 <template>
 	<div class="container-banner">
 		<p>Projekt je nastal s podporo</p>
-	<img src="./../assets/acf.png" alt=""/>
+	<img src="/acf.png" alt=""/>
 	</div>
 </template>
 

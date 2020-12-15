@@ -2,7 +2,7 @@
   <div class="container-group">
     <div class="head">
         <div class="left">
-          <img alt="yellow circle" :src="`${imageUrl}`" />
+         <img alt="" :src="imageUrl" />
         </div>
         <div class="right">
          <span class="title">{{title}}</span>
