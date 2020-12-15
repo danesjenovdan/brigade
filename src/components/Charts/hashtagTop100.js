@@ -1,5 +1,5 @@
 export const planetChartData = {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
       labels: [ 'COVID19',
       'Požareport',
@@ -103,7 +103,7 @@ export const planetChartData = {
       'Tarča' ],    
       datasets: [
         { // another line graph
-          label: 'Top hashtags for 500 users from October 2019',
+          label: 'Top hashtags of 500 NGO-supplied suspected trolls',
           data: [ 5031,
             3342,
             2345,

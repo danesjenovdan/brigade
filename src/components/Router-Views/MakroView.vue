@@ -2,9 +2,15 @@
   <left-text :title="`${text.profile.mainTitle}`"/>
   <profile-groups />
   <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
-  <div class="visualisations"><bar :data="monthlyData" id="monthly"/></div>
+  <div class="visualisations"><bar :data="tweetsByMonth" id="monthly"/></div>
   <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
-  <div class="visualisations"><bar :data="top100Data" id="hashtags"/></div>
+  <div class="visualisations"><bar :data="hashtagTop100" id="hashtags"/></div>
+  <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
+  <div class="visualisations"><bar :data="mentionsTop100" id="mentions"/></div>
+    <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
+  <div class="visualisations"><bar :data="repliesTop100" id="replies"/></div>
+    <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
+  <div class="visualisations"><bar :data="retweetsTop100" id="retweets"/></div>
 </template>
 
 <script>
@@ -13,8 +19,12 @@ import text from './../../assets/text.js'
 import LeftText from './../LeftText.vue'
 import ProfileGroups from './../ProfileGroups.vue'
 import Bar from './../Charts/Bar.vue'
-import monthlyData from './../Charts/data.js'
-import top100Data from './../Charts/top100data.js'
+import tweetsByMonth from './../Charts/tweetsByMonth.js'
+import hashtagTop100 from './../Charts/hashtagTop100.js'
+import mentionsTop100 from './../Charts/mentionsTop100.js'
+import repliesTop100 from './../Charts/repliesTop100.js'
+import retweetsTop100 from './../Charts/retweetsTop100.js'
+
 
 export default {
   name: 'App',
@@ -27,8 +37,11 @@ export default {
   data() {
     return { 
       text,
-      monthlyData,
-      top100Data
+      tweetsByMonth,
+      hashtagTop100,
+      mentionsTop100,
+      repliesTop100,
+      retweetsTop100
      }
   }
 }
