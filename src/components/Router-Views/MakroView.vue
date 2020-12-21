@@ -1,5 +1,5 @@
 <template>
-  <left-text :title="`${text.profile.mainTitle}`"/>
+  <left-text :title="`${text.groups.mainTitle}`"/>
   <profile-groups />
   <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
   <div class="visualisations"><bar :data="tweetsByMonth" id="monthly"/></div>
@@ -9,7 +9,7 @@
   <div class="visualisations"><bar :data="mentionsTop100" id="mentions"/></div>
     <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
   <div class="visualisations"><bar :data="repliesTop100" id="replies"/></div>
-    <left-text :text="`${text.text2.text}`" :title= "`${text.text2.title}`"/>
+    <left-text :text="`${text.text2.text}`" :title="`${text.text2.title}`"/>
   <div class="visualisations"><bar :data="retweetsTop100" id="retweets"/></div>
 </template>
 
@@ -27,7 +27,6 @@ import retweetsTop100 from './../Charts/retweetsTop100.js'
 
 
 export default {
-  name: 'App',
   props: ["view"],
   components: {
     LeftText,

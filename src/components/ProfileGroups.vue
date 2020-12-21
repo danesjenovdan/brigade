@@ -1,19 +1,19 @@
 <template>
 	<div class="flex-grid">
-		<profile class="flex-grid-item" :title="`${profile.control.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="/yellow.png"></profile>
-		<profile class="flex-grid-item" :title="`${profile.fake.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="/green.png"></profile>
-		<profile class="flex-grid-item" :title="`${profile.right.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="/red.png"></profile>
-		<profile class="flex-grid-item" :title="`${profile.left.title}`" :subtitle="`${profile.subtitle}`" :text="`${text}`" imageUrl="/blue.png"></profile>
+		<groups class="flex-grid-item" :title="`${groups.control.title}`" :subtitle="`${groups.subtitle}`" :text="`${text}`" imageUrl="/yellow.png"></groups>
+		<groups class="flex-grid-item" :title="`${groups.fake.title}`" :subtitle="`${groups.subtitle}`" :text="`${text}`" imageUrl="/green.png"></groups>
+		<groups class="flex-grid-item" :title="`${groups.right.title}`" :subtitle="`${groups.subtitle}`" :text="`${text}`" imageUrl="/red.png"></groups>
+		<groups class="flex-grid-item" :title="`${groups.left.title}`" :subtitle="`${groups.subtitle}`" :text="`${text}`" imageUrl="/blue.png"></groups>
 	</div >
 </template>
 
 <script>
-import Profile from './Profile.vue'
+import Groups from './Groups.vue'
 import text from './../assets/text.js'
 
 export default {
   components: {
-    Profile
+    Groups
   },
   data() {
     return text
