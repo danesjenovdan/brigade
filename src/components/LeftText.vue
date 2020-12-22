@@ -34,7 +34,7 @@
 	letter-spacing: normal;
 	line-height: normal;
 	margin-left: 40px;
-	width: 70%;
+	width: 70vw;
 }
 .text {
 	color: #000000;
@@ -50,7 +50,7 @@
 	letter-spacing: normal;
 	line-height: normal;
 	margin-left: 40px;
-		width: 70%;
+	width: 70vw;
 
 }
 </style>

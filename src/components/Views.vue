@@ -41,17 +41,18 @@
   margin-top: 90px;
   display: flex; /* or inline-flex */
   flex-direction: column;
-  justify-content: center
+  justify-content: center;
 }
 
 @media only screen and (max-width: 768px) {
   .items {
     margin: 0 auto;
     display: flex; /* or inline-flex */
-    flex-direction: column;
     justify-content: center;
+    overflow-x: auto;
     align-items: center;
     white-space: nowrap;
+    width: 80vw;
   }
 }
 

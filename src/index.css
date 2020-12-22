@@ -19,7 +19,7 @@ body {
 
 .container-text {
   margin: 0 auto;
-  margin-top: 150px;
+  margin-top: 70px;
   margin-bottom: 60px;
   display: flex; /* or inline-flex */
   flex-direction: column;

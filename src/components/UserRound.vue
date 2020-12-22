@@ -1,7 +1,9 @@
 <template>
-    <div class="item">
-    	<profile-picture :src="imageUrl"></profile-picture>
-			<p class="name" >{{name}}</p>
+    <div @click="onClickButton" class="item">
+			<div :class="clicked ? 'background' : null" >
+				<profile-picture :src="imageUrl"></profile-picture>
+				<p class="name" >{{name}}</p>
+			</div>
     </div>
 </template>
 
@@ -16,12 +18,24 @@ import text from '../assets/text.js'
 		props: {
 			imageUrl: { type: String },
 			name: { type: String },
-			id: { type: String }
-		}
+			id: { type: String },
+			clicked: { type: Boolean },
+		},
+		methods: {
+			onClickButton (event) {
+				this.$emit('clicked', this.id)
+			}
+  	}
   }
 
 </script>
 <style scoped>
+.background {
+		background-image:url('/yellow-rectangle.png');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 	.item {
     display: flex;
     flex-direction: column;

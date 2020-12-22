@@ -1,6 +1,13 @@
 <template>
 		<div class="flex-grid">
-			<user-round class="flex-grid-item" v-for="troll in text.trolls" :imageUrl="troll.imageUrl" :name="troll.name" :id="troll.id"></user-round>
+				<user-round @clicked="onClickChild" class="flex-grid-item"
+				v-for="troll in text.trolls"
+				:imageUrl="troll.imageUrl"
+				:name="troll.name"
+				:id="troll.id"
+				:clicked = "troll.id === clickedId"
+				>
+				</user-round>
 		</div>
 </template>
 
@@ -14,9 +21,16 @@ export default {
   },
 	data() {
 		return {
-			text
+			text,
+			clickedId: ""
 		}
-	}
+	},
+	methods: {
+    onClickChild (value) {
+      this.clickedId = value; // someValue
+			this.$emit('clicked', this.clickedId)
+    }
+  }
 
 }
 </script>
