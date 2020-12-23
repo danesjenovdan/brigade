@@ -32,8 +32,8 @@ export default {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 13%;
-    margin-left: 50px;
-		margin-right: 50px;
+    margin-left: 25px;
+		margin-right: 25px;
     align-items: center;
   }
 </style>

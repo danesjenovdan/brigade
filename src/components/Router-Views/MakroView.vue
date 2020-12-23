@@ -49,7 +49,7 @@ export default {
 <style scoped>
   .visualisations {
     margin: 0 auto;
-    width: 80%;
+    width: 80vw;
     display: flex;
     justify-content: center;
     align-items: center;

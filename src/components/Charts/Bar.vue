@@ -11,20 +11,39 @@ export default {
       id: { type: String, required: true },
       data: { type: Object, required: true },
   },
+    data () {
+      return {
+        myChart: {}
+      }
+    },
     methods: {
-    createChart(chartId, chartData) {
-      const ctx = document.getElementById(chartId);
-      ctx.fillStyle = 'white';
-      ctx.style.backgroundColor = 'white';
-      const myChart = new Chart(ctx, {
-        type: chartData.type,
-        data: chartData.data,
-        options: chartData.options,
-      });
-    }
+      createChart(chartId, chartData) {
+        const ctx = document.getElementById(chartId);
+        ctx.fillStyle = 'white';
+        ctx.style.backgroundColor = 'white';
+        this.$data.myChart = new Chart(ctx, {
+          type: chartData.type,
+          data: chartData.data,
+          options: chartData.options,
+        });
+      }
   },
   mounted() {
-    this.createChart(this.id, this.data);
-  }
+    if (this.$data.data) { 
+      this.createChart(this.id, this.data);
+      }
+  },
+   watch: {
+    data(newVal) {
+      if (!this.$data.data)  {
+        this.createChart(this.id, newVal);
+      } else {
+        this.$data.myChart.data.labels = newVal.data.labels;
+        this.$data.myChart.data.datasets = newVal.data.datasets
+        this.$data.myChart.update();
+      }
+      this.$data.data = newVal;
+    },
+  },
 };
 </script>

@@ -1,11 +1,11 @@
 <template>
 		<div class="flex-grid">
 				<user-round @clicked="onClickChild" class="flex-grid-item"
-				v-for="troll in text.trolls"
-				:imageUrl="troll.imageUrl"
-				:name="troll.name"
-				:id="troll.id"
-				:clicked = "troll.id === clickedId"
+				v-for="troll in trolls"
+				:imageUrl="troll.accountInfo.imageUrl"
+				:name="troll.accountInfo.name"
+				:clicked = "troll.accountInfo.name === clickedName"
+				:info = "troll.accountInfo"
 				>
 				</user-round>
 		</div>
@@ -13,7 +13,8 @@
 
 <script>
 import UserRound from './UserRound.vue'
-import text from '../assets/text.js'
+import troll1 from '../assets/trolls/desnicarkaminfo.json'
+import troll2 from '../assets/trolls/karolinasemjazinfo.json'
 
 export default {
   components: {
@@ -21,14 +22,17 @@ export default {
   },
 	data() {
 		return {
-			text,
-			clickedId: ""
+			trolls: [
+				troll1,
+				troll2
+			],
+			clickedName: ""
 		}
 	},
 	methods: {
     onClickChild (value) {
-      this.clickedId = value; // someValue
-			this.$emit('clicked', this.clickedId)
+      this.clickedName = value.name; // someValue
+			this.$emit('clicked', this.$data.trolls.find(element => element.accountInfo.name === value.name));
     }
   }
 

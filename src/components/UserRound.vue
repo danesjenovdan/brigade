@@ -1,8 +1,8 @@
 <template>
     <div @click="onClickButton" class="item">
 			<div :class="clicked ? 'background' : null" >
-				<profile-picture :src="imageUrl"></profile-picture>
-				<p class="name" >{{name}}</p>
+				<profile-picture :src="info.imageUrl"></profile-picture>
+				<p class="name" >{{info.name}}</p>
 			</div>
     </div>
 </template>
@@ -16,14 +16,12 @@ import text from '../assets/text.js'
 			ProfilePicture
 		},
 		props: {
-			imageUrl: { type: String },
-			name: { type: String },
-			id: { type: String },
 			clicked: { type: Boolean },
+			info: {type: Object}
 		},
 		methods: {
 			onClickButton (event) {
-				this.$emit('clicked', this.id)
+				this.$emit('clicked', this.info)
 			}
   	}
   }

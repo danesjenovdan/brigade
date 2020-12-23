@@ -19,17 +19,18 @@
    <div v-else class="user-body">
         Lokacija: <b><i> {{info.location}}</i></b>
         <div class="line"/>
-        Št. sledilcev: <b><i> {{info.nfollowers}}</i></b>
+        Št. sledilcev: <b><i> {{info.followers}}</i></b>
         <div class="line"/>
-        Št. sledenih: <b><i> {{info.nFollowing}}</i></b>
+        Št. sledenih: <b><i> {{info.following}}</i></b>
         <div class="line"/>
-        Št. tvitov: <b><i> {{info.nTweets}}</i></b>
+        Št. tvitov: <b><i> {{info.tweets}}</i></b>
         <div class="line"/>
-        Datum registracije: <b><i> {{info.registrationDate}}</i></b>
+        Datum registracije: <b><i> {{format_date(info.created)}}</i></b>
    </div>
   </div>
 </template>
 <script>
+  import moment from 'moment'
   export default {
     props: {
       text: { type: String },
@@ -38,6 +39,13 @@
       subtitle: { type: String, required: true },
       imageUrl: { type: String, required: true },
     },
+    methods: {
+        format_date(value){
+         if (value) {
+           return moment(String(value)).format('DD-MM-YYYY')
+          }
+      },
+    }
   }
 </script>
 
@@ -55,11 +63,12 @@
     justify-content: center;
     border: 1px solid;
     padding: 10px;
+    height: max-content;
   }
   .body {
-    margin: 25px;
+    margin: 10px;
     padding: 5px;
-    width: 225px;
+    width: 20vw;
     text-align: left;
   }
   .user-body {
