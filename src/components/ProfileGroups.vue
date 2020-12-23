@@ -31,7 +31,6 @@ export default {
   .flex-grid-item {
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 13%;
     margin-left: 25px;
 		margin-right: 25px;
     align-items: center;

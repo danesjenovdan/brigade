@@ -29,7 +29,7 @@ export default {
       }
   },
   mounted() {
-    if (this.$data.data) { 
+    if (this.data) { 
       this.createChart(this.id, this.data);
       }
   },

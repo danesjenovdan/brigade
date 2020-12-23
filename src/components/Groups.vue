@@ -6,8 +6,8 @@
           <img v-else alt="" class="userImage" :src="info.imageUrl">
         </div>
         <div v-if="text" class="right">
-         <span class="title">{{title}}</span>
-          <h2>{{subtitle}}</h2>
+         <i><span class="title">{{title}}</span><br/>
+          <span class="subtitle">{{subtitle}}</span></i>
         </div>
         <div v-else class="right">
           <span class="profileName">{{info.name}}</span>
@@ -69,7 +69,9 @@
     margin: 10px;
     padding: 5px;
     width: 20vw;
+    max-width: 250px;
     text-align: left;
+    font-family: "acumin-pro", sans-serif;
   }
   .user-body {
     padding: 5px;
@@ -93,6 +95,7 @@
   .right {
     margin: 10px;
     white-space: nowrap;
+    text-align: left;
   }
   img {
     /* Style for "Layer 32" */
@@ -121,23 +124,6 @@
     letter-spacing: normal;
     line-height: normal;
   }
-  h2 {
-    /* Style for "400 profil" */
-    width: 65px;
-    height: 11px;
-    color: #000000;
-    font-family: "acumin-pro", sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: 16px;
-    text-align: left;
-    /* Text style for "400 profil" */
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: normal;
-  }
   .title {
     /* Style for "Kontrolni" */
     width: 72px;
@@ -145,7 +131,7 @@
     color: #000000;
     font-family: "acumin-pro", sans-serif;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 900;
     font-style: normal;
     letter-spacing: normal;
     line-height: 16px;
@@ -154,6 +140,19 @@
     font-style: normal;
     letter-spacing: normal;
     line-height: normal;
+  }
+  .subtitle{
+    /* Style for "400 profil" */
+    width: 65px;
+    height: 11px;
+    color: #000000;
+    font-family: "acumin-pro", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 16px;
+    text-align: left;
   }
   .profileName {
     width: 72px;

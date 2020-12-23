@@ -25,7 +25,6 @@ import mentionsTop100 from './../Charts/mentionsTop100.js'
 import repliesTop100 from './../Charts/repliesTop100.js'
 import retweetsTop100 from './../Charts/retweetsTop100.js'
 
-
 export default {
   props: ["view"],
   components: {
