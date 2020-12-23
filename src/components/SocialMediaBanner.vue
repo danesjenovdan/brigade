@@ -30,11 +30,6 @@ import SocialMediaIcon from './SocialMediaIcon.vue'
 			height: 100%;
 			width: 100%;
 		}
-		.container-icons {
-			display: flex;
-			justify-content: center;
-			flex-direction: row;
-		}
 }
 
 	@media only screen and (min-width: 769px) {
@@ -42,6 +37,11 @@ import SocialMediaIcon from './SocialMediaIcon.vue'
 			height: 166px;
 		}
 	}
+			.container-icons {
+			display: flex;
+			justify-content: center;
+			flex-direction: row;
+		}
 	h1 {
 		/* Style for "POVEJ NAPR" */
 		color: #000000;
