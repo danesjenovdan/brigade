@@ -1,12 +1,12 @@
 <template>
 	<div class="container-banner">
-		<p>Kampanjo smo na <span class="acumin">Danes je nov dan</span>
-            pripravili v sodelovanju z <span class="acumin">Virostatiq</span>
+		<p>Kampanjo smo na <span class="acumin"><a href="https://danesjenovdan.si/">Danes je nov dan</a></span>
+            pripravili v sodelovanju z <span class="acumin"><a href="http://virostatiq.com/">Virostatiq</a></span>
     </p>
 		<div class="donation-box">
 			<p>Želiš podpreti naše delo?</p>
 			<div class="rectangle">
-				<span class="acumin">Doniraj!</span>
+				<span class="acumin"><a href="https://danesjenovdan.si/doniraj">Doniraj!</a></span>
 				<img src="/heart.png" alt=""/>
 			</div>
 		</div>
@@ -24,6 +24,10 @@
 
 </script>
 <style scoped>
+	a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+	}
 	img {
 		width: 24px;
 		height: 33ps;
