@@ -45,7 +45,7 @@
     margin: 1rem;
 	}
 	.acumin {
-		font-family: "acumin-pro", sans-serif;
+		font-family: acumin-pro, sans-serif;
 		font-weight: 700;
 		font-style: normal;
 		letter-spacing: normal;
@@ -53,36 +53,55 @@
 	}
 
 	@media only screen and (max-width: 768px) {
-   p {
-		font-size: 12px;
+   	p {
+			font-size: 16px;
+		}
+		.donation-box {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+		}
+		.container-banner {
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: column;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+		}
 	}
-}
 
-@media only screen and (min-width: 769px) {
-  p {
-		font-size: 16px;
+	@media only screen and (min-width: 769px) {
+		p {
+			font-size: 16px;
+		}
+		.container-banner {
+			height: 137px;
+		}
+		.donation-box {
+			flex-direction: row;
+			align-items: center;
+			margin: 3rem;
+		}
 	}
-}
+	.container-banner {
+		background-color: #ea6e33;
+    margin-top: 2.6rem;
+	}
+	.donation-box {
+		display: flex;
+    justify-content: center;
+    align-items: center;
+	}
 	p {
       color: #000000;
-			font-family: "acumin-pro";
+			font-family: acumin-pro;
 			font-weight: 400;
 			font-style: normal;
 			letter-spacing: normal;
 			line-height: 1rem;
 			text-align: center;
 			padding: 1rem;
-	}
-	.donation-box {
-		display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-		margin: 3rem;
-	}
-	.container-banner {
-		background-color: #ea6e33;
-    margin-top: 2.6rem;
-    height: 137px;
 	}
 </style>

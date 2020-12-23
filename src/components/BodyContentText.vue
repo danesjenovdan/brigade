@@ -22,7 +22,7 @@
 <style scoped>
 .title {
 	color: #000000;
-	font-family: "acumin-pro", sans-serif;
+	font-family: acumin-pro, sans-serif;
 	font-size: 33px;
 	font-weight: 900;
 	font-style: normal;
@@ -38,7 +38,7 @@
 }
 .text {
 	color: #000000;
-	font-family: "acumin-pro", sans-serif;
+	font-family: acumin-pro, sans-serif;
 	font-size: 24px;
 	font-weight: 200;
 	font-style: normal;

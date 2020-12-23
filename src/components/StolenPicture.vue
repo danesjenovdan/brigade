@@ -62,7 +62,7 @@ export default {
 		width: 171px;
 		height: 15px;
 		color: #000000;
-		font-family: "acumin-pro", sans-serif;
+		font-family: acumin-pro, sans-serif;
 		font-size: 16px;
 		font-weight: 700;
 		font-style: normal;

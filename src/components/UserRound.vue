@@ -42,7 +42,7 @@ import text from '../assets/text.js'
 }
  .name {
 	color: #000000;
-	font-family: "acumin-pro", sans-serif;;
+	font-family: acumin-pro, sans-serif;;
 	font-size: 16px;
 	font-weight: 500;
 	font-style: normal;

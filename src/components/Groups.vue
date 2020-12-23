@@ -71,7 +71,7 @@
     width: 20vw;
     max-width: 250px;
     text-align: left;
-    font-family: "acumin-pro", sans-serif;
+    font-family: acumin-pro, sans-serif;
   }
   .user-body {
     padding: 5px;
@@ -112,7 +112,7 @@
   p {
     /* Style for "Lorem ipsu" */
     color: #000000;
-    font-family: "acumin-pro", sans-serif;
+    font-family: acumin-pro, sans-serif;
     font-size: 12px;
     font-weight: 400;
     font-style: normal;
@@ -129,7 +129,7 @@
     width: 72px;
     height: 28px;
     color: #000000;
-    font-family: "acumin-pro", sans-serif;
+    font-family: acumin-pro, sans-serif;
     font-size: 16px;
     font-weight: 900;
     font-style: normal;
@@ -146,7 +146,7 @@
     width: 65px;
     height: 11px;
     color: #000000;
-    font-family: "acumin-pro", sans-serif;
+    font-family: acumin-pro, sans-serif;
     font-size: 12px;
     font-weight: 600;
     font-style: normal;
@@ -157,7 +157,7 @@
   .profileName {
     width: 72px;
     color: #000000;
-    font-family: "acumin-pro", sans-serif;
+    font-family: acumin-pro, sans-serif;
     font-size: 16px;
     font-weight: 700;
     font-style: normal;

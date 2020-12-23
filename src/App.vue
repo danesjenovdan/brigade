@@ -42,7 +42,7 @@
   h1 {
     /* Style for "Activity (" */
     color: #000000;
-    font-family: "acumin-pro", sans-serif;
+    font-family: acumin-pro, sans-serif;
     font-size: 33px;
     font-weight: 900;
     font-style: normal;
@@ -98,7 +98,7 @@
     /* Style for "Lorem ipsu" */
     width: 50%;
     color: #000000;
-    font-family: "acumin-pro", sans-serif;
+    font-family: acumin-pro, sans-serif;
     font-size: 24px;
     font-weight: 300;
     font-style: normal;

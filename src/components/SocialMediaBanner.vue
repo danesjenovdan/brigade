@@ -1,9 +1,11 @@
 <template>
 	<div class="container-banner">
 		<h1>Povej naprej!</h1>
-		<social-media-icon url="/facebook.png"/>
-		<social-media-icon url="/twitter.png"/>
-		<social-media-icon url="/mail.png"/>
+		<div class="container-icons">
+			<social-media-icon url="/facebook.png"/>
+			<social-media-icon url="/twitter.png"/>
+			<social-media-icon url="/mail.png"/>
+		</div>
 	</div>
 </template>
 
@@ -18,6 +20,28 @@ import SocialMediaIcon from './SocialMediaIcon.vue'
 
 </script>
 <style scoped>
+
+	@media only screen and (max-width: 768px) {
+		.container-banner {
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: column;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+		}
+		.container-icons {
+			display: flex;
+			justify-content: center;
+			flex-direction: row;
+		}
+}
+
+	@media only screen and (min-width: 769px) {
+		.container-banner {
+			height: 166px;
+		}
+	}
 	h1 {
 		/* Style for "POVEJ NAPR" */
 		color: #000000;
@@ -38,6 +62,5 @@ import SocialMediaIcon from './SocialMediaIcon.vue'
 	.container-banner {
 		background-color: #f9e96f;
 		margin-top: 150px;
-		height: 166px;
 	}
 </style>

@@ -2,7 +2,7 @@
 	<div class="mikro-container">
 		<profile-view @clicked="onClickChild"></profile-view>
 	</div>
-	<left-text title="Profil Twitter trolla"/>
+	<body-content-text title="Profil Twitter trolla"/>
 	<div class="visualisations-container">
 		<groups v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
 		<div class="visualisations"><bar :data="charts.retweets" id="temp"/></div>
@@ -13,13 +13,13 @@
 		<div class="visualisations"><bar :data="charts.mentions" id="mentions"/></div>
 		<div class="visualisations"><bar :data="charts.hashtags" id="hashtags"/></div>
 	</div>
-  <left-text :text="`${text.text2.text}`"/>
+  <body-content-text :text="`${text.text2.text}`"/>
 	<stolen-picture :originalImage="originalImage" :stolenImage="stolenImage"></stolen-picture>
 </template>
 
 <script>
 import ProfileView from '../ProfileView.vue'
-import LeftText from './../LeftText.vue'
+import BodyContentText from './../BodyContentText.vue'
 import Groups from "../Groups.vue"
 import text from "./../../assets/text.js"
 import StolenPicture from "../StolenPicture.vue"
@@ -31,7 +31,7 @@ export default {
   props: ["view"],
   components: {
     ProfileView,
-		LeftText,
+		BodyContentText,
 		Groups,
 		StolenPicture,
 		Bar
