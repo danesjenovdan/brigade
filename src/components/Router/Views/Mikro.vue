@@ -7,7 +7,7 @@
 		<troll-profile v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
 		<div class="visualisations"><bar :data="charts.retweets" id="temp"/></div>
 	</div>
-	<div class="visualisations-container">
+	<div v-if="troll.accountInfo.name" class="visualisations-container">
 		<div class="visualisations"><bar :data="charts.retweets" id="retweets"/></div>
 		<div class="visualisations"><bar :data="charts.replies" id="replies"/></div>
 		<div class="visualisations"><bar :data="charts.mentions" id="mentions"/></div>
@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import TrollProfileNavigation from '../../Trolls/ProfileNavigation.vue'
+import TrollProfileNavigation from './../../Trolls/ProfileNavigation.vue'
 import BodyContentText from './../../BodyContentText.vue'
-import TrollProfile from "../../Trolls/Profile.vue"
+import TrollProfile from "./../../Trolls/Profile.vue"
 import text from "./../../../assets/text.js"
-import FakeRealImage from "../../FakeRealImage.vue"
+import FakeRealImage from "./../../FakeRealImage.vue"
 import Bar from './../../Charts/Bar.vue'
 import createChartData from './../../Charts/createChartData'
 

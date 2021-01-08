@@ -8,9 +8,9 @@ import './index.css'
 
 const routes = [
     {
-        path: "",
-        name: "Main",
-        component: MakroView,
+      path: "",
+      name: "Main",
+      component: MakroView,
     },
     {
       path: "/makro",
@@ -18,14 +18,14 @@ const routes = [
       component: MakroView,
     },
     {
-    path: "/mikro",
-    name: "Mikro",
-    component: MikroView,
+      path: "/mikro",
+      name: "Mikro",
+      component: MikroView,
     },
     {
-    path: "/prostorski",
-    name: "Prostorski",
-    component: ProstorskiView,
+      path: "/prostorski",
+      name: "Prostorski",
+      component: ProstorskiView,
     }
   ];
 

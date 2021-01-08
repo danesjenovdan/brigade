@@ -5,8 +5,6 @@
 	</div>
 </template>
 
-<script>
-</script>
 <style scoped>
 	p {
 		/* Style for "Projekt je" */

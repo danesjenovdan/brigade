@@ -12,9 +12,6 @@
 		</div>
 	</div>
 </template>
-
-<script>
-</script>
 <style scoped>
 	a {
   color: inherit; /* blue colors for links too */
