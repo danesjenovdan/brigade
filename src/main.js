@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import { createWebHistory, createRouter } from "vue-router";
 import App from './App.vue'
-import MakroView from './components/Router-Views/MakroView.vue'
-import MikroView from './components/Router-Views/MikroView.vue'
-import ProstorskiView from './components/Router-Views/ProstorskiView.vue'
+import MakroView from './components/Router/Views/Makro.vue'
+import MikroView from './components/Router/Views/Mikro.vue'
+import ProstorskiView from './components/Router/Views/Prostorski.vue'
 import './index.css'
 
 const routes = [

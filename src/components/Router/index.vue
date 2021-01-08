@@ -18,15 +18,15 @@
     <script> 
 		export default {
 		data(){
-    	return {
+				return {
 					show: 1,
-			}
+				}
 			},
     methods: {
-      goTo(route) {
-        this.$router.push(route);
-      }
-		}
+				goTo(route) {
+					this.$router.push(route);
+				}
+			}
     }
     </script>
 <style scoped>

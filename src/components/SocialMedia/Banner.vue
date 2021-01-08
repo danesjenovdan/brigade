@@ -2,19 +2,19 @@
 	<div class="container-banner">
 		<h1>Povej naprej!</h1>
 		<div class="container-icons">
-			<social-media-icon url="/facebook.png"/>
-			<social-media-icon url="/twitter.png"/>
-			<social-media-icon url="/mail.png"/>
+			<icon url="/facebook.png"/>
+			<icon url="/twitter.png"/>
+			<icon url="/mail.png"/>
 		</div>
 	</div>
 </template>
 
 <script>
-import SocialMediaIcon from './SocialMediaIcon.vue'
+import Icon from './Icon.vue'
 
   export default {
 		components: {
-			SocialMediaIcon
+			Icon
 		}
   }
 

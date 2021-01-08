@@ -14,14 +14,6 @@
 </template>
 
 <script>
-	import SocialMediaIcon from './SocialMediaIcon.vue'
-
-  export default {
-		components: {
-			SocialMediaIcon
-		}
-  }
-
 </script>
 <style scoped>
 	a {

@@ -14,16 +14,15 @@
 </template>
 
 <script>
-import Views from './../Views.vue'
-import text from './../../assets/text.js'
-import BodyContentText from './../BodyContentText.vue'
-import ProfileGroups from './../ProfileGroups.vue'
-import Bar from './../Charts/Bar.vue'
-import tweetsByMonth from './../Charts/tweetsByMonth.js'
-import hashtagTop100 from './../Charts/hashtagTop100.js'
-import mentionsTop100 from './../Charts/mentionsTop100.js'
-import repliesTop100 from './../Charts/repliesTop100.js'
-import retweetsTop100 from './../Charts/retweetsTop100.js'
+import text from './../../../assets/text.js'
+import BodyContentText from './../../BodyContentText.vue'
+import ProfileGroups from './../../ProfileGroups.vue'
+import Bar from './../../Charts/Bar.vue'
+import tweetsByMonth from './../../Charts/tweetsByMonth.js'
+import hashtagTop100 from './../../Charts/hashtagTop100.js'
+import mentionsTop100 from './../../Charts/mentionsTop100.js'
+import repliesTop100 from './../../Charts/repliesTop100.js'
+import retweetsTop100 from './../../Charts/retweetsTop100.js'
 
 export default {
   props: ["view"],

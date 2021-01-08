@@ -1,19 +1,19 @@
 <template>
     <div @click="onClickButton" class="item">
 			<div :class="clicked ? 'background' : null" >
-				<profile-picture :src="info.imageUrl"></profile-picture>
+				<round-img :src="info.imageUrl"/>
 				<p class="name" >{{info.name}}</p>
 			</div>
     </div>
 </template>
 
 <script>
-import ProfilePicture from './ProfilePicture.vue'
-import text from '../assets/text.js'
+import RoundImg from './../RoundImg.vue'
+import text from '../../assets/text.js'
 
   export default {
 		components: {
-			ProfilePicture
+			RoundImg
 		},
 		props: {
 			clicked: { type: Boolean },
