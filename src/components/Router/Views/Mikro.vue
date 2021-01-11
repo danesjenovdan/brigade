@@ -3,42 +3,42 @@
 		<p>Analize 27 profilov, za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže, saj uporabljajo ukradene, stock ali strojno generirane profilne slike, obenem pa se izdajajo za avtentične uporabnike in ustvarjajo velik delež vsebin in interakcij z jasno politično motivirano vsebino.</p>
 	</div>
 	<div class="mikro-container">
-		<profile-view @clicked="onClickChild"></profile-view>
+		<troll-profile-navigation @clicked="onClickChild"/>
 	</div>
 	<body-content-text title="Profil Twitter trolla"/>
 	<div class="visualisations-container">
-		<groups v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
+		<troll-profile v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
 		<div class="visualisations"><bar :data="charts.retweets" id="temp"/></div>
 	</div>
-	<div class="visualisations-container">
+	<div v-if="troll.accountInfo.name" class="visualisations-container">
 		<div class="visualisations"><bar :data="charts.retweets" id="retweets"/></div>
 		<div class="visualisations"><bar :data="charts.replies" id="replies"/></div>
 		<div class="visualisations"><bar :data="charts.mentions" id="mentions"/></div>
 		<div class="visualisations"><bar :data="charts.hashtags" id="hashtags"/></div>
 	</div>
   	<body-content-text text="bla bla bla"/>
-	<stolen-picture :originalImage="originalImage" :stolenImage="stolenImage"></stolen-picture>
+	<fake-real-image :originalImage="originalImage" :stolenImage="stolenImage"/>
 	<body-content-text text="bla bla bla"/>
-	<stolen-picture :originalImage="originalImage" :stolenImage="stolenImage"></stolen-picture>
+	<fake-real-image :originalImage="originalImage" :stolenImage="stolenImage"/>
 </template>
 
 <script>
-import ProfileView from '../ProfileView.vue'
-import BodyContentText from './../BodyContentText.vue'
-import Groups from "../Groups.vue"
-import text from "./../../assets/text.js"
-import StolenPicture from "../StolenPicture.vue"
-import Bar from './../Charts/Bar.vue'
-import createChartData from './../Charts/createChartData'
+import TrollProfileNavigation from './../../Trolls/ProfileNavigation.vue'
+import BodyContentText from './../../BodyContentText.vue'
+import TrollProfile from "./../../Trolls/Profile.vue"
+import text from "./../../../assets/text.js"
+import FakeRealImage from "./../../FakeRealImage.vue"
+import Bar from './../../Charts/Bar.vue'
+import createChartData from './../../Charts/createChartData'
 
 
 export default {
   props: ["view"],
   components: {
-    ProfileView,
+    TrollProfileNavigation,
 		BodyContentText,
-		Groups,
-		StolenPicture,
+		TrollProfile,
+		FakeRealImage,
 		Bar
   },
 	data() {

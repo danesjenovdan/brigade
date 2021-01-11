@@ -1,24 +1,23 @@
 <template>
 		<div class="flex-grid">
-				<user-round @clicked="onClickChild" class="flex-grid-item"
+				<profile-picture @clicked="onClickChild" class="flex-grid-item"
 				v-for="troll in trolls"
 				:imageUrl="troll.accountInfo.imageUrl"
 				:name="troll.accountInfo.name"
 				:clicked = "troll.accountInfo.name === clickedName"
 				:info = "troll.accountInfo"
-				>
-				</user-round>
+				/>
 		</div>
 </template>
 
 <script>
-import UserRound from './UserRound.vue'
-import troll1 from '../assets/trolls/desnicarkaminfo.json'
-import troll2 from '../assets/trolls/karolinasemjazinfo.json'
+import ProfilePicture from './ProfilePicture.vue'
+import troll1 from '../../assets/trolls/desnicarkaminfo.json'
+import troll2 from '../../assets/trolls/karolinasemjazinfo.json'
 
 export default {
   components: {
-    UserRound
+    ProfilePicture
   },
 	data() {
 		return {

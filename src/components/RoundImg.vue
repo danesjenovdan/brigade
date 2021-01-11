@@ -3,11 +3,7 @@
 </template>
 
 <script>
-import SocialMediaIcon from './SocialMediaIcon.vue'
 export default {
-	components: {
-		SocialMediaIcon
-	},
 		props: {
 			url: { type: String }
 		}
