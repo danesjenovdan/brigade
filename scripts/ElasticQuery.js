@@ -5,7 +5,7 @@ fs = require('fs');
 
 module.exports = async (screen_name, type) => {
 	const client = new elasticsearch.Client({
-		host: process.env.host,
+		host: 'http://51.15.239.174:9200',
 	});
 	
 	let allRecords = [];

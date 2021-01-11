@@ -1,4 +1,7 @@
 <template>
+	<div class="container-text">
+		<p>Analize 27 profilov, za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže, saj uporabljajo ukradene, stock ali strojno generirane profilne slike, obenem pa se izdajajo za avtentične uporabnike in ustvarjajo velik delež vsebin in interakcij z jasno politično motivirano vsebino.</p>
+	</div>
 	<div class="mikro-container">
 		<profile-view @clicked="onClickChild"></profile-view>
 	</div>
@@ -13,7 +16,9 @@
 		<div class="visualisations"><bar :data="charts.mentions" id="mentions"/></div>
 		<div class="visualisations"><bar :data="charts.hashtags" id="hashtags"/></div>
 	</div>
-  <body-content-text :text="`${text.text2.text}`"/>
+  	<body-content-text text="bla bla bla"/>
+	<stolen-picture :originalImage="originalImage" :stolenImage="stolenImage"></stolen-picture>
+	<body-content-text text="bla bla bla"/>
 	<stolen-picture :originalImage="originalImage" :stolenImage="stolenImage"></stolen-picture>
 </template>
 

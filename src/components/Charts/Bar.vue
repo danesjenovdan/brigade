@@ -1,6 +1,6 @@
 <template>
-    <canvas :id="id"></canvas>
-  </template>
+  <canvas :id="id"></canvas>
+</template>
 
 <script>
 import Chart from 'chart.js';
