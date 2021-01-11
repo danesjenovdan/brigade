@@ -12,10 +12,10 @@
     <h2>Top lestvice</h2>
     <p>Lestvice 30 najbolj pogosto uporabljenih ključnikov, omemb, ritvitov in domen glede na skupino.</p>
   </div>
-  <div class="visualisations"><bar :data="getTop30(hashtagTop100)" id="hashtags"/></div>
-  <div class="visualisations"><bar :data="getTop30(mentionsTop100)" id="mentions"/></div>
-  <div class="visualisations"><bar :data="getTop30(repliesTop100)" id="replies"/></div>
-  <div class="visualisations"><bar :data="getTop30(retweetsTop100)" id="retweets"/></div>
+  <div class="visualisations"><bar :data="hashtagTop30" id="hashtags"/></div>
+  <div class="visualisations"><bar :data="mentionsTop30" id="mentions"/></div>
+  <div class="visualisations"><bar :data="repliesTop30" id="replies"/></div>
+  <div class="visualisations"><bar :data="retweetsTop30" id="retweets"/></div>
 </template>
 
 <script>
@@ -24,10 +24,10 @@ import BodyContentText from './../../BodyContentText.vue'
 import ProfileGroups from './../../ProfileGroups.vue'
 import Bar from './../../Charts/Bar.vue'
 import tweetsByMonth from './../../Charts/tweetsByMonth.js'
-import hashtagTop100 from './../../Charts/hashtagTop100.js'
-import mentionsTop100 from './../../Charts/mentionsTop100.js'
-import repliesTop100 from './../../Charts/repliesTop100.js'
-import retweetsTop100 from './../../Charts/retweetsTop100.js'
+import hashtagTop30 from './../../Charts/hashtagTop30.js'
+import mentionsTop30 from './../../Charts/mentionsTop30.js'
+import repliesTop30 from './../../Charts/repliesTop30.js'
+import retweetsTop30 from './../../Charts/retweetsTop30.js'
 
 export default {
   props: ["view"],
@@ -41,23 +41,11 @@ export default {
     return { 
       text: text.default,
       tweetsByMonth,
-      hashtagTop100,
-      mentionsTop100,
-      repliesTop100,
-      retweetsTop100
+      hashtagTop30,
+      mentionsTop30,
+      repliesTop30,
+      retweetsTop30
      }
-  },
-  methods: {
-    getTop30(top100) {
-      const top30Labels = top100.data.labels.slice(0, 30);
-      const top30LabelScores = top100.data.datasets[0].data.slice(0, 30);
-
-      const top30 = { ...top100 }
-      top30.data.labels = top30Labels;
-      top30.data.datasets[0].data = top30LabelScores;
-
-      return top30;
-    },
   },
 }
 </script>
