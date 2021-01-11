@@ -60,12 +60,16 @@ while(hits && hits.hits.length) {
 						if (type === "retweets") {
 							const regex = RegExp(/(^RT @\w+:)/).exec(hits._source.text)
 							if (regex === null) return
-							obj = regex[0].split(" ")[1].slice(0, -1);
+							obj = [regex[0].split(" ")[1].slice(0, -1)];
 						} else {
-							obj = hits._source[field]
+							obj = hits._source[field].split(',')
 						}
-            if(resource[obj]) resource[obj] += 1;
-            else resource[obj] = 1;
+						console.log('obj: ', typeof obj);
+			obj ? obj.forEach(key => {
+				console.log('key: ', key);
+				if(resource[key]) resource[key] += 1;
+				else resource[key] = 1;
+			}) : null
     })
     allRecords.push(...hits.hits);
 
