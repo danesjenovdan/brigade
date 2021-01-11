@@ -50,12 +50,8 @@
 </script>
 
 <style scoped>
-  .line {
-    border-bottom: 1px solid #b0b0b0;
-    height: 1px;
-    margin-bottom: 3px;
-    margin-top: 5px;
-  }
+
+	@media only screen and (max-width: 768px) {
   .container-group {
     margin: 10px auto;
     display: flex; /* or inline-flex */
@@ -64,15 +60,43 @@
     border: 1px solid;
     padding: 10px;
     height: max-content;
+    width: 80vw;
   }
   .body {
     margin: 10px;
     padding: 5px;
-    width: 20vw;
-    max-width: 250px;
     text-align: left;
     font-family: acumin-pro, sans-serif;
   }
+	}
+
+	@media only screen and (min-width: 769px) {
+  .container-group {
+    margin: 10px auto;
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid;
+    padding: 10px;
+    height: max-content;
+    min-width: 200px;
+  }
+  .body {
+    width: 20vw;
+    max-width: 250px;
+    margin: 10px;
+    padding: 5px;
+    text-align: left;
+    font-family: acumin-pro, sans-serif;
+  }
+	}
+  .line {
+    border-bottom: 1px solid #b0b0b0;
+    height: 1px;
+    margin-bottom: 3px;
+    margin-top: 5px;
+  }
+
   .user-body {
     padding: 5px;
     width: 225px;
