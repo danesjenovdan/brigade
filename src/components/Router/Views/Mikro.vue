@@ -5,7 +5,11 @@
 	<div class="mikro-container">
 		<troll-profile-navigation @clicked="onClickChild"/>
 	</div>
-	<body-content-text title="Profil Twitter trolla"/>
+	<body-content-text>
+		<template v-slot:title>
+			Profil Twitter trolla
+		</template>
+	</body-content-text>
 	<div class="visualisations-container">
 		<troll-profile v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
 		<div class="visualisations"><bar :data="charts.retweets" id="temp"/></div>
@@ -16,9 +20,9 @@
 		<div class="visualisations"><bar :data="charts.mentions" id="mentions"/></div>
 		<div class="visualisations"><bar :data="charts.hashtags" id="hashtags"/></div>
 	</div>
-  	<body-content-text text="bla bla bla"/>
+  <body-content-text> bla bla bla </body-content-text>
 	<fake-real-image :originalImage="originalImage" :stolenImage="stolenImage"/>
-	<body-content-text text="bla bla bla"/>
+  <body-content-text> bla bla bla </body-content-text>
 	<fake-real-image :originalImage="originalImage" :stolenImage="stolenImage"/>
 </template>
 
@@ -70,10 +74,10 @@ export default {
 		methods: {
     onClickChild (value) {
 			this.$data.troll = value;
-			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 20, "retweets");
-			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 20, "Replies to user");
-			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 20, "Mentioned user");
-			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 20, "Used hashtags");
+			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "retweets");
+			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 30, "Replies to user");
+			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 30, "Mentioned user");
+			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 30, "Used hashtags");
 
     },
 		createChartData

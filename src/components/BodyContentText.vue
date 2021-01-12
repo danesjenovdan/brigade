@@ -1,10 +1,10 @@
 <template>
   <div class="container-text">
         <div class="title">
-					{{title}}
+					<slot name="title"/> </slot>
 				</div>
         <div class="text">
-					{{text}}
+					<slot> </slot>
         </div>
   </div>
 </template>
