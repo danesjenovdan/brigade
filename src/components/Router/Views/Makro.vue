@@ -83,7 +83,6 @@ export default {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: "black";
     flex-direction: column
   }
   .visualisations canvas {
