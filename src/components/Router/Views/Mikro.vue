@@ -21,7 +21,7 @@
 		<div class="visualisations"><bar :data="charts.hashtags" id="hashtags"/></div>
 	</div>
 
-	<body-content-text>bla bla bla</body-content-text>
+	<body-content-text v-if="troll.accountInfo.name">bla bla bla</body-content-text>
 	<fake-real-image class="image-container" v-for="image in troll.images" :stolenImage="stolenImage">
 		<img class="image" alt="" :src="image.url" />
 			<template v-slot:original>
@@ -31,7 +31,7 @@
 				<i><a class="url" :href="image.right">yeeet</a></i>
 		</template>
 	</fake-real-image>
-	<body-content-text>bla bla bla</body-content-text>
+	<body-content-text v-if="troll.accountInfo.name">bla bla bla</body-content-text>
 
 </template>
 
