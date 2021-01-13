@@ -12,7 +12,9 @@
     <h2>Top lestvice</h2>
     <p>Lestvice 30 najbolj pogosto uporabljenih ključnikov, omemb, ritvitov in domen glede na skupino.</p>
   </div>
-  <div class="visualisations"><bar :data="hashtagTop30" id="hashtags"/></div>
+  <div class="visualisations">
+    <bar-custom-labels :data="hashtag" id="hashtags"/>
+  </div>
   <div class="visualisations"><bar :data="mentionsTop30" id="mentions"/></div>
   <div class="visualisations"><bar :data="repliesTop30" id="replies"/></div>
   <div class="visualisations"><bar :data="retweetsTop30" id="retweets"/></div>
@@ -23,8 +25,10 @@ import text from './../../../assets/text.js'
 import BodyContentText from './../../BodyContentText.vue'
 import ProfileGroups from './../../ProfileGroups.vue'
 import Bar from './../../Charts/Bar.vue'
+import BarCustomLabels from './../../Charts/BarCustomLabels.vue'
 import tweetsByMonth from './../../Charts/tweetsByMonth.js'
-import hashtagTop30 from './../../Charts/hashtagTop30.js'
+import hashtagTop30 from './../../Charts/hashtag-500-30.json'
+import hashtagTop30Politiki from './../../Charts/vsi-politiki-hashtags-30.json'
 import mentionsTop30 from './../../Charts/mentionsTop30.js'
 import repliesTop30 from './../../Charts/repliesTop30.js'
 import retweetsTop30 from './../../Charts/retweetsTop30.js'
@@ -34,22 +38,44 @@ export default {
   components: {
     BodyContentText,
     ProfileGroups,
-    Bar
+    Bar,
+    BarCustomLabels
   },
   data() {
     return { 
       text: text.default,
+      hashtag: {
+        data1: hashtagTop30Politiki,
+        data2: hashtagTop30,
+      },
       tweetsByMonth,
-      hashtagTop30,
       mentionsTop30,
       repliesTop30,
-      retweetsTop30
+      retweetsTop30,
      }
   },
+    methods: {
+				updateChart(dataset, chart) {
+					this.$router.push(route);
+				}
+			}
 }
 </script>
 
 <style scoped>
+
+  .labels-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto;
+  }
+  .lables {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 25px;
+  }
   .visualisations {
     margin: 0 auto;
     width: 80vw;
@@ -58,6 +84,7 @@ export default {
     align-items: center;
     overflow: hidden;
     background-color: "black";
+    flex-direction: column
   }
   .visualisations canvas {
     flex-shrink: 0;
