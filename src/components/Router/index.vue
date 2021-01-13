@@ -34,7 +34,6 @@
 		background-image:url('/yellow-background.png');
     background-position:center;
     background-repeat: no-repeat;
-    background-size: 100%;
 }
 .container-view {
   margin: 0 auto;
@@ -47,11 +46,22 @@
 @media only screen and (max-width: 768px) {
   .items {
     margin: 0 auto;
-    display: flex; /* or inline-flex */
     justify-content: center;
     overflow-x: auto;
     align-items: center;
     white-space: nowrap;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .background {
+    background-size: 100%;
+  }
+  .container-view { 
+    width: 90vw;
+  }
+  .image {
     width: 80vw;
   }
 }
@@ -59,18 +69,23 @@
 @media only screen and (min-width: 769px) {
   .items {
     margin: 0 auto;
-    width: 80%;
+    width: 80vw;
     display: flex; /* or inline-flex */
     overflow-x:auto; 
     flex-direction: row;
     justify-content: space-evenly;
     white-space: nowrap;
   }
+  .image {
+    width: 80vw;
+  }
+  .background {
+    background-size: 100%;
+  }
 }
 
 .items-text {
     /* Style for "Prostorski" */
-    width: 184px;
     height: 23px;
     color: #000000;
     font-size: 23px;
@@ -78,17 +93,17 @@
     font-weight: 400;
     font-style: normal;
     letter-spacing: normal;
-    line-height: 33.33px;
     text-align: left;
     /* Text style for "Prostorski" */
     font-style: normal;
     letter-spacing: 2.13px;
     line-height: normal;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .image {
   margin: 0 auto;
-  width: 80%;
   z-index: 0;
   background-size: cover;
   background-repeat: no-repeat;

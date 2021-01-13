@@ -53,14 +53,12 @@
 
 	@media only screen and (max-width: 768px) {
   .container-group {
-    margin: 10px auto;
     display: flex; /* or inline-flex */
     flex-direction: column;
     justify-content: center;
     border: 1px solid;
     padding: 10px;
     height: max-content;
-    width: 80vw;
   }
   .body {
     margin: 10px;
@@ -72,7 +70,6 @@
 
 	@media only screen and (min-width: 769px) {
   .container-group {
-    margin: 10px auto;
     display: flex; /* or inline-flex */
     flex-direction: column;
     justify-content: center;

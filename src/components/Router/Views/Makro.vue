@@ -37,7 +37,6 @@ export default {
     Bar
   },
   data() {
-    console.log(text);
     return { 
       text: text.default,
       tweetsByMonth,

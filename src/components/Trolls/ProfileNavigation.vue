@@ -23,7 +23,29 @@ export default {
 		return {
 			trolls: [
 				troll1,
-				troll2
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
+				troll1,
+				troll2,
 			],
 			clickedName: ""
 		}
@@ -51,6 +73,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+		width: 80vw;
   }
   .flex-grid-item {
     flex-grow: 0;

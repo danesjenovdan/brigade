@@ -1,7 +1,7 @@
 <template>
   <div class="container-text">
         <div class="title">
-					<slot name="title"/> </slot>
+					<slot name="title"> </slot>
 				</div>
         <div class="text">
 					<slot> </slot>
@@ -20,6 +20,16 @@
 </script>
 
 <style scoped>
+.container-text {
+  margin: 0 auto;
+  margin-top: 70px;
+  margin-bottom: 60px;
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 80vw;
+}
+
 .title {
 	color: #000000;
 	font-family: acumin-pro, sans-serif;
@@ -33,8 +43,6 @@
 	font-style: normal;
 	letter-spacing: normal;
 	line-height: normal;
-	margin-left: 40px;
-	width: 70vw;
 }
 .text {
 	color: #000000;
@@ -49,8 +57,6 @@
 	font-style: normal;
 	letter-spacing: normal;
 	line-height: normal;
-	margin-left: 40px;
-	width: 70vw;
 
 }
 </style>

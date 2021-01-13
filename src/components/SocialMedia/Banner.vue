@@ -2,9 +2,15 @@
 	<div class="container-banner">
 		<h1>Povej naprej!</h1>
 		<div class="container-icons">
-			<icon url="/facebook.png"/>
-			<icon url="/twitter.png"/>
-			<icon url="/mail.png"/>
+			<icon >
+				<img class="facebook" src="/facebook.png" alt=""/>
+			</icon>
+			<icon >
+				<img src="/twitter.png" alt=""/>
+			</icon>
+			<icon >
+				<img src="/mail.png" alt=""/>
+			</icon>
 		</div>
 	</div>
 </template>
@@ -35,6 +41,7 @@ import Icon from './Icon.vue'
 	@media only screen and (min-width: 769px) {
 		.container-banner {
 			height: 166px;
+			width: 85vw
 		}
 	}
 			.container-icons {
@@ -59,8 +66,15 @@ import Icon from './Icon.vue'
 		line-height: normal;
 		padding-left: 20px;
 	}
+
 	.container-banner {
 		background-color: #f9e96f;
 		margin-top: 150px;
+	}
+	img {
+		width: 45%;
+	}
+	.facebook {
+		width: 30%;
 	}
 </style>

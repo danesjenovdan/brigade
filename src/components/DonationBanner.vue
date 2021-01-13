@@ -67,6 +67,7 @@
 		}
 		.container-banner {
 			height: 137px;
+			width: 85vw
 		}
 		.donation-box {
 			flex-direction: row;

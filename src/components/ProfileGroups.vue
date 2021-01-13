@@ -1,6 +1,7 @@
 <template>
 	<div class="flex-grid">
 		<profile
+      id="profile"
       class="flex-grid-item"
       title="Kontrolni vzorec"
       subtitle="400 profilov"
@@ -8,6 +9,7 @@
       imageUrl="/yellow.png">
     </profile>
     <profile
+      id="profile"
       class="flex-grid-item"
       title="Brigada"
       subtitle="500 profilov"
@@ -15,6 +17,7 @@
       imageUrl="/green.png">
     </profile>
     <profile
+      id="profile"
       class="flex-grid-item"
       title="Desničarji"
       subtitle="XX profilov"
@@ -22,6 +25,7 @@
       imageUrl="/red.png">
     </profile>
     <profile
+      id="profile"
       class="flex-grid-item"
       title="Levičarji"
       subtitle="Xxx profilov"
@@ -51,10 +55,15 @@ export default {
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
-
+  	@media only screen and (max-width: 768px) {
+    #profile {
+      width: 80vw;
+    }
+  }
   .flex-grid-item {
     flex-grow: 0;
     flex-shrink: 0;
+    margin-top: 10px;
     margin-left: 25px;
 		margin-right: 25px;
     align-items: center;

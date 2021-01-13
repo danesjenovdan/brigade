@@ -1,6 +1,6 @@
 <template>
 	<div>
-    <img :src="url" alt=""/>
+    <slot></slot>
 	</div>
 </template>
 
@@ -24,11 +24,5 @@
     flex-direction: column;
     align-items: center;
     margin: 1.2rem;
-  }
-
-  img {
-/* Style for "facebook" */
-    width: 27px;
-    height: 33px;
   }
 </style>
