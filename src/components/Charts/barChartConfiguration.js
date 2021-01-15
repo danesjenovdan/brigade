@@ -1,4 +1,4 @@
-export const configue = (labels, label, data, backgroundColor, borderColor) => { return {
+export const configue = (labels, label, data, backgroundColor, borderColor, id) => { return {
     type: 'horizontalBar',
     data: {
       labels,    
@@ -22,7 +22,9 @@ export const configue = (labels, label, data, backgroundColor, borderColor) => {
             padding: 25,
           }
         }]
-      }
+      },
+      
+      events: ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"],
     }
   }
 }

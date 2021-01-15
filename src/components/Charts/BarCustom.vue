@@ -1,14 +1,4 @@
 <template>
-    <div class="labels-container">
-      <div @click="updateChart(data.data1, 'rgb(90, 164, 214)','#5aa4d6')" class="lables">
-      <img alt="" src="/blue.png">
-        politiki
-      </div>
-      <div  @click="updateChart(data.data2, 'rgb(92, 134, 74)', '#5c864a')" class="lables">
-      <img alt="" src="/green.png">
-        500 NGO-suspected trolls
-      </div>
-    </div>
   <canvas :id="id"></canvas>
 </template>
 <script>
@@ -17,10 +7,12 @@ import configure from './barChartConfiguration.js'
 import createSimpleData from './createChartDataSimple.js'
 
 export default {
-  name: "BarCustomLabels",
+  name: "BarCustom",
     props: {
       id: { type: String, required: true },
-      data: { type: Object }, 
+      data: { type: Object },
+			fillColor: { type: String },
+			borderColor: { type: String }
   },
     data () {
       return {
@@ -32,28 +24,32 @@ export default {
         const ctx = document.getElementById(chartId);
         ctx.fillStyle = 'white';
         ctx.style.backgroundColor = 'white';
+					console.log('this.$data: ', this.$data);
         this.$data.myChart = new Chart(ctx, {
           type: chartData.type,
           data: chartData.data,
           options: chartData.options,
         });
-      },
-			updateChart(data, backgroundColor, borderColor) {
-				this.$data.myChart.data.labels = data.data.labels;
-				data.data.datasets[0].backgroundColor = backgroundColor;
-				data.data.datasets[0].borderColor = borderColor;
-        this.$data.myChart.data.datasets = data.data.datasets
-        this.$data.myChart.update();
-			}
+				const myChart = this.$data.myChart
+				document.getElementById(chartId).onclick = function(evt){
+				const activePoints = myChart.getElementsAtEvent(evt);
+				const firstPoint = activePoints[0];
+				const label = myChart.data.labels[firstPoint._index];
+				const value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+				if (firstPoint !== undefined)
+				window.open("https://twitter.com/hashtag/"+label, '_blank');
+		};
+      }
   },
   mounted() {
     if (this.data) { 
-			//const simpleData = createSimpleData(this.data.data1.values, 30, this.data.data1.labels)
-			const configured = configure(this.data.data2.data.labels,
-			this.data.data2.data.datasets[0].label,
-			this.data.data2.data.datasets[0].data,
-			'rgb(92, 134, 74)',
-			'#5c864a', 
+			const simpleData = createSimpleData(this.data.values, 30, this.data.labels)
+			const configured = configure(this.data.data.labels,
+			this.data.data.datasets[0].label,
+			this.data.data.datasets[0].data,
+			this.borderColor,
+			this.fillColor,
+			this.id
 			)
       this.createChart(this.id, configured);
       }
