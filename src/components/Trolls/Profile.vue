@@ -6,8 +6,8 @@
           <img v-else alt="" class="userImage" :src="info.imageUrl">
         </div>
         <div v-if="text" class="right">
-         <i><span class="title">{{title}}</span><br/>
-          <span class="subtitle">{{subtitle}}</span></i>
+         <span class="title">{{title}}</span><br/>
+          <span class="subtitle">{{subtitle}}</span>
         </div>
         <div v-else class="right">
           <span class="profileName">{{info.name}}</span>
@@ -17,8 +17,6 @@
       {{text}}
    </div>
    <div v-else class="user-body">
-        Lokacija: <b><i> {{info.location}}</i></b>
-        <div class="line"/>
         Št. sledilcev: <b><i> {{info.followers}}</i></b>
         <div class="line"/>
         Št. sledenih: <b><i> {{info.following}}</i></b>
@@ -60,12 +58,13 @@
     padding: 10px;
     height: max-content;
   }
-  .body {
-    margin: 10px;
-    padding: 5px;
-    text-align: left;
-    font-family: acumin-pro, sans-serif;
-  }
+    .body {
+      margin: 10px;
+      padding: 5px;
+      text-align: left;
+      font-family: acumin-pro, sans-serif;
+      flex-grow: 1;
+    }
 	}
 
 	@media only screen and (min-width: 769px) {
@@ -77,6 +76,7 @@
     padding: 10px;
     height: max-content;
     min-width: 200px;
+    
   }
   .body {
     width: 20vw;
@@ -85,6 +85,7 @@
     padding: 5px;
     text-align: left;
     font-family: acumin-pro, sans-serif;
+    flex-grow: 1;
   }
 	}
   .line {
@@ -158,7 +159,7 @@
     line-height: 16px;
     text-align: left;
     /* Text style for "K, ontroln" */
-    font-style: normal;
+    font-style: italic;
     letter-spacing: normal;
     line-height: normal;
   }
@@ -170,7 +171,7 @@
     font-family: acumin-pro, sans-serif;
     font-size: 12px;
     font-weight: 600;
-    font-style: normal;
+    font-style: italic;
     letter-spacing: normal;
     line-height: 16px;
     text-align: left;

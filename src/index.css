@@ -27,6 +27,10 @@ body {
   width: 50%;
 }
 
+a {
+  color: #3F7396;
+  cursor: pointer;
+}
 
 
 .container-banner {

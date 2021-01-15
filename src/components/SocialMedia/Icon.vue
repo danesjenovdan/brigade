@@ -23,6 +23,6 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 1.2rem;
+    margin: 15px;
   }
 </style>

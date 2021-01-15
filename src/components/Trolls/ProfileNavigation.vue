@@ -79,6 +79,7 @@ export default {
     flex-grow: 0;
     flex-shrink: 0;
     align-items: center;
+		cursor: pointer;
   }
 }
 </style>

@@ -12,9 +12,17 @@
     <h2>Top lestvice</h2>
     <p>Lestvice 30 najbolj pogosto uporabljenih ključnikov, omemb, ritvitov in domen glede na skupino.</p>
   </div>
-  <div class="visualisations">
-    <bar-custom-labels :data="hashtag" id="hashtags"/>
+  <div class="visualisations-container">
+    <div class="visualisations-group">
+      <bar-custom :data="hashtagTop30" borderColor='rgb(92, 134, 74)'
+        fillColor='#5c864a' id="hashtags500"/>
+    </div>
+    <div class="visualisations-group">
+      <bar-custom :data="hashtagTop30Politiki" borderColor='rgb(90, 164, 214)'
+        fillColor='#5aa4d6' id="hashtagsPolitiki"/>
+    </div>
   </div>
+
   <div class="visualisations"><bar :data="mentionsTop30" id="mentions"/></div>
   <div class="visualisations"><bar :data="repliesTop30" id="replies"/></div>
   <div class="visualisations"><bar :data="retweetsTop30" id="retweets"/></div>
@@ -25,7 +33,7 @@ import text from './../../../assets/text.js'
 import BodyContentText from './../../BodyContentText.vue'
 import ProfileGroups from './../../ProfileGroups.vue'
 import Bar from './../../Charts/Bar.vue'
-import BarCustomLabels from './../../Charts/BarCustomLabels.vue'
+import BarCustom from './../../Charts/BarCustom.vue'
 import tweetsByMonth from './../../Charts/tweetsByMonth.js'
 import hashtagTop30 from './../../Charts/hashtag-500-30.json'
 import hashtagTop30Politiki from './../../Charts/vsi-politiki-hashtags-30.json'
@@ -39,15 +47,13 @@ export default {
     BodyContentText,
     ProfileGroups,
     Bar,
-    BarCustomLabels
+    BarCustom
   },
   data() {
     return { 
       text: text.default,
-      hashtag: {
-        data1: hashtagTop30Politiki,
-        data2: hashtagTop30,
-      },
+      hashtagTop30Politiki,
+      hashtagTop30,
       tweetsByMonth,
       mentionsTop30,
       repliesTop30,
@@ -63,7 +69,14 @@ export default {
 </script>
 
 <style scoped>
+  .visualisations-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-wrap:  wrap 
 
+  }
   .labels-container {
     display: flex;
     justify-content: center;
@@ -79,6 +92,18 @@ export default {
   .visualisations {
     margin: 0 auto;
     width: 80vw;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column
+  }
+    .visualisations-group {
+    margin: 0 auto;
+    width: 40vw;
+    max-width: 1200px;
+    min-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;

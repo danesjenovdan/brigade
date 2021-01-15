@@ -7,7 +7,6 @@
 	</div>
 	<body-content-text>
 		<template v-slot:title>
-			Profil Twitter trolla
 		</template>
 	</body-content-text>
 	<div class="visualisations-container">
@@ -25,10 +24,10 @@
 	<fake-real-image class="image-container" v-for="image in troll.images" :stolenImage="stolenImage">
 		<img class="image" alt="" :src="image.url" />
 			<template v-slot:original>
-					<i><a class="url" :href="image.left">yeet</a></i>
+					<i><a target="_blank" class="url" :href="image.left">yeet</a></i>
 		</template>
 		<template v-slot:fake>
-				<i><a class="url" :href="image.right">yeeet</a></i>
+				<i><a target="_blank" class="url" :href="image.right">yeeet</a></i>
 		</template>
 	</fake-real-image>
 	<body-content-text v-if="troll.accountInfo.name">bla bla bla</body-content-text>
