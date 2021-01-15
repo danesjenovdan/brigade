@@ -4,7 +4,6 @@ fs = require('fs');
 
 
 module.exports = async (screen_name, type) => {
-    console.log('screen_name: ', screen_name);
 	const client = new elasticsearch.Client({
 		host: 'http://51.15.239.174:9200',
 	});
@@ -96,9 +95,7 @@ module.exports = async (screen_name, type) => {
 				_source: true
 				}
 		})
-		console.log('hits.hits.length: ', hits.hits.length);
 		while(hits && hits.hits.length) {
-			console.log('hits.hits.length: ', hits.hits.length);
     // Append all new hits
     hits.hits.forEach(hits => {
 			if (new Date(hits._source.pub_date) <= new Date('2019-10-01')) return // Filter out hits before 1. October 2019
@@ -127,10 +124,10 @@ module.exports = async (screen_name, type) => {
         scroll: '1000s'
     }))
 }
-fs.readFile("trolls/"+screen_name+"-twints.json", (err, data) => {
+fs.readFile("politiki/"+screen_name+".json", (err, data) => {
 		const trollData = !err ? JSON.parse(data) : {};
 		trollData[type] = resource;
-    fs.writeFile("trolls/"+screen_name+"-twints.json", JSON.stringify(trollData), function (err) {
+    fs.writeFile("politiki/"+screen_name+".json", JSON.stringify(trollData), function (err) {
         if (err) return console.log(err);
         console.log('success');
     });
