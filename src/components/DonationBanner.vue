@@ -1,12 +1,12 @@
 <template>
 	<div class="container-banner">
-		<p>Kampanjo smo na <span class="acumin"><a href="https://danesjenovdan.si/">Danes je nov dan</a></span>
+		<p>Kampanjo smo na <span class="acumin"><a target="_blank" href="https://danesjenovdan.si/">Danes je nov dan</a></span>
             pripravili v sodelovanju z <span class="acumin"><a href="http://virostatiq.com/">Virostatiq</a></span>
     </p>
 		<div class="donation-box">
 			<p>Želiš podpreti naše delo?</p>
 			<div class="rectangle">
-				<span class="acumin"><a href="https://danesjenovdan.si/doniraj">Doniraj!</a></span>
+				<span class="buran"><a target="_blank" href="https://danesjenovdan.si/doniraj">Doniraj!</a></span>
 				<img src="/heart.png" alt=""/>
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 	}
 	.rectangle {
 		        /* Style for "Rectangle" */
-    width: 166px;
+    width: 200px;
     height: 56px;
     border: 3px solid #000000;
     display: flex;
@@ -39,6 +39,19 @@
 		font-style: normal;
 		letter-spacing: normal;
 		line-height: normal; 
+	}
+	.buran {
+		/* Style for "DONIRAJ!" */
+		height: 17px;
+		color: #000000;
+    font-family: "buran_ussrregular";
+		font-size: 20px;
+		font-weight: 400;
+		font-style: normal;
+		letter-spacing: normal;
+		text-align: left;
+		text-transform: uppercase;
+		letter-spacing: 4px;
 	}
 
 	@media only screen and (max-width: 768px) {
@@ -67,6 +80,7 @@
 		}
 		.container-banner {
 			height: 137px;
+			width: 85vw
 		}
 		.donation-box {
 			flex-direction: row;

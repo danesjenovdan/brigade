@@ -33,8 +33,71 @@ export default {
             284904,
             141361]
           ,
-          backgroundColor: 'rgba(71, 183,132,.5)', // Green
-          borderColor: '#47b784',
+          backgroundColor: 'rgb(92, 134, 74)', // Green
+          borderColor: '#5c864a',
+          borderWidth: 3
+        },
+        { // another line graph
+          label: 'Activity (number of tweets) by leftist',
+          data: [ 47632,
+            34821,
+            46416,
+            78092,
+            40415,
+            17599,
+            129260,
+            572417,
+            761061,
+            375270,
+            732852,
+            821185,
+            684904,
+            241361]
+          ,
+          backgroundColor: 'rgb(90, 164, 214)', // Green
+          borderColor: '#5aa4d6',
+          borderWidth: 3
+        },
+        { // another line graph
+          label: 'Activity (number of tweets) by right wingers',
+          data: [ 67632,
+            44821,
+            76416,
+            38092,
+            50415,
+            37599,
+            129260,
+            472417,
+            961061,
+            775270,
+            232852,
+            321185,
+            484904,
+            541361]
+          ,
+          backgroundColor: 'rgb(234, 110, 51)', // Green
+          borderColor: '#ea6e33',
+          borderWidth: 3
+        },
+        { // another line graph
+          label: 'Activity (number of tweets) by control goup',
+          data: [ 67632,
+            44821,
+            76416,
+            38092,
+            50415,
+            47599,
+            29260,
+            272417,
+            561061,
+            275270,
+            332852,
+            321185,
+            284904,
+            41361]
+          ,
+          backgroundColor: 'rgb(249, 233, 111)', // Green
+          borderColor: '#f9e96f',
           borderWidth: 3
         }
       ]

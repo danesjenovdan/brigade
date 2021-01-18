@@ -12,7 +12,17 @@
     <h2>Top lestvice</h2>
     <p>Lestvice 30 najbolj pogosto uporabljenih ključnikov, omemb, ritvitov in domen glede na skupino.</p>
   </div>
-  <div class="visualisations"><bar :data="hashtagTop30" id="hashtags"/></div>
+  <div class="visualisations-container">
+    <div class="visualisations-group">
+      <bar-custom :data="hashtagTop30" borderColor='rgb(92, 134, 74)'
+        fillColor='#5c864a' id="hashtags500"/>
+    </div>
+    <div class="visualisations-group">
+      <bar-custom :data="hashtagTop30Politiki" borderColor='rgb(90, 164, 214)'
+        fillColor='#5aa4d6' id="hashtagsPolitiki"/>
+    </div>
+  </div>
+
   <div class="visualisations"><bar :data="mentionsTop30" id="mentions"/></div>
   <div class="visualisations"><bar :data="repliesTop30" id="replies"/></div>
   <div class="visualisations"><bar :data="retweetsTop30" id="retweets"/></div>
@@ -23,8 +33,10 @@ import text from './../../../assets/text.js'
 import BodyContentText from './../../BodyContentText.vue'
 import ProfileGroups from './../../ProfileGroups.vue'
 import Bar from './../../Charts/Bar.vue'
+import BarCustom from './../../Charts/BarCustom.vue'
 import tweetsByMonth from './../../Charts/tweetsByMonth.js'
-import hashtagTop30 from './../../Charts/hashtagTop30.js'
+import hashtagTop30 from './../../Charts/hashtag-500-30.json'
+import hashtagTop30Politiki from './../../Charts/vsi-politiki-hashtags-30.json'
 import mentionsTop30 from './../../Charts/mentionsTop30.js'
 import repliesTop30 from './../../Charts/repliesTop30.js'
 import retweetsTop30 from './../../Charts/retweetsTop30.js'
@@ -34,31 +46,69 @@ export default {
   components: {
     BodyContentText,
     ProfileGroups,
-    Bar
+    Bar,
+    BarCustom
   },
   data() {
-    console.log(text);
     return { 
       text: text.default,
-      tweetsByMonth,
+      hashtagTop30Politiki,
       hashtagTop30,
+      tweetsByMonth,
       mentionsTop30,
       repliesTop30,
-      retweetsTop30
+      retweetsTop30,
      }
   },
+    methods: {
+				updateChart(dataset, chart) {
+					this.$router.push(route);
+				}
+			}
 }
 </script>
 
 <style scoped>
-  .visualisations {
-    margin: 0 auto;
-    width: 80vw;
+  .visualisations-container {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: "black";
+    flex-wrap:  wrap 
+
+  }
+  .labels-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto;
+  }
+  .lables {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 25px;
+  }
+  .visualisations {
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column
+  }
+    .visualisations-group {
+    margin: 0 auto;
+    width: 40vw;
+    max-width: 1200px;
+    min-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column
   }
   .visualisations canvas {
     flex-shrink: 0;

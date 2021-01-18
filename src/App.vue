@@ -9,17 +9,43 @@
         <p>V pregretem političnem ozračju, ki je nastopilo z odstopom Šarčeve vlade, je bilo na Twitterju mogoče zaznati porast novih uporabniških profilov, ki dajejo vtis, da delujejo v organizirani mreži. Indic tega so profili, ki si ne spremenijo privzetega uporabniškega imena in profilne slike, razvidno pa je, da všečkajo in promovirajo zgolj politične vsebine, povezane z ideologijo določene stranke.</p>
         <p>Na Twitterju je v času kolesarskih protestov mogoče opaziti tudi porast <a href="https://fasizem.djnd.si/2020/07/20/diskreditacije-posameznikov/" target="_blank">osebnih diskreditacij</a> in <a href="https://fasizem.djnd.si/2020/07/20/diskreditacije-novinarjev/" target="_blank">napadov na novinarje</a>, aktiviste, nevladne organizacije in posameznike, ki si upajo javno izraziti nestrinjanje z vladajočo politiko. Številni anonimni profili tovrstne diskreditacije, ki pogosto vključujejo tudi osebne podatke in sorodstvene ali poslovne vezi, promovirajo z všečkanjem in poobjavljanjem oz. ritvitanjem.</p>
         <p>Gre za metode vplivanja na algoritme družbenih medijev oziroma t.i. brigading, ki je težko izsledljivo, a učinkovito orodje propagande. Organizirano delovanje skupine ljudi, ki nadzoruje večje število lažnih profilov, poskuša z všečkanjem in ritvitanjem vsebin, ki ustrezajo njeni političnih agendi, vplivati na algoritme omrežja Twitter in s tem povečati vidnost teh vsebin. Lažni profili obenem organizirano komentirajo izbrane objave in jih poskušajo vsebinsko bodisi diskreditirati bodisi potrditi z namenom vplivanja na vtis bralcev o večinskem mnenju spletne javnosti na določeno temo.</p>
-        <p>Marsikateri uporabnik se ob napadih glasne Twitter večine počuti ogroženega ali utišanega, izvaja samocenzuro ali pa je nad sodelovanjem v debatah na omrežju preprosto obupal in prostor prepušča glasnejšim in bolj agresivnim komentatorjem. Posamezni uporabniki so pogosto tudi tarče organizanirah napadov in diskreditacij, kar jim otežuje, da bi svobodno izražali mnenja. Takemu procesu smo že bili priča pri popolni razgradnji kultivirane debate v komentarjih na spletnih mestih tradicionalnih medijev.</p>
+        </div>
+        <div class="container-ptic">
+          <img class="img-ptic" src="/en-ptic.jpg">
+          <div class="container-inner-text">
+          <p>Marsikateri uporabnik se ob napadih glasne Twitter večine počuti ogroženega ali utišanega, izvaja samocenzuro ali pa je nad sodelovanjem v debatah na omrežju preprosto obupal in prostor prepušča glasnejšim in bolj agresivnim komentatorjem. Posamezni uporabniki so pogosto tudi tarče organizanirah napadov in diskreditacij, kar jim otežuje, da bi svobodno izražali mnenja. Takemu procesu smo že bili priča pri popolni razgradnji kultivirane debate v komentarjih na spletnih mestih tradicionalnih medijev.</p>
+          </div>
+        </div>
+        <div class='body-text'>
         <p>Twitter se je skozi medijsko reprezentacijo vzpostavil kot ključen kanal za komuniciranje z javnostjo. Tradicionalni mediji se v svojih poročanjih redno sklicujejo na Twitter kot vir informacij, izjav, odzivov in dogodkov ter pomagajo ustvarjati percepcijo omrežja kot centraliziranega utripa javnega mnenja. Twitter objave so pogosto neposredno vdelane v spletne članke ali navedene pri medijskem poročanju. Čeprav je število aktivnih uporabnikov Twitterja relativno malo, ima dogajanje na omrežju zaradi tega mnogo večji doseg in učinek na splošno javnost.</p>
         <p>Dobro informirana javnost je ključnega pomena za zdravo demokracijo. Javnih spletnih prostorov, v katerih se oblikuje dominantni politični diskurz, ne smemo prepustiti organiziranim skupinam, ki ga poskušajo zlorabiti.</p>
         <h1>Raziskava</h1>
         <p>Predstavljamo izsledke raziskave, ki smo jo opravili v drugi polovici leta 2020 v sodelovanju z novinarji Pod črto in ob pomoči Twitter uporabnice @Objaveizkleti ter raziskovalca podatkov Virostatiq.</p>
         <h2>Priporočamo</h2>
-        <p><a href="#">Pod Črto: Twitter brigade 1. del</a></p>
       </div>
+        <social-media-banner>
+          <span class="buran" name="text">Nadaljno branje</span>
+          <div class="container-link">
+          <p><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
+          <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
+        </div>
+        </social-media-banner>
       <views-navigation/>
       <router-view></router-view>
-      <social-media-banner/>
+      <social-media-banner>
+        <span class="buran" name="text">povej naprej</span>
+        <div class="container-icons">
+          <icon >
+            <img class="facebook" src="/facebook.png" alt=""/>
+          </icon>
+          <icon >
+            <img class="icon" src="/twitter.png" alt=""/>
+          </icon>
+          <icon >
+            <img class="icon" src="/mail.png" alt=""/>
+          </icon>
+		  </div>
+      </social-media-banner>
       <donation-banner/>
       <credit/>
     </div>
@@ -33,6 +59,7 @@
   import SocialMediaBanner from './components/SocialMedia/Banner.vue'
   import DonationBanner from './components/DonationBanner.vue'
   import Credit from './components/Credit.vue'
+  import Icon from './components/SocialMedia/Icon.vue'
 
 
   export default {
@@ -42,7 +69,8 @@
       ProfileGroups,
       SocialMediaBanner,
       DonationBanner,
-      Credit
+      Credit,
+      Icon
     },
     data() {
       return text
@@ -61,9 +89,6 @@
     letter-spacing: normal;
     text-align: left;
     /* Text style for "Activity (" */
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: normal;
     width: 70%;
   }
   .flex-grid {
@@ -71,6 +96,7 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+
 
   .flex-grid-item {
     flex-grow: 0;
@@ -89,7 +115,12 @@
     top: 0;
     position: absolute;
   }
-
+  .container-link {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 20px
+  }
   .container-body {
     display: flex; /* or inline-flex */
     flex-direction: column;
@@ -105,10 +136,38 @@
     background-position: center;
     margin: 0;
   }
+  	.container-icons {
+			display: flex;
+			justify-content: center;
+			flex-direction: row;
+			cursor: pointer;
+		}
 
+  .icon {
+    width: 45%;
+	}
+	.facebook {
+		width: 25%;
+	}
+  	.buran {
+		/* Style for "POVEJ NAPR" */
+		color: #000000;
+		font-family: "buran_ussrregular";
+		font-size: 33px;
+		font-weight: 400;
+		font-style: normal;
+		letter-spacing: normal;
+		line-height: 24px;
+		text-align: left;
+		text-transform: uppercase;
+		/* Text style for "POVEJ NAPR" */
+		font-style: normal;
+		letter-spacing: 6.67px;
+		line-height: normal;
+		padding-left: 20px;
+	}
   .body-text {
     /* Style for "Lorem ipsu" */
-    width: 50%;
     color: #000000;
     font-family: acumin-pro, sans-serif;
     font-size: 20px;
@@ -122,5 +181,72 @@
     letter-spacing: normal;
     line-height: normal;
     margin: 0 auto;
+  }
+  @media only screen and (max-width: 768px) {
+	.body-text {
+		width: 90vw;
+  }
+  .container-ptic {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 90vw;
+  }
+   .container-inner-text {
+    width:90vw;
+    flex-grow: 1;
+    text-align: left;
+    color: #000000;
+    font-family: acumin-pro, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 33.33px;
+    text-align: left;
+    /* Text style for "Lorem ipsu" */
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+
+  }
+  .img-ptic {
+    width: 90vw;
+    flex-grow: 0
+  }
+}
+  @media only screen and (min-width: 769px) {
+  .body-text {
+		width: 50vw;
+  }
+  .container-ptic {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 20px;
+  }
+   .container-inner-text {
+    width: 30vw;
+    flex-grow: 1;
+    margin-left: 50px;
+    text-align: left;
+    color: #000000;
+    font-family: acumin-pro, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 33.33px;
+    text-align: left;
+    /* Text style for "Lorem ipsu" */
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+
+  }
+  .img-ptic {
+    width: 30vw;
+    flex-grow: 0
+  }
   }
 </style>

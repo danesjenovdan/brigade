@@ -12,7 +12,7 @@ export default {
         <h1>Raziskava</h1>
         <p>Spodaj predstavljamo izsledke raziskave, ki smo jo opravili v drugi polovici leta 2020 v sodelovanju z novinarji Pod Črto in ob pomoči uporabnice @Objaveizkleti ter raziskovalca podatkov Virostatiq.</p>
         <h2>Priporočamo</h2>
-        <p><a href="#">Pod Črto: Twitter brigade 1. del</a></p>
+        <p><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
     `,
     text2: {
         title: "Activity (number of tweets) by month of 500 NGO-supplied suspected trolls",

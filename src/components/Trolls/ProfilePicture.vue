@@ -1,8 +1,12 @@
 <template>
     <div @click="onClickButton" class="item">
 			<div :class="clicked ? 'background' : null" >
-				<round-img :src="info.imageUrl"/>
-				<p class="name" >{{info.name}}</p>
+				<div class="image-container">
+					<round-img :src="info.imageUrl"/>
+					<span class="name">
+					<p :class="clicked ? 'bold' : null" >{{info.name}}</p>
+						</span>
+				</div>
 			</div>
     </div>
 </template>
@@ -28,18 +32,26 @@ import text from '../../assets/text.js'
 
 </script>
 <style scoped>
+
+.image-container {
+	margin-top: 10px;
+}
 .background {
 		background-image:url('/yellow-rectangle.png');
     background-position:center;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 111px 105px;
 }
 	.item {
     display: flex;
     flex-direction: column;
 		justify-content: center;
 		margin: 20px;
-}
+		height: 111px;
+	}
+	.bold {
+			font-weight: 700;
+	}
  .name {
 	color: #000000;
 	font-family: acumin-pro, sans-serif;;
@@ -48,6 +60,6 @@ import text from '../../assets/text.js'
 	font-style: normal;
 	letter-spacing: normal;
 	line-height: 16px;
-	text-align: left;
+	text-align: center;
  }
 </style>

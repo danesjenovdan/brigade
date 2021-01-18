@@ -30,6 +30,7 @@ export default {
   },
   mounted() {
     if (this.data) { 
+      console.log('this.id: ', this.id);
       this.createChart(this.id, this.data);
       }
   },
@@ -38,6 +39,7 @@ export default {
       if (!this.$data.data)  {
         this.createChart(this.id, newVal);
       } else {
+        console.log("update", this.id)
         this.$data.myChart.data.labels = newVal.data.labels;
         this.$data.myChart.data.datasets = newVal.data.datasets
         this.$data.myChart.update();

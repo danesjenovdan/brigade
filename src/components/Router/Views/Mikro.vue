@@ -5,7 +5,10 @@
 	<div class="mikro-container">
 		<troll-profile-navigation @clicked="onClickChild"/>
 	</div>
-	<body-content-text title="Profil Twitter trolla"/>
+	<body-content-text>
+		<template v-slot:title>
+		</template>
+	</body-content-text>
 	<div class="visualisations-container">
 		<troll-profile v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
 		<div class="visualisations"><bar :data="charts.retweets" id="temp"/></div>
@@ -16,10 +19,19 @@
 		<div class="visualisations"><bar :data="charts.mentions" id="mentions"/></div>
 		<div class="visualisations"><bar :data="charts.hashtags" id="hashtags"/></div>
 	</div>
-  	<body-content-text text="bla bla bla"/>
-	<fake-real-image :originalImage="originalImage" :stolenImage="stolenImage"/>
-	<body-content-text text="bla bla bla"/>
-	<fake-real-image :originalImage="originalImage" :stolenImage="stolenImage"/>
+
+	<body-content-text v-if="troll.accountInfo.name">bla bla bla</body-content-text>
+	<fake-real-image class="image-container" v-for="image in troll.images" :stolenImage="stolenImage">
+		<img class="image" alt="" :src="image.url" />
+			<template v-slot:original>
+					<i><a target="_blank" class="url" :href="image.left">yeet</a></i>
+		</template>
+		<template v-slot:fake>
+				<i><a target="_blank" class="url" :href="image.right">yeeet</a></i>
+		</template>
+	</fake-real-image>
+	<body-content-text v-if="troll.accountInfo.name">bla bla bla</body-content-text>
+
 </template>
 
 <script>
@@ -45,6 +57,9 @@ export default {
 		return {
 			troll: {
 				accountInfo: {
+				}, 
+				images: {
+
 				}
 			},
 			charts: {
@@ -54,26 +69,15 @@ export default {
 				hashtags: {}
 			},
 			text,
-			originalImage: {
-				imageUrl: "https://media.npr.org/assets/img/2015/09/23/ap_836720500193-13f1674f764e5180cf9f3349cfef258d181f2b32-s800-c85.jpg",
-				sourceUrl: "https://www.rickroll.com",
-				text: "Monkeeeee"
-
-			},
-			stolenImage: {
-				imageUrl: "https://specials-images.forbesimg.com/imageserve/1160859961/960x0.jpg?fit=scale",
-				sourceUrl: "https://www.rickroll.com",
-				text: "@Monkeeeeee"
-			}
 		}
 	},
 		methods: {
     onClickChild (value) {
 			this.$data.troll = value;
-			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 20, "retweets");
-			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 20, "Replies to user");
-			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 20, "Mentioned user");
-			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 20, "Used hashtags");
+			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "retweets");
+			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 30, "Replies to user");
+			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 30, "Mentioned user");
+			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 30, "Used hashtags");
 
     },
 		createChartData
@@ -87,23 +91,43 @@ export default {
 		border-bottom: 1px solid #b0b0b0;
     margin: auto 5%;
   }
+	.image {
+		width: 60vw;
+		border: 3px solid #5aa4d6;
+	}
 	.visualisations-container {
+		width: 80vw;
 		display: flex;
 		flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-		width: 80vw;
   }
 	.visualisations {
     margin: 0 auto;
-    width: 40vw;
-		min-width: 400px;
+		width: 40vw;
+		min-width: 300px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
     background-color: "black";
   }
+	.image-container {
+		margin-top: 20px;
+	}
+	.url {
+		/* Style for "Jordana Pa" */
+		height: 15px;
+		color: #000000;
+		font-family: acumin-pro, sans-serif;
+		font-size: 16px;
+		font-weight: 700;
+		font-style: normal;
+		letter-spacing: normal;
+		line-height: 16px;
+		text-align: center;
+		text-decoration: underline;
+	}
   .visualisations canvas {
     flex-shrink: 0;
     width: 90%;

@@ -24,7 +24,12 @@ body {
   display: flex; /* or inline-flex */
   flex-direction: column;
   justify-content: flex-start;
-  width: 80%;
+  width: 50%;
+}
+
+a {
+  color: #3F7396;
+  cursor: pointer;
 }
 
 
