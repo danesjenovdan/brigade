@@ -25,7 +25,7 @@
         <div class="line"/>
         Datum registracije: <b><i> {{format_date(info.created)}}</i></b>
    </div>
-      <div class="empty-space">     
+      <div v-if="text" class="empty-space">     
       </div>
   </div>
 </template>
@@ -52,13 +52,13 @@
 <style scoped>
 
 	@media only screen and (max-width: 768px) {
-  .container-group {
-    display: flex; /* or inline-flex */
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid;
-    padding: 10px;
-  }
+    .container-group {
+      display: flex; /* or inline-flex */
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid;
+      padding: 10px;
+    }
     .body {
       margin: 10px;
       padding: 5px;
@@ -75,7 +75,7 @@
       border: 1px solid;
       padding: 10px;
       min-width: 200px;
-      
+      height: 200px;
     }
     .body {
       width: 20vw;
@@ -110,8 +110,6 @@
     border-bottom: 1px solid;
     align-items: center;
     width: 100%;
-    height: 30%;
-
   }
   .left {
     margin: 5px;
