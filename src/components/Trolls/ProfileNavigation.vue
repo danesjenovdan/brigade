@@ -47,9 +47,12 @@ export default {
 				troll1,
 				troll2,
 			],
-			clickedName: ""
+			clickedName: "White Right 🇸🇮"
 		}
 	},
+	mounted() {
+    	this.$emit('clicked', this.$data.trolls.find(element => element.accountInfo.name === this.$data.clickedName));
+  },
 	methods: {
     onClickChild (value) {
       this.clickedName = value.name; // someValue
