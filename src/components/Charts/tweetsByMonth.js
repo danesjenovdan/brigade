@@ -103,6 +103,7 @@ export default {
       ]
     },
     options: {
+      maintainAspectRatio: false,
       responsive: true,
       lineTension: 1,
       scales: {

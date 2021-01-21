@@ -21,11 +21,19 @@
       <bar-custom :data="hashtagTop30Politiki" borderColor='rgb(90, 164, 214)'
         fillColor='#5aa4d6' id="hashtagsPolitiki"/>
     </div>
+    <div class="visualisations-group">
+      <bar-custom :data="mentionsTop30" borderColor='rgb(234, 110, 51)'
+        fillColor='#ea6e33' id="mentionsTop30"/>
+    </div>
+        <div class="visualisations-group">
+      <bar-custom :data="repliesTop30" borderColor='rgb(249, 233, 111)'
+        fillColor='#f9e96f' id="repliesTop30"/>
+    </div>
   </div>
 
-  <div class="visualisations"><bar :data="mentionsTop30" id="mentions"/></div>
-  <div class="visualisations"><bar :data="repliesTop30" id="replies"/></div>
-  <div class="visualisations"><bar :data="retweetsTop30" id="retweets"/></div>
+  <!--<div class="visualisations"><bar :data="mentionsTop30" id="mentions"/></div>-->
+  <!--<div class="visualisations"><bar :data="repliesTop30" id="replies"/></div>-->
+  <!--<div class="visualisations"><bar :data="retweetsTop30" id="retweets"/></div>-->
 </template>
 
 <script>
@@ -69,6 +77,24 @@ export default {
 </script>
 
 <style scoped>
+@media only screen and (max-width: 768px) {
+    .visualisations-group {
+      width: 90vw;
+      max-width: 1200px;
+      min-width: 400px;
+      height: 50vh;
+
+    }
+  }
+
+  @media only screen and (min-width: 769px) {
+    .visualisations-group {
+      width: 45vw;
+      max-width: 1200px;
+      min-width: 500px;
+      height: 50vh;
+    }
+  }
   .visualisations-container {
     display: flex;
     justify-content: center;
@@ -97,13 +123,11 @@ export default {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    flex-direction: column
+    flex-direction: column;
+    height: 50vh;
   }
-    .visualisations-group {
+  .visualisations-group {
     margin: 0 auto;
-    width: 40vw;
-    max-width: 1200px;
-    min-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;

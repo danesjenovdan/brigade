@@ -13,6 +13,7 @@ export const configue = (labels, label, data, backgroundColor, borderColor, id) 
       ]
     },
     options: {
+      maintainAspectRatio: false,
       responsive: true,
       lineTension: 1,
       scales: {
@@ -20,6 +21,8 @@ export const configue = (labels, label, data, backgroundColor, borderColor, id) 
           ticks: {
             beginAtZero: true,
             padding: 25,
+            autoSkip: false,
+            fontSize: 10
           }
         }]
       },

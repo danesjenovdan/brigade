@@ -24,7 +24,6 @@ export default {
         const ctx = document.getElementById(chartId);
         ctx.fillStyle = 'white';
         ctx.style.backgroundColor = 'white';
-					console.log('this.$data: ', this.$data);
         this.$data.myChart = new Chart(ctx, {
           type: chartData.type,
           data: chartData.data,

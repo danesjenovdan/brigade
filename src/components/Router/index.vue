@@ -2,21 +2,37 @@
   <div class="container-view">
 		<img class="image" alt="Vue logo" src="/Layer-top.png" />
 		<div class="items">
-			<div id="1" :class="show === 1? 'background' : null" >
-				<p class="items-text"  @click="show = 1;goTo('makro')">
-          <span :class="show === 1? 'spacing' : null">Makro pogled</span>
-        </p>
-			</div>
-			<div id="2" :class="show === 2? 'background' : null">
-				<p class="items-text" @click="show = 2;goTo('mikro')">
-         <span :class="show === 2? 'spacing' : null">Mikro pogled</span>
-        </p>
-			</div>
-			<div id="3" :class="show === 3? 'background' : null">
-				<p class="items-text" @click="show = 3;goTo('prostorski')">
-          <span :class="show === 2? 'spacing' : null">Prostorski pogled</span>
-        </p>
-			</div>
+      <div class="container-description">
+        <div id="1" :class="show === 1? 'background' : 'no-background'" >
+          <p class="title"  @click="show = 1;goTo('makro')">
+            <span :class="show === 1? 'spacing' : null">Makro pogled</span>
+          </p>
+        </div>
+        <div class="subtitle">
+          <p>Analize 4 različnih skupin Twitter uporabnikov, <br/>ki jih je mogoče primerjati med sabo.</p>
+        </div>
+        </div>
+        <div class="container-description">
+          <div id="2" :class="show === 2? 'background' : 'no-background'">
+            <p class="title" @click="show = 2;goTo('mikro')">
+            <span :class="show === 2? 'spacing' : null">Mikro pogled</span>
+            </p>
+            </div>
+          <div class="subtitle">
+            <p>Analize 27 profilov, za katere obstaja <br/>visoka verjetnost, da so lažni in del <br/>organizirane mreže</p>
+            </div>
+        </div>
+        <div class="container-description">
+          <div id="3" :class="show === 3? 'background' : 'no-background'">
+            <p class="title" @click="show = 3;goTo('prostorski')">
+              <span :class="show === 3? 'spacing' : null">Prostorski pogled</span>
+            </p>
+          </div>
+        <div class="subtitle">
+          <p>Vizualizacija uporabnikov Twitter omrežja<br/>
+          razporejenih s pomočjo strojnega klasifikatorja,<br/> ki upošteva vsebine meta podatke profilov,<br/> povezanost profilov in vsebine njihovih objav.</p>
+        </div>
+        </div>
 		</div>
 		<img class="image" alt="Vue logo" src="/Layer-bottom.png" />
   </div>
@@ -41,6 +57,11 @@
       background-position:center;
       background-repeat: no-repeat;
   }
+  .no-background:hover {
+      background-image:url('/yellow-background.png');
+      background-position: center;
+      background-repeat: no-repeat;
+  }
   .container-view {
     margin: 0 auto;
     margin-top: 90px;
@@ -48,7 +69,21 @@
     flex-direction: column;
     justify-content: center;
   }
+  .container-description {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
 
+  .subtitle {
+    color: #000000;
+	  font-family: acumin-pro, sans-serif;
+    flex-wrap: wrap;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+  }
   @media only screen and (max-width: 768px) {
     .items {
       margin: 0 auto;
@@ -61,9 +96,18 @@
       flex-direction: column;
       
     }
+    .subtitle {
+      font-size: 16px;
+    }
+    .title {
+      font-size: 32px;
+    }
     .background {
       background-size: 100%;
       letter-spacing: 6.4px;
+    }
+    .no-background {
+      background-size: 100%;
     }
     .container-view { 
       width: 90vw;
@@ -83,6 +127,12 @@
       justify-content: space-evenly;
       white-space: nowrap;
     }
+    .subtitle {
+      font-size: 1.2vw;
+    }
+    .title {
+      font-size: 1.9vw;
+    }
     .image {
       width: 80vw;
     }
@@ -90,21 +140,23 @@
       background-size: 100%;
       letter-spacing: 6.4px;
     }
+    .no-background {
+      background-size: 100%;
+    }
   }
 
   .spacing {
     letter-spacing: 6.4px
   }
-  .items-text {
+  .title {
       /* Style for "Prostorski" */
       height: 23px;
       color: #000000;
-      font-size: 34px;
       font-family: "buran_ussrregular";
       font-weight: 400;
       font-style: normal;
       letter-spacing: normal;
-      text-align: left;
+      text-align: center;
       /* Text style for "Prostorski" */
       font-style: normal;
       letter-spacing: 2.3px;

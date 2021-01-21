@@ -11,7 +11,7 @@
         <p>Gre za metode vplivanja na algoritme družbenih medijev oziroma t.i. brigading, ki je težko izsledljivo, a učinkovito orodje propagande. Organizirano delovanje skupine ljudi, ki nadzoruje večje število lažnih profilov, poskuša z všečkanjem in ritvitanjem vsebin, ki ustrezajo njeni političnih agendi, vplivati na algoritme omrežja Twitter in s tem povečati vidnost teh vsebin. Lažni profili obenem organizirano komentirajo izbrane objave in jih poskušajo vsebinsko bodisi diskreditirati bodisi potrditi z namenom vplivanja na vtis bralcev o večinskem mnenju spletne javnosti na določeno temo.</p>
         </div>
         <div class="container-ptic">
-          <img class="img-ptic" src="/en-ptic.jpg">
+          <img class="img-ptic" src="/en-ptic.jpg"/>
           <div class="container-inner-text">
           <p>Marsikateri uporabnik se ob napadih glasne Twitter večine počuti ogroženega ali utišanega, izvaja samocenzuro ali pa je nad sodelovanjem v debatah na omrežju preprosto obupal in prostor prepušča glasnejšim in bolj agresivnim komentatorjem. Posamezni uporabniki so pogosto tudi tarče organizanirah napadov in diskreditacij, kar jim otežuje, da bi svobodno izražali mnenja. Takemu procesu smo že bili priča pri popolni razgradnji kultivirane debate v komentarjih na spletnih mestih tradicionalnih medijev.</p>
           </div>
@@ -23,7 +23,7 @@
         <p>Predstavljamo izsledke raziskave, ki smo jo opravili v drugi polovici leta 2020 v sodelovanju z novinarji Pod črto in ob pomoči Twitter uporabnice @Objaveizkleti ter raziskovalca podatkov Virostatiq.</p>
         <h2>Priporočamo</h2>
       </div>
-        <social-media-banner>
+        <social-media-banner class="lean-banner">
           <span class="buran" name="text">Nadaljno branje</span>
           <div class="container-link">
           <p><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
@@ -119,7 +119,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin-left: 20px
+    margin-left: 10px;
+    margin-right: 20px;
   }
   .container-body {
     display: flex; /* or inline-flex */
@@ -156,7 +157,6 @@
 		font-size: 33px;
 		font-weight: 400;
 		font-style: normal;
-		letter-spacing: normal;
 		line-height: 24px;
 		text-align: left;
 		text-transform: uppercase;
@@ -182,17 +182,8 @@
     line-height: normal;
     margin: 0 auto;
   }
-  @media only screen and (max-width: 768px) {
-	.body-text {
-		width: 90vw;
-  }
-  .container-ptic {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 90vw;
-  }
-   .container-inner-text {
+
+    .container-inner-text {
     width:90vw;
     flex-grow: 1;
     text-align: left;
@@ -210,43 +201,51 @@
     line-height: normal;
 
   }
+
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (max-width: 768px) {
+  .lean-banner {
+    width: 90vw;
+  }
+	.body-text {
+		width: 90vw;
+  }
+  .container-ptic {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+  }
+   .container-inner-text {
+    width:90vw;
+  }
   .img-ptic {
     width: 90vw;
-    flex-grow: 0
   }
 }
   @media only screen and (min-width: 769px) {
   .body-text {
 		width: 50vw;
   }
+  .lean-banner {
+    width: 50vw;
+  }
   .container-ptic {
     display: flex;
     flex-wrap: wrap;
     width: 80vw;
+    align-items: center;
     margin: 20px;
   }
    .container-inner-text {
-    width: 30vw;
-    flex-grow: 1;
+    width: 40vw;
     margin-left: 50px;
-    text-align: left;
-    color: #000000;
-    font-family: acumin-pro, sans-serif;
-    font-size: 20px;
-    font-weight: 300;
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: 33.33px;
-    text-align: left;
-    /* Text style for "Lorem ipsu" */
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: normal;
-
   }
-  .img-ptic {
-    width: 30vw;
-    flex-grow: 0
-  }
+    .img-ptic {
+      width: 20vw;
+      height: auto;
+    }
   }
 </style>

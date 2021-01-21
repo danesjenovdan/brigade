@@ -1,5 +1,4 @@
 export default {
-    type: 'horizontalBar',
     data: {
       labels:  [ '@JJansaSDS',
       '@Jo_AnnaOfArt',
@@ -71,18 +70,6 @@ export default {
           borderWidth: 3
         }
       ]
-    },
-    options: {
-      responsive: true,
-      lineTension: 1,
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            padding: 25,
-          }
-        }]
-      }
     }
   }
   
