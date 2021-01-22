@@ -208,20 +208,12 @@
     "src": "/kalofat.jpg"
   },
   {
-    "troll": "",
-    "leftLink": "",
-    "leftCaption": "",
-    "rightLink": "",
-    "rightCaption": "",
-    "src": ""
-  },
-  {
     "troll": "luka_bizjak",
     "leftLink": "https://twitter.com/luka_bizjak",
     "leftCaption": "Luka Twitter profil",
     "rightLink": "https://thispersondoesnotexist.com/",
     "rightCaption": "Strojno ustvarjena fotografija",
-    "src": "/luka_bizjak.jpg"
+    "src": "/AI-generated.jpg"
   },
   {
     "troll": "JERN3J",
@@ -229,7 +221,7 @@
     "leftCaption": "Jernej Twitter profil",
     "rightLink": "https://thispersondoesnotexist.com/",
     "rightCaption": "Strojno ustvarjena fotografija",
-    "src": "/JERN3J.jpg"
+    "src": "/AI-generated.jpg"
   },
   {
     "troll": "jurzesky",
@@ -237,7 +229,7 @@
     "leftCaption": "Chowkidar Twitter profil",
     "rightLink": "https://thispersondoesnotexist.com/",
     "rightCaption": "Strojno ustvarjena fotografija",
-    "src": "/jurzesky.jpg"
+    "src": "/AI-generated.jpg"
   },
   {
     "troll": "jan_gerben",
@@ -245,7 +237,7 @@
     "leftCaption": "Jan Twitter profil",
     "rightLink": "https://thispersondoesnotexist.com/",
     "rightCaption": "Strojno ustvarjena fotografija",
-    "src": "/jan_gerben.jpg"
+    "src": "/AI-generated.jpg"
   },
   {
     "troll": "MajdaKravanja",
@@ -253,7 +245,7 @@
     "leftCaption": "Majda Twitter profil",
     "rightLink": "https://thispersondoesnotexist.com/",
     "rightCaption": "Strojno ustvarjena fotografija",
-    "src": "/MajdaKravanja.jpg"
+    "src": "/AI-generated.jpg"
   },
   {
     "troll": "JanezR2",
@@ -261,6 +253,6 @@
     "leftCaption": "Janez Twitter profil",
     "rightLink": "https://thispersondoesnotexist.com/",
     "rightCaption": "Strojno ustvarjena fotografija",
-    "src": "/JanezR2.jpg"
+    "src": "/AI-generated.jpg"
   }
 ]
