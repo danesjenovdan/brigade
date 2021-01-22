@@ -14,23 +14,24 @@
 		<div class="visualisations"><bar :data="charts.retweets" id="temp"/></div>
 	</div>
 	<div v-if="troll.accountInfo.name" class="visualisations-container">
-		<div class="visualisations"><bar :data="charts.retweets" id="retweets"/></div>
-		<div class="visualisations"><bar :data="charts.replies" id="replies"/></div>
-		<div class="visualisations"><bar :data="charts.mentions" id="mentions"/></div>
-		<div class="visualisations"><bar :data="charts.hashtags" id="hashtags"/></div>
+		<div class="visualisations-group"><bar-custom :data="charts.retweets" borderColor='rgb(249, 233, 111)'
+					fillColor='#f9e96f' id="retweets"/></div>
+			<div class="visualisations-group"><bar-custom :data="charts.mentions" borderColor='rgb(90, 164, 214)'
+				fillColor='#5aa4d6' id="mentions"/></div>
+			<div class="visualisations-group"><bar-custom :data="charts.replies" borderColor='rgb(234, 110, 51)'
+					fillColor='#ea6e33' id="replies"/></div>
+			<div class="visualisations-group"><bar-custom :data="charts.hashtags" borderColor='rgb(92, 134, 74)'
+				fillColor='#5c864a' id="hashtags"/></div>
 	</div>
-
-	<body-content-text v-if="troll.accountInfo.name">bla bla bla</body-content-text>
-	<fake-real-image class="image-container" v-for="image in troll.images" :stolenImage="stolenImage">
-		<img class="image" alt="" :src="image.url" />
+	<fake-real-image class="image-container" v-for="image in images">
+		<img class="image" alt="" :src="'/27Trolov' + image.src" />
 			<template v-slot:original>
-					<i><a target="_blank" class="url" :href="image.left">yeet</a></i>
+					<i><a target="_blank" class="url" :href="image.leftLink">{{image.leftCaption}}</a></i>
 		</template>
 		<template v-slot:fake>
-				<i><a target="_blank" class="url" :href="image.right">yeeet</a></i>
+				<i><a target="_blank" class="url" :href="image.rightLink">{{image.rightCaption}}</a></i>
 		</template>
 	</fake-real-image>
-	<body-content-text v-if="troll.accountInfo.name">bla bla bla</body-content-text>
 
 </template>
 
@@ -42,6 +43,9 @@ import text from "./../../../assets/text.js"
 import FakeRealImage from "./../../FakeRealImage.vue"
 import Bar from './../../Charts/Bar.vue'
 import createChartData from './../../Charts/createChartData'
+import trollImageText from './../../../../public/troll.json'
+import BarCustom from './../../Charts/BarCustom.vue'
+
 
 
 export default {
@@ -51,16 +55,18 @@ export default {
 		BodyContentText,
 		TrollProfile,
 		FakeRealImage,
-		Bar
+		Bar,
+		trollImageText,
+		BarCustom
   },
 	data() {
 		return {
 			troll: {
 				accountInfo: {
 				}, 
-				images: {
+			},
+			images: {
 
-				}
 			},
 			charts: {
 				replies: {},
@@ -73,11 +79,12 @@ export default {
 	},
 		methods: {
     onClickChild (value) {
+			this.$data.images = trollImageText.filter((element) => element.troll.toLowerCase() === value.accountInfo.userName)
 			this.$data.troll = value;
-			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "retweets");
-			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 30, "Replies to user");
-			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 30, "Mentioned user");
-			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 30, "Used hashtags");
+			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "retweets", 'rgb(249, 233, 111)','#f9e96f');
+			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 30, "Replies to user", 'rgb(92, 134, 74)','#5c864a');
+			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 30, "Mentioned user", 'rgb(90, 164, 214)','#5aa4d6');
+			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 30, "Used hashtags", 'rgb(234, 110, 51)','#ea6e33');
 
     },
 		createChartData
@@ -86,6 +93,32 @@ export default {
 </script>
 
 <style scoped>
+@media only screen and (max-width: 768px) {
+    .visualisations-group {
+      width: 90vw;
+      max-width: 1200px;
+      min-width: 400px;
+      height: 50vh;
+
+    }
+  }
+
+  @media only screen and (min-width: 769px) {
+    .visualisations-group {
+      width: 45vw;
+      max-width: 1200px;
+      min-width: 500px;
+      height: 50vh;
+    }
+  }
+  .visualisations-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-wrap:  wrap 
+
+  }
   .mikro-container {
 		border-top: 1px solid #b0b0b0;
 		border-bottom: 1px solid #b0b0b0;
@@ -95,14 +128,6 @@ export default {
 		width: 60vw;
 		border: 3px solid #5aa4d6;
 	}
-	.visualisations-container {
-		width: 80vw;
-		display: flex;
-		flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-		align-items:center;
-  }
 	.visualisations {
     margin: 0 auto;
 		width: 40vw;

@@ -18,13 +18,14 @@ export default (troll = {}, type = "", size = 0, label="", backgroundColor, bord
         { // another line graph
           label,
           data,
-          backgroundColor: 'rgba(71, 183,132,.5)', // Green
-          borderColor: '#47b784',
+          backgroundColor: backgroundColor, // Green
+          borderColor: borderColor,
           borderWidth: 3
         }
       ]
     },
     options: {
+      maintainAspectRatio: false,
       responsive: true,
       lineTension: 1,
       scales: {
@@ -32,9 +33,18 @@ export default (troll = {}, type = "", size = 0, label="", backgroundColor, bord
           ticks: {
             beginAtZero: true,
             padding: 25,
+            autoSkip: false,
+            fontSize: 10
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            beginAtZero: true,
           }
         }]
-      }
+      },
+      
+      events: ["mousemove", "mouseout", "click", "touchstart", "touchmove", "touchend"],
     }
   }
 }

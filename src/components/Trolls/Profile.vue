@@ -75,7 +75,6 @@
       border: 1px solid;
       padding: 10px;
       min-width: 200px;
-      height: 200px;
     }
     .body {
       width: 20vw;
