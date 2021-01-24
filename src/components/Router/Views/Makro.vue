@@ -12,7 +12,7 @@
   <!-- TOP HASHTAGS -->
   <div class="container-text">
     <h2>Top ključniki</h2>
-    <p>Lestvice 30 najbolj pogosto uporabljenih ključnikov glede na skupino.</p>
+    <p>Lestvice 20 najbolj pogosto uporabljenih ključnikov glede na skupino.</p>
   </div>
   <div class="visualisations-container">
     <div class="visualisations-group">
@@ -34,7 +34,7 @@
   </div>
   <div class="container-text">
     <h2>Top omembe</h2>
-    <p>Lestvice 30 najbolj pogosto omenjenih uporabnikov glede na skupino.</p>
+    <p>Lestvice 20 najbolj pogosto omenjenih uporabnikov glede na skupino.</p>
   </div>
   <div class="visualisations-container">
     <div class="visualisations-group">
@@ -56,7 +56,7 @@
   </div>
   <div class="container-text">
     <h2>Top RT</h2>
-    <p>Lestvice 30 najbolj pogosto poobjavljenih uporabnikov glede na skupino.</p>
+    <p>Lestvice 20 najbolj pogosto poobjavljenih uporabnikov glede na skupino.</p>
   </div>
   <div class="visualisations-container">
     <div class="visualisations-group">
@@ -78,7 +78,7 @@
   </div>
   <div class="container-text">
     <h2>Top domene</h2>
-    <p>Lestvice 30 najbolj pogosto objavljenih domen glede na skupino.</p>
+    <p>Lestvice 20 najbolj pogosto objavljenih domen glede na skupino.</p>
   </div>
   <div class="visualisations-container">
     <div class="visualisations-group">

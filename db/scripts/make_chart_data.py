@@ -5,19 +5,19 @@ from collections import Counter
 
 import es_connector
 
-def make_json_from_counter(counter, filename):
+def make_json_from_counter(counter, filename, n=20):
     with open(f'./charts/{filename}', 'w') as outfile:
         output = {
             'data': {
                 'labels': list(map(
                     lambda item: item[0],
-                    counter.most_common(30)
+                    counter.most_common(n)
                 )),
                 'datasets': [{
                     'label': filename,
                     'data': list(map(
                         lambda item: item[1],
-                        counter.most_common(30)
+                        counter.most_common(n)
                     ))
                 }],
             },
