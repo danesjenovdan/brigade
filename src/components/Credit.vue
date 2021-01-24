@@ -1,7 +1,7 @@
 <template>
 	<div class="container-banner">
 		<p>Projekt je nastal s podporo</p>
-	<a target="_blank"href="https://acfslovenia.si/"><img src="/acf.png" alt=""/></a>
+	<a target="_blank" href="https://acfslovenia.si/"><img src="/acf.png" alt=""/></a>
 	</div>
 </template>
 

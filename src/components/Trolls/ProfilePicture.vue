@@ -1,6 +1,6 @@
 <template>
     <div @click="onClickButton" class="item">
-			<div :class="clicked ? 'background' : null" >
+			<div :class="clicked ? 'background' : 'no-background'" >
 				<div class="image-container">
 					<round-img :src="info.imageUrl"/>
 					<span class="name">
@@ -37,6 +37,12 @@ import text from '../../assets/text.js'
 	margin-top: 10px;
 }
 .background {
+		background-image:url('/yellow-rectangle.png');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: 111px 105px;
+}
+.no-background:hover {
 		background-image:url('/yellow-rectangle.png');
     background-position:center;
     background-repeat: no-repeat;

@@ -15,7 +15,7 @@
     </div>
     <div v-if="text" class="body">
       {{text}}
-   </div>
+      </div>
    <div v-else class="user-body">
         Št. sledilcev: <b><i> {{info.followers}}</i></b>
         <div class="line"/>
@@ -25,6 +25,8 @@
         <div class="line"/>
         Datum registracije: <b><i> {{format_date(info.created)}}</i></b>
    </div>
+      <div v-if="text" class="empty-space">     
+      </div>
   </div>
 </template>
 <script>
@@ -50,44 +52,44 @@
 <style scoped>
 
 	@media only screen and (max-width: 768px) {
-  .container-group {
-    display: flex; /* or inline-flex */
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid;
-    padding: 10px;
-    height: max-content;
-  }
+    .container-group {
+      display: flex; /* or inline-flex */
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid;
+      padding: 10px;
+    }
     .body {
       margin: 10px;
       padding: 5px;
       text-align: left;
       font-family: acumin-pro, sans-serif;
-      flex-grow: 1;
     }
 	}
 
 	@media only screen and (min-width: 769px) {
-  .container-group {
-    display: flex; /* or inline-flex */
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid;
-    padding: 10px;
-    height: max-content;
-    min-width: 200px;
-    
-  }
-  .body {
-    width: 20vw;
-    max-width: 250px;
-    margin: 10px;
-    padding: 5px;
-    text-align: left;
-    font-family: acumin-pro, sans-serif;
-    flex-grow: 1;
-  }
+    .container-group {
+      display: flex; /* or inline-flex */
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid;
+      padding: 10px;
+      min-width: 200px;
+    }
+    .body {
+      width: 20vw;
+      max-width: 250px;
+      margin: 10px;
+      padding: 5px;
+      text-align: left;
+      font-family: acumin-pro, sans-serif;
+    }
 	}
+
+  .empty-space {
+    flex-grow: 1
+  }
+
   .line {
     border-bottom: 1px solid #b0b0b0;
     height: 1px;
@@ -96,7 +98,7 @@
   }
 
   .user-body {
-    padding: 5px;
+    padding: 10px;
     width: 225px;
     text-align: left;
   }
@@ -107,8 +109,6 @@
     border-bottom: 1px solid;
     align-items: center;
     width: 100%;
-    height: 20%;
-
   }
   .left {
     margin: 5px;
