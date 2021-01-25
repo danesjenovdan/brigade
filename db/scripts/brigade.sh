@@ -9,9 +9,11 @@ for user in "$@"
 do
     echo "Scraping $user"
     # ONLY RETWEETS
-    twint -u $user --since "2019-10-01" --native-retweets --index-tweets=twint_500_tweets --elasticsearch="$host:9200"
+    twint -u $user --since "2019-12-31" --retweets --index-tweets=twint_500_tweets --elasticsearch="$host:9200"
+    # ONLY NATIVE RETWEETS
+    twint -u $user --since "2019-12-31" --native-retweets --index-tweets=twint_500_tweets --elasticsearch="$host:9200"
     # ALL
-    twint -u $user --since "2019-10-01" --timeline --index-tweets=twint_500_tweets --elasticsearch="$host:9200"
+    twint -u $user --since "2019-12-31" --timeline --index-tweets=twint_500_tweets --elasticsearch="$host:9200"
     # REGULAR
-    twint -u $user --since "2019-10-01" --index-tweets=twint_500_tweets --elasticsearch="$host:9200"
+    twint -u $user --since "2019-12-31" --index-tweets=twint_500_tweets --elasticsearch="$host:9200"
 done

@@ -1,1 +1,1 @@
-{"data": {"labels": [], "datasets": [{"label": "500_hashtags.json", "data": []}]}}
+{"data": {"labels": ["#covid19", "#po", "#koronavirus", "#kul", "#slovenija", "#coronavirus", "#covid_19", "#eu", "#levuhad", "#faktor", "#ostanizdrav", "#msm", "#sampovem", "#murglstan", "#covid", "#tako", "#slovenia", "#v4", "#poru", "#fakenews"], "datasets": [{"label": "500_hashtags.json", "data": [4144, 2273, 1538, 1088, 1002, 942, 826, 824, 744, 737, 663, 650, 624, 624, 618, 605, 589, 577, 567, 533]}]}}
