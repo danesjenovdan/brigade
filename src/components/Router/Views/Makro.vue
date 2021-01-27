@@ -1,101 +1,113 @@
 <template>
-  <div class="container-text">
-    <p>Analize 4 različnih skupin Twitter uporabnikov, ki jih je mogoče primerjati med sabo. Analiza zajema čas od 1. 11. 2019 do 1.11. 2020.</p>
-  </div>
+  <body-content-text>
+    <template v-slot:title>
+      Skupine profilov
+    </template>
+  </body-content-text>
   <profile-groups />
-  <div class="container-text">
-    <h2>Aktivnost</h2>
-    <p>Število tvitov in ritvitov, ustvarjenih skozi čas glede na skupino.</p>
-  </div>
-  <div class="visualisations"><bar :data="tweetsByMonth" id="monthly"/></div>
+  <body-content-text>
+    <template v-slot:title>
+      Aktivnost
+    </template>
+    Število tvitov in ritvitov, ustvarjenih skozi čas glede na skupino.
+  </body-content-text>
+  <bar-with-custom-labels :data="tweetsByMonth" id="monthly"/>
 
   <!-- TOP HASHTAGS -->
-  <div class="container-text">
-    <h2>Top ključniki</h2>
-    <p>Lestvice 20 najbolj pogosto uporabljenih ključnikov glede na skupino.</p>
-  </div>
+  <body-content-text>
+    <template v-slot:title>
+      Top ključniki
+    </template>
+    Lestvice 20 najbolj pogosto uporabljenih ključnikov glede na skupino.
+  </body-content-text>
   <div class="visualisations-container">
     <div class="visualisations-group">
-      <bar-custom :data="hashtagsTop30Sample" borderColor='rgb(92, 134, 74)'
-        fillColor='#5c864a' id="hashtagsSample"/>
+      <bar-custom :data="hashtagsTop30Sample" borderColor='rgb(249, 233, 111)'
+        fillColor='#f9e96f' id="hashtagsSample"/>
     </div>
     <div class="visualisations-group">
-      <bar-custom :data="hashtagsTop30500" borderColor='rgb(90, 164, 214)'
-        fillColor='#5aa4d6' id="hashtags500"/>
+      <bar-custom :data="hashtagsTop30500" borderColor='rgb(92, 134, 74)'
+        fillColor='#5c864a' id="hashtags500"/>
     </div>
     <div class="visualisations-group">
-      <bar-custom :data="hashtagsTop30Politiki" borderColor='rgb(234, 110, 51)'
-        fillColor='#ea6e33' id="hashtagsPolitiki"/>
+      <bar-custom :data="hashtagsTop30Politiki" borderColor='rgb(90, 164, 214)'
+        fillColor='#5aa4d6' id="hashtagsPolitiki"/>
     </div>
         <div class="visualisations-group">
-      <bar-custom :data="hashtagsTop30Trolls" borderColor='rgb(249, 233, 111)'
-        fillColor='#f9e96f' id="hashtagsTrolls"/>
+      <bar-custom :data="hashtagsTop30Trolls" borderColor='rgb(234, 110, 51)'
+        fillColor='#ea6e33' id="hashtagsTrolls"/>
     </div>
   </div>
-  <div class="container-text">
-    <h2>Top omembe</h2>
-    <p>Lestvice 20 najbolj pogosto omenjenih uporabnikov glede na skupino.</p>
-  </div>
+  <body-content-text>
+    <template v-slot:title>
+      Top omembe
+    </template>
+    Lestvice 20 najbolj pogosto omenjenih uporabnikov glede na skupino.
+  </body-content-text>
   <div class="visualisations-container">
     <div class="visualisations-group">
-      <bar-custom :data="mentionsTop30Sample" borderColor='rgb(92, 134, 74)'
-        fillColor='#5c864a' id="mentionsSample"/>
+      <bar-custom :data="mentionsTop30Sample" borderColor='rgb(249, 233, 111)'
+        fillColor='#f9e96f' id="mentionsSample"/>
     </div>
     <div class="visualisations-group">
-      <bar-custom :data="mentionsTop30500" borderColor='rgb(90, 164, 214)'
-        fillColor='#5aa4d6' id="mentions500"/>
+      <bar-custom :data="mentionsTop30500" borderColor='rgb(92, 134, 74)'
+        fillColor='#5c864a' id="mentions500"/>
     </div>
     <div class="visualisations-group">
-      <bar-custom :data="mentionsTop30Politiki" borderColor='rgb(234, 110, 51)'
-        fillColor='#ea6e33' id="mentionsPolitiki"/>
+      <bar-custom :data="mentionsTop30Politiki" borderColor='rgb(90, 164, 214)'
+        fillColor='#5aa4d6' id="mentionsPolitiki"/>
     </div>
         <div class="visualisations-group">
-      <bar-custom :data="mentionsTop30Trolls" borderColor='rgb(249, 233, 111)'
-        fillColor='#f9e96f' id="mentionsTrolls"/>
+      <bar-custom :data="mentionsTop30Trolls" borderColor='rgb(234, 110, 51)'
+        fillColor='#ea6e33' id="mentionsTrolls"/>
     </div>
   </div>
-  <div class="container-text">
-    <h2>Top RT</h2>
-    <p>Lestvice 20 najbolj pogosto poobjavljenih uporabnikov glede na skupino.</p>
-  </div>
+  <body-content-text>
+    <template v-slot:title>
+      Top RT
+    </template>
+      Lestvice 20 najbolj pogosto poobjavljenih uporabnikov glede na skupino.
+  </body-content-text>
   <div class="visualisations-container">
     <div class="visualisations-group">
-      <bar-custom :data="retweetsTop30Sample" borderColor='rgb(92, 134, 74)'
-        fillColor='#5c864a' id="retweetsSample"/>
+      <bar-custom :data="retweetsTop30Sample" borderColor='rgb(249, 233, 111)'
+        fillColor='#f9e96f' id="retweetsSample"/>
     </div>
     <div class="visualisations-group">
-      <bar-custom :data="retweetsTop30500" borderColor='rgb(90, 164, 214)'
-        fillColor='#5aa4d6' id="retweets500"/>
+      <bar-custom :data="retweetsTop30500" borderColor='rgb(92, 134, 74)'
+        fillColor='#5c864a' id="retweets500"/>
     </div>
     <div class="visualisations-group">
-      <bar-custom :data="retweetsTop30Politiki" borderColor='rgb(234, 110, 51)'
-        fillColor='#ea6e33' id="retweetsPolitiki"/>
+      <bar-custom :data="retweetsTop30Politiki" borderColor='rgb(90, 164, 214)'
+        fillColor='#5aa4d6' id="retweetsPolitiki"/>
     </div>
         <div class="visualisations-group">
-      <bar-custom :data="retweetsTop30Trolls" borderColor='rgb(249, 233, 111)'
-        fillColor='#f9e96f' id="retweetsTrolls"/>
+      <bar-custom :data="retweetsTop30Trolls" borderColor='rgb(234, 110, 51)'
+        fillColor='#ea6e33' id="retweetsTrolls"/>
     </div>
   </div>
-  <div class="container-text">
-    <h2>Top domene</h2>
-    <p>Lestvice 20 najbolj pogosto objavljenih domen glede na skupino.</p>
-  </div>
+  <body-content-text>
+    <template v-slot:title>
+      Top domene
+    </template>
+      Lestvice 20 najbolj pogosto objavljenih domen glede na skupino.
+  </body-content-text>
   <div class="visualisations-container">
     <div class="visualisations-group">
-      <bar-custom :data="domainsTop30Sample" borderColor='rgb(92, 134, 74)'
-        fillColor='#5c864a' id="domainsSample"/>
+      <bar-custom :data="domainsTop30Sample" borderColor='rgb(249, 233, 111)'
+        fillColor='#f9e96f' id="domainsSample"/>
     </div>
     <div class="visualisations-group">
-      <bar-custom :data="domainsTop30500" borderColor='rgb(90, 164, 214)'
-        fillColor='#5aa4d6' id="domains500"/>
+      <bar-custom :data="domainsTop30500" borderColor='rgb(92, 134, 74)'
+        fillColor='#5c864a' id="domains500"/>
     </div>
     <div class="visualisations-group">
-      <bar-custom :data="domainsTop30Politiki" borderColor='rgb(234, 110, 51)'
-        fillColor='#ea6e33' id="domainsPolitiki"/>
+      <bar-custom :data="domainsTop30Politiki" borderColor='rgb(90, 164, 214)'
+        fillColor='#5aa4d6' id="domainsPolitiki"/>
     </div>
         <div class="visualisations-group">
-      <bar-custom :data="domainsTop30Trolls" borderColor='rgb(249, 233, 111)'
-        fillColor='#f9e96f' id="domainsTrolls"/>
+      <bar-custom :data="domainsTop30Trolls" borderColor='rgb(234, 110, 51)'
+        fillColor='#ea6e33' id="domainsTrolls"/>
     </div>
   </div>
 </template>
@@ -106,6 +118,7 @@ import BodyContentText from '../../BodyContentText.vue'
 import ProfileGroups from '../../ProfileGroups.vue'
 import Bar from '../../Charts/Bar.vue'
 import BarCustom from '../../Charts/BarCustom.vue'
+import BarWithCustomLabels from '../../Charts/BarWithCustomLabels.vue'
 import tweetsByMonth from '../../Charts/tweetsByMonth.js'
 
 import hashtagsTop30Sample from '../../../assets/charts/sample_hashtags.json';
@@ -134,7 +147,8 @@ export default {
     BodyContentText,
     ProfileGroups,
     Bar,
-    BarCustom
+    BarCustom,
+    BarWithCustomLabels
   },
   data() {
     return {
@@ -184,7 +198,7 @@ export default {
 
   @media only screen and (min-width: 769px) {
     .visualisations-group {
-      width: 45vw;
+      width: 35vw;
       max-width: 1200px;
       min-width: 500px;
       height: 50vh;
@@ -195,8 +209,8 @@ export default {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    flex-wrap:  wrap 
-
+    flex-wrap:  wrap ;
+    width: 80vw;
   }
   .labels-container {
     display: flex;
@@ -214,12 +228,12 @@ export default {
     margin: 0 auto;
     width: 80vw;
     max-width: 1200px;
+    min-width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     flex-direction: column;
-    height: 50vh;
   }
   .visualisations-group {
     margin: 0 auto;

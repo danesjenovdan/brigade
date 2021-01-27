@@ -1,7 +1,7 @@
 <template>
   <div class="container-text">
         <div class="title">
-					<slot name="title"> </slot>
+					<slot name="title"></slot>
 				</div>
         <div class="text">
 					<slot> </slot>
@@ -9,25 +9,27 @@
   </div>
 </template>
 
-<script>
-  export default {
-    props: {
-      text: { type: String },
-      title: { type: String },
-    },
+<style scoped>
+
+@media only screen and (max-width: 768px) {
+    .container-text {
+      width: 80vw;
+    }
   }
 
-</script>
+  @media only screen and (min-width: 769px) {
+    .container-text {
+        width: 60vw;
+    }
+  }
 
-<style scoped>
 .container-text {
   margin: 0 auto;
   margin-top: 70px;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   display: flex; /* or inline-flex */
   flex-direction: column;
   justify-content: flex-start;
-  width: 80vw;
 }
 
 .title {
@@ -40,9 +42,6 @@
 	line-height: 40px;
 	text-align: left;
 	/* Text style for "Activity (" */
-	font-style: normal;
-	letter-spacing: normal;
-	line-height: normal;
 }
 .text {
 	color: #000000;
@@ -53,11 +52,6 @@
 	letter-spacing: normal;
 	line-height: 33.33px;
 	text-align: left;
-	/* Text style for "Lorem ipsu" */
-	font-style: normal;
-	letter-spacing: normal;
-	line-height: normal;
-
 }
 </style>
 

@@ -1,7 +1,4 @@
 <template>
-	<div class="container-text">
-		<p>Analize 27 profilov, za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže, saj uporabljajo ukradene, stock ali strojno generirane profilne slike, obenem pa se izdajajo za avtentične uporabnike in ustvarjajo velik delež vsebin in interakcij z jasno politično motivirano vsebino.</p>
-	</div>
 	<div class="mikro-container">
 		<troll-profile-navigation @clicked="onClickChild"/>
 	</div>
@@ -23,10 +20,16 @@
 			<div class="visualisations-group"><bar-custom :data="charts.hashtags" borderColor='rgb(92, 134, 74)'
 				fillColor='#5c864a' id="hashtags"/></div>
 	</div>
+	<body-content-text>{{description}}</body-content-text>
 	<fake-real-image class="image-container" v-for="image in images">
 		<img class="image" alt="" :src="'/27Trolov' + image.src" />
 			<template v-slot:original>
-					<i><a target="_blank" class="url" :href="image.leftLink">{{image.leftCaption}}</a></i>
+					<i v-if="image.src.includes('/desnicarkaM-1.jpg')">
+					<a target="_blank" class="url" :href="image.leftLink.split(',')[0]">{{image.leftCaption.split(',')[0]}},</a>
+					<a target="_blank" class="url" :href="image.leftLink.split(',')[1]">{{image.leftCaption.split(',')[1]}},</a>
+					<a target="_blank" class="url" :href="image.leftLink.split(',')[2]">{{image.leftCaption.split(',')[2]}}</a>
+					</i>
+					<i v-else><a target="_blank" class="url" :href="image.leftLink">{{image.leftCaption}}</a></i>
 		</template>
 		<template v-slot:fake>
 				<i><a target="_blank" class="url" :href="image.rightLink">{{image.rightCaption}}</a></i>
@@ -66,8 +69,8 @@ export default {
 				}, 
 			},
 			images: {
-
 			},
+			description: "",
 			charts: {
 				replies: {},
 				retweets: {},
@@ -80,6 +83,7 @@ export default {
 		methods: {
     onClickChild (value) {
 			this.$data.images = trollImageText.filter((element) => element.troll.toLowerCase() === value.accountInfo.userName)
+			this.$data.description = trollImageText.find((element) => element.troll.toLowerCase() === value.accountInfo.userName).description
 			this.$data.troll = value;
 			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "retweets", 'rgb(249, 233, 111)','#f9e96f');
 			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 30, "Replies to user", 'rgb(92, 134, 74)','#5c864a');
@@ -105,10 +109,10 @@ export default {
 
   @media only screen and (min-width: 769px) {
     .visualisations-group {
-      width: 45vw;
+      width: 35vw;
       max-width: 1200px;
       min-width: 500px;
-      height: 50vh;
+      height: 60vh;
     }
   }
   .visualisations-container {
@@ -116,8 +120,8 @@ export default {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    flex-wrap:  wrap 
-
+    flex-wrap:  wrap ;
+    width: 80vw;
   }
   .mikro-container {
 		border-top: 1px solid #b0b0b0;

@@ -2,9 +2,9 @@
     <div @click="onClickButton" class="item">
 			<div :class="clicked ? 'background' : 'no-background'" >
 				<div class="image-container">
-					<round-img :src="info.imageUrl"/>
+					<round-img :src="'/27TrolovProfilke/'+info.userName+'.jpg'"/>
 					<span class="name">
-					<p :class="clicked ? 'bold' : null" >{{info.name}}</p>
+					<p :class="clicked ? 'bold' : null" >{{info.name.length > 13 ? info.name.substring(0, 10)+"..." : info.name}}</p>
 						</span>
 				</div>
 			</div>

@@ -3,14 +3,15 @@
     <div class="head">
         <div class="left">
           <img v-if="text" alt="" :src="imageUrl" />
-          <img v-else alt="" class="userImage" :src="info.imageUrl">
+          <img v-else alt="" class="userImage" :src="'/27TrolovProfilke/'+info.userName+'.jpg'">
         </div>
         <div v-if="text" class="right">
          <span class="title">{{title}}</span><br/>
           <span class="subtitle">{{subtitle}}</span>
         </div>
         <div v-else class="right">
-          <span class="profileName">{{info.name}}</span>
+          <span class="profileName">{{info.name}}</span><br/>
+          <span class="subtitle"><a target="_blank" :href="'https://twitter.com/'+info.userName">@{{info.userName}}</a></span>
         </div>
     </div>
     <div v-if="text" class="body">

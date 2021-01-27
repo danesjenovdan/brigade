@@ -23,12 +23,13 @@
 	@media only screen and (min-width: 769px) {
 		.container-banner {
 			height: 166px;
-			width: 85vw
+			width: 85vw;
+			justify-content: space-evenly;
 			}
 		}
 		.container-icons {
 			display: flex;
-			justify-content: center;
+			justify-content: space;
 			flex-direction: row;
 			cursor: pointer;
 		}

@@ -2,7 +2,6 @@
 		<div class="flex-grid">
 				<profile-picture @clicked="onClickChild" class="flex-grid-item"
 				v-for="troll in trolls"
-				:imageUrl="troll.accountInfo.imageUrl"
 				:name="troll.accountInfo.name"
 				:clicked = "troll.accountInfo.name === clickedName"
 				:info = "troll.accountInfo"

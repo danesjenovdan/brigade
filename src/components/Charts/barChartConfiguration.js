@@ -22,7 +22,11 @@ export const configue = (labels, label, data, backgroundColor, borderColor, id) 
             beginAtZero: true,
             padding: 25,
             autoSkip: false,
-            fontSize: 18
+            fontSize: 18,
+            callback: function (tick) {
+              if (tick.length > 12) return tick.substring(0, 9)+"...";
+              else return tick
+          }
           }
         }],
         xAxes: [{

@@ -31,14 +31,14 @@ export default {
         });
 				const myChart = this.$data.myChart
 				document.getElementById(chartId).onclick = function(evt){
-				const activePoints = myChart.getElementsAtEvent(evt);
-				const firstPoint = activePoints[0];
-				const label = myChart.data.labels[firstPoint._index];
-				const value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
-        const url = chartId === 'hashtags' ? 'https://twitter.com/hashtag/' : 'https://twitter.com/'
-				if (firstPoint !== undefined)
-				window.open(url+label, '_blank');
-		};
+            const activePoints = myChart.getElementsAtEvent(evt);
+            const firstPoint = activePoints[0];
+            const label = myChart.data.labels[firstPoint._index];
+            const value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+            const url = chartId === 'hashtags' ? 'https://twitter.com/hashtag/' : 'https://twitter.com/'
+            if (firstPoint !== undefined)
+            window.open(url+label, '_blank');
+        };
       }
   },
   mounted() {

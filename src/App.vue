@@ -21,10 +21,9 @@
         <p>Dobro informirana javnost je ključnega pomena za zdravo demokracijo. Javnih spletnih prostorov, v katerih se oblikuje dominantni politični diskurz, ne smemo prepustiti organiziranim skupinam, ki ga poskušajo zlorabiti.</p>
         <h1>Raziskava</h1>
         <p>Predstavljamo izsledke raziskave, ki smo jo opravili v drugi polovici leta 2020 v sodelovanju z novinarji Pod črto in ob pomoči Twitter uporabnice @Objaveizkleti ter raziskovalca podatkov Virostatiq.</p>
-        <h2>Priporočamo</h2>
       </div>
         <social-media-banner class="lean-banner">
-          <span class="buran" name="text">Nadaljno branje</span>
+          <span class="buran" name="text">Nadaljno <br/>branje</span>
           <div class="container-link">
           <p><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
           <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
@@ -33,7 +32,7 @@
       <views-navigation/>
       <router-view></router-view>
       <social-media-banner>
-        <span class="buran" name="text">povej naprej</span>
+        <span class="buran" name="text">povej naprej!</span>
         <div class="container-icons">
           <icon >
             <img class="facebook" src="/facebook.png" alt=""/>
@@ -116,11 +115,9 @@
     position: absolute;
   }
   .container-link {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     margin-left: 10px;
     margin-right: 20px;
+    font-size: 24px;
   }
   .container-body {
     display: flex; /* or inline-flex */
@@ -202,11 +199,10 @@
 
   }
 
-  @media only screen and (min-width: 1200px) {
-  }
   @media only screen and (max-width: 768px) {
   .lean-banner {
     width: 90vw;
+    margin-top: 20px;
   }
 	.body-text {
 		width: 90vw;
@@ -231,6 +227,8 @@
   }
   .lean-banner {
     width: 50vw;
+    margin-top: 20px;
+
   }
   .container-ptic {
     display: flex;

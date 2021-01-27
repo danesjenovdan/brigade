@@ -19,17 +19,17 @@
     <profile
       id="profile"
       class="flex-grid-item"
-      title="Desničarji"
-      subtitle="XX profilov"
-      text="Skupina profilov, definiranih s pomočjo strojnega klasifikatorja, ki upošteva metapodatke profilov, povezanost profilov in vsebine njihovih objav ter jih na tej podlagi razvršča v pretežno desno politično opcijo."
+      title="Lažni profili"
+      subtitle="27 profilov"
+      text="Skupina profilov, ki uporablja lažne profilne slike, širi politično propagando in za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej Mikro pogled).."
       imageUrl="/red.png">
     </profile>
     <profile
       id="profile"
       class="flex-grid-item"
-      title="Levičarji"
-      subtitle="Xxx profilov"
-      text="Skupina profilov, definiranih s pomočjo strojnega klasifikatorja, ki upošteva metapodatke profilov, povezanost profilov in vsebine njihovih objav ter jih na tej podlagi razvršča v pretežno levo politično opcijo."
+      title="Politiki"
+      subtitle="XX profilov"
+      text="Skupina profilov trenutno aktivnih politikov funkcionarjev: poslancev, ministrov, predsednikov strank in državnih sekretarjev."
       imageUrl="/blue.png">
     </profile>
 	</div >
@@ -63,9 +63,10 @@ export default {
   .flex-grid-item {
     flex-grow: 0;
     flex-shrink: 0;
-    margin-top: 10px;
     margin-left: 25px;
 		margin-right: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     align-items: center;
   }
 </style>

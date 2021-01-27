@@ -33,12 +33,13 @@ export default {
             284904,
             141361]
           ,
-          backgroundColor: 'rgb(92, 134, 74)', // Green
+          backgroundColor: 'rgb(92, 134, 74)',
           borderColor: '#5c864a',
-          borderWidth: 3
+          borderWidth: 3,
+          id: 'brigade'
         },
         { // another line graph
-          label: 'Activity (number of tweets) by leftist',
+          label: 'Activity (number of tweets) by politicians',
           data: [ 47632,
             34821,
             46416,
@@ -54,12 +55,13 @@ export default {
             684904,
             241361]
           ,
-          backgroundColor: 'rgb(90, 164, 214)', // Green
+          backgroundColor: 'rgb(90, 164, 214)',
           borderColor: '#5aa4d6',
-          borderWidth: 3
+          borderWidth: 3,
+          id: 'left'
         },
         { // another line graph
-          label: 'Activity (number of tweets) by right wingers',
+          label: 'Activity (number of tweets) by fake profiles',
           data: [ 67632,
             44821,
             76416,
@@ -75,9 +77,10 @@ export default {
             484904,
             541361]
           ,
-          backgroundColor: 'rgb(234, 110, 51)', // Green
+          backgroundColor: 'rgb(234, 110, 51)',
           borderColor: '#ea6e33',
-          borderWidth: 3
+          borderWidth: 3,
+          id: 'right'
         },
         { // another line graph
           label: 'Activity (number of tweets) by control goup',
@@ -98,7 +101,8 @@ export default {
           ,
           backgroundColor: 'rgb(249, 233, 111)', // Green
           borderColor: '#f9e96f',
-          borderWidth: 3
+          borderWidth: 3,
+          id: 'control'
         }
       ]
     },
