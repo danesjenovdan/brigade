@@ -24,6 +24,11 @@ export const configue = (labels, label, data, backgroundColor, borderColor, id) 
             autoSkip: false,
             fontSize: 18
           }
+        }],
+        xAxes: [{
+          ticks: {
+            beginAtZero: true,
+          }
         }]
       },
       

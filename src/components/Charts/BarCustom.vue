@@ -43,7 +43,6 @@ export default {
   },
   mounted() {
     if (this.data && this.data.data) {
-      console.log("mounted create", this.id)
 			const configured = configure(this.data.data.labels,
 			this.data.data.datasets[0].label,
 			this.data.data.datasets[0].data,
@@ -57,7 +56,6 @@ export default {
     watch: {
     data(newVal) {
       if (!this.$data.data && this.$data.data !== undefined)  {
-        console.log("created another one", this.id)
         const configured = configure(this.data.data.labels,
         this.data.data.datasets[0].label,
         this.data.data.datasets[0].data,
@@ -67,7 +65,6 @@ export default {
         )
         this.createChart(this.id, configured);
       } else {
-        console.log("updated one", this.id)
         this.$data.myChart.data.labels = newVal.data.labels;
         this.$data.myChart.data.datasets = newVal.data.datasets
         this.$data.myChart.update();
