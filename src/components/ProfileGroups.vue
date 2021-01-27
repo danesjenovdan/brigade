@@ -37,7 +37,7 @@
 
 <script>
 import Profile from './Trolls/Profile.vue' // generilized component that can be used for troll type card
-import text from './../assets/text.js'
+import text from '../assets/text.js'
 
 export default {
   components: {

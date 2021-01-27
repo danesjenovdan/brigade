@@ -1,0 +1,54 @@
+# NOTES:
+# sysctl -w vm.max_map_count=262144
+# https://stackoverflow.com/questions/51445846/elasticsearch-max-virtual-memory-areas-vm-max-map-count-65530-is-too-low-inc
+
+version: '3'
+services:
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+      - "http.cors.allow-origin=*"
+      - "http.cors.enabled=true"
+      - "http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization"
+      - "http.cors.allow-credentials=true"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data:/data/
+    ports:
+      - 9200:9200
+    networks:
+      - dockerenv
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.9.2
+    ports:
+      - 5601:5601
+    environment:
+      ELASTICSEARCH_URL: http://es:9200
+      ELASTICSEARCH_HOSTS: http://es:9200
+    networks:
+      - dockerenv
+
+  python:
+    image: python:3.9
+    working_dir: /code
+    # entrypoint: ./entrypoint.sh
+    volumes:
+      - ./:/code
+      - pipdata:/usr/local/lib/python3.8/site-packages/
+      - bindata:/usr/local/bin/
+    networks:
+      - dockerenv
+
+networks:
+  dockerenv:
+    driver: bridge
+
+volumes:
+  pipdata:
+  bindata:

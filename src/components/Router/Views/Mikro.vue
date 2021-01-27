@@ -36,15 +36,15 @@
 </template>
 
 <script>
-import TrollProfileNavigation from './../../Trolls/ProfileNavigation.vue'
-import BodyContentText from './../../BodyContentText.vue'
+import TrollProfileNavigation from '../../Trolls/ProfileNavigation.vue'
+import BodyContentText from '../../BodyContentText.vue'
 import TrollProfile from "./../../Trolls/Profile.vue"
 import text from "./../../../assets/text.js"
 import FakeRealImage from "./../../FakeRealImage.vue"
-import Bar from './../../Charts/Bar.vue'
-import createChartData from './../../Charts/createChartData'
-import trollImageText from './../../../../public/troll.json'
-import BarCustom from './../../Charts/BarCustom.vue'
+import Bar from '../../Charts/Bar.vue'
+import createChartData from '../../Charts/createChartData'
+import trollImageText from '../../../../public/troll.json'
+import BarCustom from '../../Charts/BarCustom.vue'
 
 
 

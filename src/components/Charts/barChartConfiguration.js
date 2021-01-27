@@ -22,7 +22,7 @@ export const configue = (labels, label, data, backgroundColor, borderColor, id) 
             beginAtZero: true,
             padding: 25,
             autoSkip: false,
-            fontSize: 10
+            fontSize: 18
           }
         }]
       },

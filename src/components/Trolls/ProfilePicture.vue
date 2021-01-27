@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import RoundImg from './../RoundImg.vue'
+import RoundImg from '../RoundImg.vue'
 import text from '../../assets/text.js'
 
   export default {
