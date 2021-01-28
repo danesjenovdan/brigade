@@ -4,7 +4,7 @@
       id="profile"
       class="flex-grid-item"
       title="Kontrolni vzorec"
-      subtitle="400 profilov"
+      subtitle="~150 profilov"
       text="Naključno izbran vzorec slovenskih uporabnikov omrežja Twitter. Vzorec je bil izbran s pomočjo metode XXX"
       imageUrl="/yellow.png">
     </profile>
@@ -20,7 +20,7 @@
       id="profile"
       class="flex-grid-item"
       title="Lažni profili"
-      subtitle="27 profilov"
+      subtitle="~25 profilov"
       text="Skupina profilov, ki uporablja lažne profilne slike, širi politično propagando in za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej Mikro pogled).."
       imageUrl="/red.png">
     </profile>
@@ -28,7 +28,7 @@
       id="profile"
       class="flex-grid-item"
       title="Politiki"
-      subtitle="XX profilov"
+      subtitle="~90 profilov"
       text="Skupina profilov trenutno aktivnih politikov funkcionarjev: poslancev, ministrov, predsednikov strank in državnih sekretarjev."
       imageUrl="/blue.png">
     </profile>
