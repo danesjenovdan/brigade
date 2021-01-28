@@ -4,7 +4,7 @@
 				<div class="image-container">
 					<round-img :src="'/27TrolovProfilke/'+info.userName+'.jpg'"/>
 					<span class="name">
-					<p :class="clicked ? 'bold' : null" >{{info.name.length > 13 ? info.name.substring(0, 10)+"..." : info.name}}</p>
+					<p :class="clicked ? 'bold' : null" >{{displayedName}}</p>
 						</span>
 				</div>
 			</div>
@@ -21,13 +21,31 @@ import text from '../../assets/text.js'
 		},
 		props: {
 			clicked: { type: Boolean },
-			info: {type: Object}
+			info: {type: Object},
 		},
+	data() {
+		return {
+			displayedName: ""
+		}
+	},
 		methods: {
 			onClickButton (event) {
 				this.$emit('clicked', this.info)
 			}
-  	}
+  	},
+		mounted() {
+			console.log(this.info.name)
+			if(this.info.name.length > 13) {
+				let name = this.info.name
+				if (this.info.name.includes("#")) name = name.replace("#", " ")
+				const splitName = name.split(' ')
+				if (splitName.length === 3) this.$data.displayedName = splitName[0] + "\n"+splitName[1]+" " +splitName[2]
+			  else if (splitName.length === 2) this.$data.displayedName = splitName[0] + "\n"+splitName[1]
+				else this.$data.displayedName = splitName[0] + "\n"
+			} else {
+				this.$data.displayedName = this.info.name + "\n"
+			}
+ 		}
   }
 
 </script>
@@ -67,5 +85,6 @@ import text from '../../assets/text.js'
 	letter-spacing: normal;
 	line-height: 16px;
 	text-align: center;
+	white-space: pre-wrap; 
  }
 </style>

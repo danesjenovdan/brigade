@@ -1,5 +1,12 @@
 <template>
-  <canvas :id="id"></canvas>
+  <div class="container">
+    <div class="labels-container">
+      <slot></slot>
+    </div>
+    <div class="canvas">
+    <canvas :id="id"></canvas>
+    </div>
+  </div>
 </template>
 <script>
 import Chart from 'chart.js';
@@ -12,7 +19,8 @@ export default {
       id: { type: String, required: true },
       data: { type: Object },
 			fillColor: { type: String },
-			borderColor: { type: String }
+			borderColor: { type: String },
+      displayLabel: { default: true, type: Boolean }
   },
     data () {
       return {
@@ -48,7 +56,8 @@ export default {
 			this.data.data.datasets[0].data,
 			this.borderColor,
 			this.fillColor,
-			this.id
+			this.id,
+      this.displayLabel
 			)
       this.createChart(this.id, configured);
       }
@@ -61,7 +70,8 @@ export default {
         this.data.data.datasets[0].data,
         this.borderColor,
         this.fillColor,
-        this.id
+        this.id,
+        this.displayLabels
         )
         this.createChart(this.id, configured);
       } else {
@@ -76,6 +86,30 @@ export default {
 </script>
 
 <style scoped>
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+  }
+  .labels-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 100px;
+    margin-bottom: 20px;
+  }
+  .canvas {
+    margin: 0 auto;
+    width: 35vw;
+    max-width: 1200px;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+    height: 50vh;
+  }
   .labels-container {
     display: flex;
     justify-content: center;

@@ -27,6 +27,7 @@
           <div class="container-link">
           <p><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
           <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
+          <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
         </div>
         </social-media-banner>
       <views-navigation/>

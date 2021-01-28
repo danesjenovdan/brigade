@@ -2,16 +2,6 @@
   <div class="container-view">
 		<img class="image" alt="Vue logo" src="/Layer-top.png" />
 		<div class="items">
-      <div class="container-description">
-        <div id="1" :class="show === 1? 'background' : 'no-background'" >
-          <p class="title"  @click="show = 1;goTo('makro')">
-            <span :class="show === 1? 'spacing' : null">Makro pogled</span>
-          </p>
-        </div>
-        <div class="subtitle">
-          <p>Analize 4 različnih skupin Twitter uporabnikov, <br/>ki jih je mogoče primerjati med sabo.</p>
-        </div>
-        </div>
         <div class="container-description">
           <div id="2" :class="show === 2? 'background' : 'no-background'">
             <p class="title" @click="show = 2;goTo('mikro')">
@@ -21,6 +11,16 @@
           <div class="subtitle">
             <p>Analize 27 profilov, za katere obstaja <br/>visoka verjetnost, da so lažni in del <br/>organizirane mreže</p>
             </div>
+        </div>
+      <div class="container-description">
+        <div id="1" :class="show === 1? 'background' : 'no-background'" >
+          <p class="title"  @click="show = 1;goTo('makro')">
+            <span :class="show === 1? 'spacing' : null">Makro pogled</span>
+          </p>
+        </div>
+        <div class="subtitle">
+          <p>Analize 4 različnih skupin Twitter uporabnikov, <br/>ki jih je mogoče primerjati med sabo.</p>
+        </div>
         </div>
         <div class="container-description">
           <div id="3" :class="show === 3? 'background' : 'no-background'">
@@ -41,7 +41,7 @@
 		export default {
 		data(){
 				return {
-					show: 1,
+					show: 2,
 				}
 			},
     methods: {

@@ -1,4 +1,4 @@
-export const configue = (labels, label, data, backgroundColor, borderColor, id) => { return {
+export const configue = (labels, label, data, backgroundColor, borderColor, id, displayLegend) => { return {
     type: 'horizontalBar',
     data: {
       labels,    
@@ -14,6 +14,9 @@ export const configue = (labels, label, data, backgroundColor, borderColor, id) 
     },
     options: {
       maintainAspectRatio: false,
+      legend: {
+        display: displayLegend
+        },
       responsive: true,
       lineTension: 1,
       scales: {
@@ -22,11 +25,11 @@ export const configue = (labels, label, data, backgroundColor, borderColor, id) 
             beginAtZero: true,
             padding: 25,
             autoSkip: false,
-            fontSize: 18,
-            callback: function (tick) {
+            fontSize: 16,
+            /*callback: function (tick) {
               if (tick.length > 12) return tick.substring(0, 9)+"...";
               else return tick
-          }
+            }*/
           }
         }],
         xAxes: [{

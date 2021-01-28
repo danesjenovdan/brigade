@@ -22,6 +22,17 @@ export default {
 </script>
 
 <style scoped>
+@media only screen and (max-width: 768px) {
+	.link {
+		justify-content: start;
+	  }
+  }
+
+  @media only screen and (min-width: 769px) {
+	  .link {
+		justify-content: center;
+	  }
+  }
 	.container {
 		display: flex; /* or inline-flex */
 		flex-direction: column;
@@ -31,7 +42,6 @@ export default {
 	.icon {
 		width: 20px;
 		height: 20px;
-		margin-right: 5px;
 		align-items: center;
 	}
 	.linkContainer {
@@ -45,6 +55,5 @@ export default {
 		width: 100%;
 		text-align: center;
 		align-items: center;
-		justify-content: center;
 	}
 </style>

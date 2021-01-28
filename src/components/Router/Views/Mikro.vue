@@ -1,4 +1,8 @@
 <template>
+  <body-content-text>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur molestie eros. Suspendisse maximus ligula elementum pretium bibendum. Aliquam erat volutpat. Aliquam lorem urna, pulvinar sit amet augue vitae, mattis rhoncus eros. In nisi tellus, convallis varius tellus ut, imperdiet luctus erat. Vivamus ac vulputate lorem. Sed condimentum imperdiet risus, id gravida ex luctus sed. Proin tristique aliquet feugiat.</p>
+    <p>Maecenas porta turpis purus, mattis consequat lorem finibus eget. Cras hendrerit sodales arcu a venenatis. Vivamus ut urna metus. Duis facilisis erat ipsum. Integer in cursus felis. Morbi euismod suscipit risus ut molestie. Sed facilisis consectetur lectus ullamcorper vulputate. In facilisis molestie lobortis. Mauris in arcu faucibus, dapibus leo a, tristique risus. Quisque vestibulum quis ante eget cursus. Vivamus lorem urna, accumsan eu mollis nec, blandit et metus. Maecenas at pellentesque turpis. Nam viverra nisl vitae turpis dignissim, ac vulputate arcu convallis. Donec consequat lectus arcu, eget fermentum quam moles</p>
+  </body-content-text>
 	<div class="mikro-container">
 		<troll-profile-navigation @clicked="onClickChild"/>
 	</div>
@@ -25,9 +29,9 @@
 		<img class="image" alt="" :src="'/27Trolov' + image.src" />
 			<template v-slot:original>
 					<i v-if="image.src.includes('/desnicarkaM-1.jpg')">
-					<a target="_blank" class="url" :href="image.leftLink.split(',')[0]">{{image.leftCaption.split(',')[0]}},</a>
-					<a target="_blank" class="url" :href="image.leftLink.split(',')[1]">{{image.leftCaption.split(',')[1]}},</a>
-					<a target="_blank" class="url" :href="image.leftLink.split(',')[2]">{{image.leftCaption.split(',')[2]}}</a>
+					<a target="_blank" class="url" :href="image.leftLink.split(',')[0]">{{image.leftCaption.split(',')[0]}},<br/></a>
+					<a target="_blank" class="url" :href="image.leftLink.split(',')[1]">{{image.leftCaption.split(',')[1]}},<br/></a>
+					<a target="_blank" class="url" :href="image.leftLink.split(',')[2]">{{image.leftCaption.split(',')[2]}}<br/></a>
 					</i>
 					<i v-else><a target="_blank" class="url" :href="image.leftLink">{{image.leftCaption}}</a></i>
 		</template>
@@ -85,10 +89,10 @@ export default {
 			this.$data.images = trollImageText.filter((element) => element.troll.toLowerCase() === value.accountInfo.userName)
 			this.$data.description = trollImageText.find((element) => element.troll.toLowerCase() === value.accountInfo.userName).description
 			this.$data.troll = value;
-			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "retweets", 'rgb(249, 233, 111)','#f9e96f');
-			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 30, "Replies to user", 'rgb(92, 134, 74)','#5c864a');
-			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 30, "Mentioned user", 'rgb(90, 164, 214)','#5aa4d6');
-			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 30, "Used hashtags", 'rgb(234, 110, 51)','#ea6e33');
+			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "RT", 'rgb(249, 233, 111)','#f9e96f');
+			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 30, "Odgovori uporabniku", 'rgb(92, 134, 74)','#5c864a');
+			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 30, "Omembe", 'rgb(90, 164, 214)','#5aa4d6');
+			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 30, "Ključniki", 'rgb(234, 110, 51)','#ea6e33');
 
     },
 		createChartData
@@ -102,9 +106,11 @@ export default {
       width: 90vw;
       max-width: 1200px;
       min-width: 400px;
-      height: 50vh;
-
+      height: 60vh;	
     }
+		.url {
+			font-size: 14px;
+		}
   }
 
   @media only screen and (min-width: 769px) {
@@ -114,6 +120,9 @@ export default {
       min-width: 500px;
       height: 60vh;
     }
+		.url {
+			font-size: 16px;
+		}
   }
   .visualisations-container {
     display: flex;
@@ -150,7 +159,6 @@ export default {
 		height: 15px;
 		color: #000000;
 		font-family: acumin-pro, sans-serif;
-		font-size: 16px;
 		font-weight: 700;
 		font-style: normal;
 		letter-spacing: normal;

@@ -58,7 +58,7 @@ export default {
           backgroundColor: 'rgb(90, 164, 214)',
           borderColor: '#5aa4d6',
           borderWidth: 3,
-          id: 'left'
+          id: 'politiki'
         },
         { // another line graph
           label: 'Activity (number of tweets) by fake profiles',
@@ -80,7 +80,7 @@ export default {
           backgroundColor: 'rgb(234, 110, 51)',
           borderColor: '#ea6e33',
           borderWidth: 3,
-          id: 'right'
+          id: 'fake'
         },
         { // another line graph
           label: 'Activity (number of tweets) by control goup',

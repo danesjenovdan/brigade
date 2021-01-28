@@ -2,20 +2,40 @@
   <div class="container">
     <div class="labels-container">
       <div @click="updateChart('control')" class="lables">
-      <img alt="" src="/yellow.png">
-        Kontrolni vzorec
+      <img alt="" src="/yellow.png"/>
+        <span v-if="clickedLabel.control">
+          <strike>Kontrolni vzorec</strike>
+        </span>
+        <span v-else>
+          Kontrolni vzorec
+        </span>
       </div>
       <div  @click="updateChart('brigade')" class="lables">
-      <img alt="" src="/green.png">
-        Brigada
+      <img alt="" src="/green.png"/>
+        <span v-if="clickedLabel.brigade">
+          <strike>Brigada</strike>
+        </span>
+        <span v-else>
+          Brigada
+        </span>
       </div>
-      <div  @click="updateChart('right')" class="lables">
-      <img alt="" src="/red.png">
-        Lažni profili
+      <div  @click="updateChart('fake')" class="lables">
+      <img alt="" src="/red.png"/>
+        <span v-if="clickedLabel.fake">
+          <strike>Lažni profili</strike>
+        </span>
+        <span v-else>
+          Lažni profili
+        </span>
       </div>
-      <div  @click="updateChart('left')" class="lables">
-      <img alt="" src="/blue.png">
-        Politiki
+      <div  @click="updateChart('politiki')" class="lables">
+      <img alt="" src="/blue.png"/>
+        <span v-if="clickedLabel.politiki">
+          <strike>Politiki</strike>
+        </span>
+        <span v-else>
+          Politiki
+        </span>
       </div>
     </div>
     <div class="canvas">
@@ -38,7 +58,13 @@ export default {
       return {
         myChart: {},
         activeDataset: [],
-        inactiveDataset: []
+        inactiveDataset: [],
+        clickedLabel: {
+          fake: false,
+          politiki: false,
+          brigade: false,
+          control: false,
+        }
       }
     },
     methods: {
@@ -51,7 +77,7 @@ export default {
           data: chartData.data,
           options: {
             legend: {
-            display: false
+              display: false
               },
             maintainAspectRatio: false,
             responsive: true,
@@ -80,6 +106,7 @@ export default {
         });
       },
 			updateChart(id) {
+        this.clickedLabel[id] = this.clickedLabel[id] ? false : true;
         let element = this.activeDataset.find((el) => el.id === id);
         if (element) {
           this.activeDataset = this.activeDataset.filter((el) => el.id !== id)
@@ -91,7 +118,7 @@ export default {
         }
         this.$data.myChart.data.datasets =  this.activeDataset
         this.$data.myChart.update();
-			}
+			},
   },
   mounted() {
     if (this.data) { 
@@ -132,6 +159,7 @@ export default {
     margin: 5px;
     border: 1px solid black;
     border-radius: 25px;
+    cursor: pointer;
   }
     img {
     /* Style for "Layer 32" */

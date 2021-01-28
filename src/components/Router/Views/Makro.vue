@@ -3,6 +3,8 @@
     <template v-slot:title>
       Skupine profilov
     </template>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur molestie eros. Suspendisse maximus ligula elementum pretium bibendum. Aliquam erat volutpat. Aliquam lorem urna, pulvinar sit amet augue vitae, mattis rhoncus eros. In nisi tellus, convallis varius tellus ut, imperdiet luctus erat. Vivamus ac vulputate lorem. Sed condimentum imperdiet risus, id gravida ex luctus sed. Proin tristique aliquet feugiat.</p>
+    <p>Maecenas porta turpis purus, mattis consequat lorem finibus eget. Cras hendrerit sodales arcu a venenatis. Vivamus ut urna metus. Duis facilisis erat ipsum. Integer in cursus felis. Morbi euismod suscipit risus ut molestie. Sed facilisis consectetur lectus ullamcorper vulputate. In facilisis molestie lobortis. Mauris in arcu faucibus, dapibus leo a, tristique risus. Quisque vestibulum quis ante eget cursus. Vivamus lorem urna, accumsan eu mollis nec, blandit et metus. Maecenas at pellentesque turpis. Nam viverra nisl vitae turpis dignissim, ac vulputate arcu convallis. Donec consequat lectus arcu, eget fermentum quam moles</p>
   </body-content-text>
   <profile-groups />
   <body-content-text>
@@ -23,19 +25,20 @@
   <div class="visualisations-container">
     <div class="visualisations-group">
       <bar-custom :data="hashtagsTop30Sample" borderColor='rgb(249, 233, 111)'
-        fillColor='#f9e96f' id="hashtagsSample"/>
+        fillColor='#f9e96f' id="hashtagsSample" :displayLabel="false"> Kontrolni vzorec </bar-custom>
+
     </div>
     <div class="visualisations-group">
       <bar-custom :data="hashtagsTop30500" borderColor='rgb(92, 134, 74)'
-        fillColor='#5c864a' id="hashtags500"/>
+        fillColor='#5c864a' id="hashtags500" :displayLabel="false"> Brigade</bar-custom>
     </div>
     <div class="visualisations-group">
       <bar-custom :data="hashtagsTop30Politiki" borderColor='rgb(90, 164, 214)'
-        fillColor='#5aa4d6' id="hashtagsPolitiki"/>
+        fillColor='#5aa4d6' id="hashtagsPolitiki" :displayLabel="false"> Politiki</bar-custom>
     </div>
         <div class="visualisations-group">
       <bar-custom :data="hashtagsTop30Trolls" borderColor='rgb(234, 110, 51)'
-        fillColor='#ea6e33' id="hashtagsTrolls"/>
+        fillColor='#ea6e33' id="hashtagsTrolls" :displayLabel="false"> Lažni profili</bar-custom>
     </div>
   </div>
   <body-content-text>
@@ -47,19 +50,19 @@
   <div class="visualisations-container">
     <div class="visualisations-group">
       <bar-custom :data="mentionsTop30Sample" borderColor='rgb(249, 233, 111)'
-        fillColor='#f9e96f' id="mentionsSample"/>
+        fillColor='#f9e96f' id="mentionsSample" :displayLabel="false"> Kontrolni vzorec </bar-custom>
     </div>
     <div class="visualisations-group">
       <bar-custom :data="mentionsTop30500" borderColor='rgb(92, 134, 74)'
-        fillColor='#5c864a' id="mentions500"/>
+        fillColor='#5c864a' id="mentions500" :displayLabel="false"> Brigade</bar-custom>
     </div>
     <div class="visualisations-group">
       <bar-custom :data="mentionsTop30Politiki" borderColor='rgb(90, 164, 214)'
-        fillColor='#5aa4d6' id="mentionsPolitiki"/>
+        fillColor='#5aa4d6' id="mentionsPolitiki" :displayLabel="false"> Politiki</bar-custom>
     </div>
         <div class="visualisations-group">
       <bar-custom :data="mentionsTop30Trolls" borderColor='rgb(234, 110, 51)'
-        fillColor='#ea6e33' id="mentionsTrolls"/>
+        fillColor='#ea6e33' id="mentionsTrolls" :displayLabel="false"> Lažni profili</bar-custom>
     </div>
   </div>
   <body-content-text>
@@ -71,19 +74,19 @@
   <div class="visualisations-container">
     <div class="visualisations-group">
       <bar-custom :data="retweetsTop30Sample" borderColor='rgb(249, 233, 111)'
-        fillColor='#f9e96f' id="retweetsSample"/>
+        fillColor='#f9e96f' id="retweetsSample" :displayLabel="false"> Kontrolni vzorec</bar-custom>
     </div>
     <div class="visualisations-group">
       <bar-custom :data="retweetsTop30500" borderColor='rgb(92, 134, 74)'
-        fillColor='#5c864a' id="retweets500"/>
+        fillColor='#5c864a' id="retweets500" :displayLabel="false"> Brigade</bar-custom>
     </div>
     <div class="visualisations-group">
       <bar-custom :data="retweetsTop30Politiki" borderColor='rgb(90, 164, 214)'
-        fillColor='#5aa4d6' id="retweetsPolitiki"/>
+        fillColor='#5aa4d6' id="retweetsPolitiki" :displayLabel="false"> Politiki</bar-custom>
     </div>
         <div class="visualisations-group">
       <bar-custom :data="retweetsTop30Trolls" borderColor='rgb(234, 110, 51)'
-        fillColor='#ea6e33' id="retweetsTrolls"/>
+        fillColor='#ea6e33' id="retweetsTrolls" :displayLabel="false"> Lažni profili</bar-custom>
     </div>
   </div>
   <body-content-text>
@@ -95,19 +98,19 @@
   <div class="visualisations-container">
     <div class="visualisations-group">
       <bar-custom :data="domainsTop30Sample" borderColor='rgb(249, 233, 111)'
-        fillColor='#f9e96f' id="domainsSample"/>
+        fillColor='#f9e96f' id="domainsSample" :displayLabel="false"> Kontrolni vzorec</bar-custom>
     </div>
     <div class="visualisations-group">
       <bar-custom :data="domainsTop30500" borderColor='rgb(92, 134, 74)'
-        fillColor='#5c864a' id="domains500"/>
+        fillColor='#5c864a' id="domains500" :displayLabel="false"> Brigade</bar-custom>
     </div>
     <div class="visualisations-group">
       <bar-custom :data="domainsTop30Politiki" borderColor='rgb(90, 164, 214)'
-        fillColor='#5aa4d6' id="domainsPolitiki"/>
+        fillColor='#5aa4d6' id="domainsPolitiki" :displayLabel="false"> Politiki</bar-custom>
     </div>
         <div class="visualisations-group">
       <bar-custom :data="domainsTop30Trolls" borderColor='rgb(234, 110, 51)'
-        fillColor='#ea6e33' id="domainsTrolls"/>
+        fillColor='#ea6e33' id="domainsTrolls" :displayLabel="false"> Lažni profili</bar-custom>
     </div>
   </div>
 </template>
@@ -191,7 +194,7 @@ export default {
       width: 90vw;
       max-width: 1200px;
       min-width: 400px;
-      height: 50vh;
+      height: 60vh;
 
     }
   }
@@ -201,7 +204,7 @@ export default {
       width: 35vw;
       max-width: 1200px;
       min-width: 500px;
-      height: 50vh;
+      height: 60vh;
     }
   }
   .visualisations-container {
@@ -241,7 +244,7 @@ export default {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    flex-direction: column
+    flex-direction: column;
   }
   .visualisations canvas {
     flex-shrink: 0;
