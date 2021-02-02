@@ -1,7 +1,7 @@
 <template>
 	<div class="container-banner">
-		<p>Projekt je nastal s podporo</p>
-	<a target="_blank" href="https://acfslovenia.si/"><img src="/acf.png" alt=""/></a>
+		<p><slot></slot></p>
+		<slot name="image"></slot>
 	</div>
 </template>
 
@@ -20,14 +20,17 @@
 		letter-spacing: normal;
 		line-height: normal;
 	}
-	img {
-		/* Style for "Active-cit" */
-		width: 141px;
-		height: 49px;
-		margin: 50px
-	}
-	.container-banner {
-    margin-top: 40px;
-    height: 137px;
-	}
+	 @media only screen and (max-width: 768px) {
+		.container-banner {
+			width: 90vw;
+			margin-top: 40px;
+		}
+	 }
+	 @media only screen and (min-width: 769px) {
+		.container-banner {
+			width: 40vw;
+			margin-top: 40px;
+			height: 137px;
+		}
+	 }
 </style>

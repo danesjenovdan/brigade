@@ -6,14 +6,21 @@
 	<div class="mikro-container">
 		<troll-profile-navigation @clicked="onClickChild"/>
 	</div>
+	<div class="profile-container">
+		<troll-profile v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
+	</div>
 	<body-content-text>
+			<template v-slot:title>
+				Top tvit
+			</template>
+		</body-content-text>
+		<div id="tweet" tweetID="515490786800963584"></div>
+			<blockquote class="twitter-tweet" data-dnt="true" data-theme="light"><a :href="tweet[0] ? tweet[0].LINK : null"></a></blockquote>
+		<body-content-text>
 		<template v-slot:title>
+			Top lestvice
 		</template>
 	</body-content-text>
-	<div class="visualisations-container">
-		<troll-profile v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
-		<div class="visualisations"><bar :data="charts.retweets" id="temp"/></div>
-	</div>
 	<div v-if="troll.accountInfo.name" class="visualisations-container">
 		<div class="visualisations-group"><bar-custom :data="charts.retweets" borderColor='rgb(249, 233, 111)'
 					fillColor='#f9e96f' id="retweets"/></div>
@@ -51,6 +58,7 @@ import FakeRealImage from "./../../FakeRealImage.vue"
 import Bar from '../../Charts/Bar.vue'
 import createChartData from '../../Charts/createChartData'
 import trollImageText from '../../../../public/troll.json'
+import tweets from '../../../../public/tweets.json'
 import BarCustom from '../../Charts/BarCustom.vue'
 
 
@@ -73,6 +81,8 @@ export default {
 				}, 
 			},
 			images: {
+			},
+			tweet: {
 			},
 			description: "",
 			charts: {
@@ -124,6 +134,13 @@ export default {
 			font-size: 16px;
 		}
   }
+	.tweet {
+		display:flex;
+		align-items: left;
+		justify-content:center;
+		width: 50vw;
+
+	}
   .visualisations-container {
     display: flex;
     justify-content: center;
@@ -131,6 +148,16 @@ export default {
     overflow: hidden;
     flex-wrap:  wrap ;
     width: 80vw;
+		margin-top: 20px;
+  }
+	.profile-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow: hidden;
+    flex-wrap:  wrap ;
+    width: 80vw;
+		margin-top: 20px;
   }
   .mikro-container {
 		border-top: 1px solid #b0b0b0;

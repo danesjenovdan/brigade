@@ -32,7 +32,23 @@
         </social-media-banner>
       <views-navigation/>
       <router-view></router-view>
-      <social-media-banner>
+      <recap-banner>
+        <span class="buran" name="text">Nadaljno branje</span>
+        <div class="container-link">
+            <p class="buran-small">Analize</p>
+            <p><a href="#/mikro">Mikro pogled</a></p>
+            <p><a href="#/makro">Makro pogled</a></p>
+            <p><a href="#/prostorski">Prostorski pogled</a></p>
+        </div>
+          <div class="container-link">
+            <p class="buran-small">Raziskave</p>
+            <p><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
+            <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
+            <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
+        </div>
+      </recap-banner>
+      <div class="footer-container">
+      <text-and-icon-banner-template>
         <span class="buran" name="text">povej naprej!</span>
         <div class="container-icons">
           <icon >
@@ -45,9 +61,29 @@
             <img class="icon" src="/mail.svg" alt=""/>
           </icon>
 		  </div>
-      </social-media-banner>
-      <donation-banner/>
-      <credit/>
+      </text-and-icon-banner-template>
+        <text-and-icon-banner-template>
+          <p>Želiš podpreti naše delo?</p>
+		      <div class="rectangle">
+				  <span class="buran"><a target="_blank" class="link-no-style" href="https://danesjenovdan.si/doniraj">Doniraj!</a></span>
+				  <img class="heart-icon" src="/heart.png" alt=""/>
+			</div>
+      </text-and-icon-banner-template>
+      </div>
+      <div class="credit-container">
+        <credit>
+        Kampanjo smo na <span class="acumin"><a target="_blank" href="https://danesjenovdan.si/">Danes je nov dan</a></span>
+            pripravili v sodelovanju z <span class="acumin"><a href="http://virostatiq.com/">Virostatiq</a></span>
+        </credit>
+        <credit>
+          Projekt je nastal s podporo
+          <template v-slot:image>
+            <a target="_blank" href="https://acfslovenia.si/">
+              <img class="credit-image" src="/acf.png" alt=""/>
+            </a>
+          </template>
+        </credit>
+      </div>
     </div>
   </div>
 </template>
@@ -58,6 +94,8 @@
   import text from './assets/text.js'
   import SocialMediaBanner from './components/SocialMedia/Banner.vue'
   import DonationBanner from './components/DonationBanner.vue'
+  import TextAndIconBannerTemplate from './components/TextAndIconBannerTemplate.vue'
+  import RecapBanner from './components/RecapBanner.vue'
   import Credit from './components/Credit.vue'
   import Icon from './components/SocialMedia/Icon.vue'
 
@@ -69,8 +107,10 @@
       ProfileGroups,
       SocialMediaBanner,
       DonationBanner,
+      TextAndIconBannerTemplate,
       Credit,
-      Icon
+      Icon,
+      RecapBanner
     },
     data() {
       return text
@@ -97,7 +137,10 @@
     justify-content: center;
   }
 
-
+  .link-no-style {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
   .flex-grid-item {
     flex-grow: 0;
     flex-shrink: 0;
@@ -106,6 +149,7 @@
     display: flex;
     align-items: center;
   }
+
 
   .container {
     margin: 0 auto;
@@ -118,7 +162,8 @@
   .container-link {
     margin-left: 10px;
     margin-right: 20px;
-    font-size: 24px;
+    font-size: 20x;
+    text-align: left;
   }
   .container-body {
     display: flex; /* or inline-flex */
@@ -145,6 +190,9 @@
   .icon {
     width: 45%;
 	}
+  .heart-icon {
+    width: 13%;
+	}
 	.facebook {
 		width: 25%;
 	}
@@ -152,7 +200,7 @@
 		/* Style for "POVEJ NAPR" */
 		color: #000000;
 		font-family: "buran_ussrregular";
-		font-size: 33px;
+		font-size: 25px;
 		font-weight: 400;
 		font-style: normal;
 		line-height: 24px;
@@ -164,6 +212,17 @@
 		line-height: normal;
 		padding-left: 20px;
 	}
+  .buran-small {
+    color: #000000;
+		font-family: "buran_ussrregular";
+		font-size: 16px;
+		font-weight: 400;
+		font-style: normal;
+		text-transform: uppercase;
+		/* Text style for "POVEJ NAPR" */
+		font-style: normal;
+		line-height: normal;
+  }
   .body-text {
     /* Style for "Lorem ipsu" */
     color: #000000;
@@ -197,9 +256,24 @@
     font-style: normal;
     letter-spacing: normal;
     line-height: normal;
-
   }
 
+  	.rectangle {
+    width: 200px;
+    height: 56px;
+    border: 3px solid #000000;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem;
+	}
+  .credit-image {
+		width: 141px;
+		height: 49px;
+		margin: 50px
+
+  }
   @media only screen and (max-width: 768px) {
   .lean-banner {
     width: 90vw;
@@ -208,12 +282,24 @@
 	.body-text {
 		width: 90vw;
   }
+  .credit-container {
+    display: flex;
+    width: 90vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
   .container-ptic {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     width: 90vw;
+  }
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
   }
    .container-inner-text {
     width:90vw;
@@ -229,8 +315,20 @@
   .lean-banner {
     width: 50vw;
     margin-top: 20px;
-
   }
+
+  .credit-container {
+    display: flex;
+    width: 90vw;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90vw;
+  }
+
   .container-ptic {
     display: flex;
     flex-wrap: wrap;

@@ -1,6 +1,5 @@
 <template>
 	<div class="container-banner">
-		<slot name="text"></slot>
 		<slot></slot>
 	</div>
 </template>
@@ -11,7 +10,6 @@
 		.container-banner {
 			display: flex;
 			justify-content: flex-start;
-			flex-direction: column;
 			align-items: center;
 			height: 100%;
 			width: 100%;

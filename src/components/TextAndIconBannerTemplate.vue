@@ -22,7 +22,11 @@
 
 	@media only screen and (min-width: 769px) {
 		.container-banner {
-			width: 85vw;
+			height: 166px;
+			width: 40vw;
+            padding-top: 30px;
+			padding-bottom: 30px; 
+			flex-direction: column;
 			justify-content: space-evenly;
 			}
 		}
@@ -34,8 +38,8 @@
 		}
 
 	.container-banner {
-		background-color: #f9e96f;
-		margin-top: 150px;
+		background-color: #ea6e33;
+		margin-top: 70px;
 	}
 	img {
 		width: 45%;
