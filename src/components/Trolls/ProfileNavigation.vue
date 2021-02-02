@@ -37,6 +37,7 @@ import ninalogar4info from '../../assets/trolls/ninalogar4info.json'
 import ostanekatarinainfo from '../../assets/trolls/ostanekatarinainfo.json'
 import punca9info from '../../assets/trolls/punca9info.json'
 import pusnikferdinandinfo from '../../assets/trolls/pusnikferdinandinfo.json'
+import jocarulesinfo from '../../assets/trolls/jocarulesinfo.json'
 
 
 export default {
@@ -49,6 +50,7 @@ export default {
 				desnicarkaminfo,
 				karolinasemjazinfo,
 				radovednainfo,
+				jocarulesinfo,
 				bostjanserugainfo,
 				evaresnikinfo,
 				hanavrabecinfo,
