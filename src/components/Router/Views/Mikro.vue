@@ -58,7 +58,7 @@ import FakeRealImage from "./../../FakeRealImage.vue"
 import Bar from '../../Charts/Bar.vue'
 import createChartData from '../../Charts/createChartData'
 import trollImageText from '../../../../public/troll.json'
-import tweets from '../../../../public/tweets.json'
+// import tweets from '../../../../public/tweets.json'
 import BarCustom from '../../Charts/BarCustom.vue'
 
 
