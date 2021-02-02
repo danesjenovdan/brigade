@@ -11,7 +11,7 @@
         </div>
         <div v-else class="right">
           <span class="profileName">{{info.name}}</span><br/>
-          <span class="subtitle"><a target="_blank" :href="'https://twitter.com/'+info.userName">@{{info.userName}}</a></span>
+          <span class="subtitle"><a target="_blank" :href="'https://twitter.com/'+info.userName">{{info.userName}}</a></span>
         </div>
     </div>
     <div v-if="text" class="body">

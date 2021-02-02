@@ -1,21 +1,5 @@
 <template>
 	<div class="flex-grid">
-		<profile
-      id="profile"
-      class="flex-grid-item"
-      title="Kontrolni vzorec"
-      subtitle="~150 profilov"
-      text="Naključno izbran vzorec slovenskih uporabnikov omrežja Twitter. Vzorec je bil izbran s pomočjo metode XXX"
-      imageUrl="/yellow.png">
-    </profile>
-    <profile
-      id="profile"
-      class="flex-grid-item"
-      title="Brigada"
-      subtitle="500 profilov"
-      text="Skupina 500 profilov, ki sledi vsaj 6 od 27 profilov, za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej Mikro pogled)."
-      imageUrl="/green.png">
-    </profile>
     <profile
       id="profile"
       class="flex-grid-item"
@@ -27,10 +11,26 @@
     <profile
       id="profile"
       class="flex-grid-item"
+      title="Brigada"
+      subtitle="500 profilov"
+      text="Skupina 500 profilov, ki sledi vsaj 6 od 27 profilov, za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej <a href='#/mikro'>Mikro pogled</a></p>)."
+      imageUrl="/green.png">
+    </profile>
+    <profile
+      id="profile"
+      class="flex-grid-item"
       title="Politiki"
       subtitle="~90 profilov"
       text="Skupina profilov trenutno aktivnih politikov funkcionarjev: poslancev, ministrov, predsednikov strank in državnih sekretarjev."
       imageUrl="/blue.png">
+    </profile>
+		<profile
+      id="profile"
+      class="flex-grid-item"
+      title="Kontrolni vzorec"
+      subtitle="~150 profilov"
+      text="Naključno izbran vzorec slovenskih uporabnikov omrežja Twitter. Vzorec je bil izbran s pomočjo metode XXX"
+      imageUrl="/yellow.png">
     </profile>
 	</div >
 </template>

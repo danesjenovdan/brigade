@@ -23,7 +23,7 @@
 	@media only screen and (min-width: 769px) {
 		.container-banner {
 			height: 166px;
-			width: 40vw;
+			width: 38vw;
             padding-top: 30px;
 			padding-bottom: 30px; 
 			flex-direction: column;
@@ -39,7 +39,7 @@
 
 	.container-banner {
 		background-color: #ea6e33;
-		margin-top: 70px;
+		margin-top: 35px;
 	}
 	img {
 		width: 45%;

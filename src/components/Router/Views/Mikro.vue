@@ -1,7 +1,9 @@
 <template>
   <body-content-text>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur molestie eros. Suspendisse maximus ligula elementum pretium bibendum. Aliquam erat volutpat. Aliquam lorem urna, pulvinar sit amet augue vitae, mattis rhoncus eros. In nisi tellus, convallis varius tellus ut, imperdiet luctus erat. Vivamus ac vulputate lorem. Sed condimentum imperdiet risus, id gravida ex luctus sed. Proin tristique aliquet feugiat.</p>
-    <p>Maecenas porta turpis purus, mattis consequat lorem finibus eget. Cras hendrerit sodales arcu a venenatis. Vivamus ut urna metus. Duis facilisis erat ipsum. Integer in cursus felis. Morbi euismod suscipit risus ut molestie. Sed facilisis consectetur lectus ullamcorper vulputate. In facilisis molestie lobortis. Mauris in arcu faucibus, dapibus leo a, tristique risus. Quisque vestibulum quis ante eget cursus. Vivamus lorem urna, accumsan eu mollis nec, blandit et metus. Maecenas at pellentesque turpis. Nam viverra nisl vitae turpis dignissim, ac vulputate arcu convallis. Donec consequat lectus arcu, eget fermentum quam moles</p>
+    <p>Predstavljamo Twitter profile, za katere obstaja močan indic, da so del organizirane propagandne mreže lažne javnosti. Namen uporabe lažnih profilnih slik, imen, opisov in celo posameznih tvitov je ustvarjanje vtisa avtentičnosti, ki je ključnega pomena za učinkovitost astroturfinga. Bolj kot profil izgleda avtentičen, bolj kredibilno lahko izpade njegovo mnenje. </p>
+    <p>Predstavljeni profili so zgolj primeri takšnih, za katere je neavtentično delovanje najbolj očitno. 
+Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfinga. Nekateri profili uporabljajo ukradeno identiteto, drugi celo strojno zgenerirane fotografije. Nekateri profili so namenjeni ustvarjanju vsebine, drugi osredotočeni bolj na všečkanje in ritvitanje.</p>
+		<p>Glede na to, da lahko podobno vsebino in aktivnost opazimo tudi pri mnogo drugih Twitter profilih, lahko sklepamo, da je dejansko število neavtentičnih profilov precej večje. Žal pa je zaradi pomanjkanja trdnih dokazov, ne moremo razkriti. To moč ima zgolj podjetje Twitter.</p>
   </body-content-text>
 	<div class="mikro-container">
 		<troll-profile-navigation @clicked="onClickChild"/>

@@ -20,7 +20,7 @@
 
 	@media only screen and (min-width: 769px) {
 		.container-banner {
-			width: 85vw;
+			width: 78vw;
 			justify-content: space-evenly;
 			}
 		}

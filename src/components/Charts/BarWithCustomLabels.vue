@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div class="labels-container">
-      <div @click="updateChart('control')" class="lables">
-      <img alt="" src="/yellow.png"/>
-        <span v-if="clickedLabel.control">
-          <strike>Kontrolni vzorec</strike>
+      <div  @click="updateChart('fake')" class="lables">
+      <img alt="" src="/red.png"/>
+        <span v-if="clickedLabel.fake">
+          <strike>Lažni profili</strike>
         </span>
         <span v-else>
-          Kontrolni vzorec
+          Lažni profili
         </span>
       </div>
       <div  @click="updateChart('brigade')" class="lables">
@@ -19,15 +19,6 @@
           Brigada
         </span>
       </div>
-      <div  @click="updateChart('fake')" class="lables">
-      <img alt="" src="/red.png"/>
-        <span v-if="clickedLabel.fake">
-          <strike>Lažni profili</strike>
-        </span>
-        <span v-else>
-          Lažni profili
-        </span>
-      </div>
       <div  @click="updateChart('politiki')" class="lables">
       <img alt="" src="/blue.png"/>
         <span v-if="clickedLabel.politiki">
@@ -35,6 +26,15 @@
         </span>
         <span v-else>
           Politiki
+        </span>
+      </div>
+      <div @click="updateChart('control')" class="lables">
+      <img alt="" src="/yellow.png"/>
+        <span v-if="clickedLabel.control">
+          <strike>Kontrolni vzorec</strike>
+        </span>
+        <span v-else>
+          Kontrolni vzorec
         </span>
       </div>
     </div>
@@ -77,7 +77,7 @@ export default {
           data: chartData.data,
           options: {
             legend: {
-              display: false
+              display: false,
               },
             maintainAspectRatio: false,
             responsive: true,

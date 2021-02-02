@@ -5,11 +5,11 @@
 			</div>
 			<div class="linkContainer">
 				<div class="link">
-					<img class="icon" alt="" src="/link.png" />
+					<img class="icon" alt="" src="/link.svg" />
 					<slot name="original"></slot>
 				</div>
 				<div class="link">
-					<img class="icon" alt="" src="/link.png"/>
+					<img class="icon" alt="" src="/link.svg"/>
 					<slot name="fake"></slot>
 				</div>
 			</div>

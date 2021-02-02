@@ -46,7 +46,7 @@
 .text {
 	color: #000000;
 	font-family: acumin-pro, sans-serif;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: 200;
 	font-style: normal;
 	letter-spacing: normal;

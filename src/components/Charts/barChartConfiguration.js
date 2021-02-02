@@ -15,7 +15,8 @@ export const configue = (labels, label, data, backgroundColor, borderColor, id, 
     options: {
       maintainAspectRatio: false,
       legend: {
-        display: displayLegend
+        display: displayLegend,
+        usePointStyle: true
         },
       responsive: true,
       lineTension: 1,

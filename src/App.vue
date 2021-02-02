@@ -25,31 +25,31 @@
         <social-media-banner class="lean-banner">
           <span class="buran" name="text">Nadaljno <br/>branje</span>
           <div class="container-link">
-          <p><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
-          <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
-          <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
+          <p class="container-link-text"><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
+          <p class="container-link-text"><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
+          <p class="container-link-text"><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
         </div>
         </social-media-banner>
       <views-navigation/>
       <router-view></router-view>
       <recap-banner>
-        <span class="buran" name="text">Nadaljno branje</span>
+        <span class="buran" name="text">Ne spreglej</span>
         <div class="container-link">
             <p class="buran-small">Analize</p>
-            <p><a href="#/mikro">Mikro pogled</a></p>
-            <p><a href="#/makro">Makro pogled</a></p>
-            <p><a href="#/prostorski">Prostorski pogled</a></p>
+            <p class="container-link-text"><a href="#/mikro">Mikro pogled</a></p>
+            <p class="container-link-text"><a href="#/makro">Makro pogled</a></p>
+            <p class="container-link-text"><a href="#/prostorski">Prostorski pogled</a></p>
         </div>
           <div class="container-link">
             <p class="buran-small">Raziskave</p>
-            <p><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
-            <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
-            <p><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
+            <p class="container-link-text"><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
+            <p class="container-link-text"><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
+            <p class="container-link-text"><a target="_blank" href="#">Pod Črto: Twitter brigade 2. del</a></p>
         </div>
       </recap-banner>
       <div class="footer-container">
       <text-and-icon-banner-template>
-        <span class="buran" name="text">povej naprej!</span>
+        <span class="buran-small" name="text">povej naprej!</span>
         <div class="container-icons">
           <icon >
             <img class="icon" src="/facebook.svg" alt=""/>
@@ -63,20 +63,20 @@
 		  </div>
       </text-and-icon-banner-template>
         <text-and-icon-banner-template>
-          <p>Želiš podpreti naše delo?</p>
+          <p class="footer-text">Želiš podpreti naše delo?</p>
 		      <div class="rectangle">
-				  <span class="buran"><a target="_blank" class="link-no-style" href="https://danesjenovdan.si/doniraj">Doniraj!</a></span>
+				  <span class="buran-small"><a target="_blank" class="link-no-style" href="https://danesjenovdan.si/doniraj">Doniraj!</a></span>
 				  <img class="heart-icon" src="/heart.png" alt=""/>
 			</div>
       </text-and-icon-banner-template>
       </div>
       <div class="credit-container">
         <credit>
-        Kampanjo smo na <span class="acumin"><a target="_blank" href="https://danesjenovdan.si/">Danes je nov dan</a></span>
-            pripravili v sodelovanju z <span class="acumin"><a href="http://virostatiq.com/">Virostatiq</a></span>
+        <p class="footer-text">Kampanjo smo na <span class="acumin"><a target="_blank" href="https://danesjenovdan.si/">Danes je nov dan</a></span>
+            pripravili v sodelovanju z <span class="acumin"><a href="http://virostatiq.com/">Virostatiq</a></span></p>
         </credit>
         <credit>
-          Projekt je nastal s podporo
+          <p class="footer-text">Projekt je nastal s podporo</p>
           <template v-slot:image>
             <a target="_blank" href="https://acfslovenia.si/">
               <img class="credit-image" src="/acf.png" alt=""/>
@@ -196,11 +196,14 @@
 	.facebook {
 		width: 25%;
 	}
+  .footer-text {
+    font-size: 16px;
+  }
   	.buran {
 		/* Style for "POVEJ NAPR" */
 		color: #000000;
 		font-family: "buran_ussrregular";
-		font-size: 25px;
+		font-size: 48px;
 		font-weight: 400;
 		font-style: normal;
 		line-height: 24px;
@@ -215,13 +218,14 @@
   .buran-small {
     color: #000000;
 		font-family: "buran_ussrregular";
-		font-size: 16px;
+		font-size: 30px;
 		font-weight: 400;
 		font-style: normal;
 		text-transform: uppercase;
 		/* Text style for "POVEJ NAPR" */
 		font-style: normal;
 		line-height: normal;
+    letter-spacing: 6px;
   }
   .body-text {
     /* Style for "Lorem ipsu" */
@@ -257,10 +261,12 @@
     letter-spacing: normal;
     line-height: normal;
   }
-
+  .container-link-text {
+    font-size: 150%;
+  }
   	.rectangle {
-    width: 200px;
-    height: 56px;
+    width: 250px;
+    height: 100px;
     border: 3px solid #000000;
     display: flex;
     justify-content: center;
@@ -299,7 +305,7 @@
   .footer-container {
     display: flex;
     flex-direction: column;
-    width: 95vw;
+    width: 100%;
   }
    .container-inner-text {
     width:90vw;
@@ -319,14 +325,14 @@
 
   .credit-container {
     display: flex;
-    width: 90vw;
+    width: 80vw;
   }
 
   .footer-container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 90vw;
+    width: 80vw;
   }
 
   .container-ptic {
