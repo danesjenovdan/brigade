@@ -2,7 +2,7 @@
     <div @click="onClickButton" class="item">
 			<div :class="clicked ? 'background' : 'no-background'" >
 				<div class="image-container">
-					<round-img :src="'/27TrolovProfilke/'+info.userName+'.jpg'"/>
+					<round-img :src="'/27TrolovProfilke/'+info.userName.replace('@', '').toLowerCase()+'.jpg'"/>
 					<span class="name">
 					<p :class="clicked ? 'bold' : null" >{{displayedName}}</p>
 						</span>

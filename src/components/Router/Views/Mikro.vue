@@ -26,8 +26,8 @@
 					fillColor='#f9e96f' id="retweets"/></div>
 			<div class="visualisations-group"><bar-custom :data="charts.mentions" borderColor='rgb(90, 164, 214)'
 				fillColor='#5aa4d6' id="mentions"/></div>
-			<div class="visualisations-group"><bar-custom :data="charts.replies" borderColor='rgb(234, 110, 51)'
-					fillColor='#ea6e33' id="replies"/></div>
+			<div class="visualisations-group"><bar-custom :data="charts.domains" borderColor='rgb(234, 110, 51)'
+					fillColor='#ea6e33' id="domains"/></div>
 			<div class="visualisations-group"><bar-custom :data="charts.hashtags" borderColor='rgb(92, 134, 74)'
 				fillColor='#5c864a' id="hashtags"/></div>
 	</div>
@@ -88,7 +88,7 @@ export default {
 			charts: {
 				replies: {},
 				retweets: {},
-				replies: {},
+				domains: {},
 				hashtags: {}
 			},
 			text,
@@ -96,11 +96,11 @@ export default {
 	},
 		methods: {
     onClickChild (value) {
-			this.$data.images = trollImageText.filter((element) => element.troll.toLowerCase() === value.accountInfo.userName)
-			this.$data.description = trollImageText.find((element) => element.troll.toLowerCase() === value.accountInfo.userName).description
+			this.$data.images = trollImageText.filter((element) => element.troll.toLowerCase().replace('@', '') === value.accountInfo.userName.toLowerCase().replace('@', ''))
+			this.$data.description = trollImageText.find((element) => element.troll.toLowerCase().replace('@', '') === value.accountInfo.userName.toLowerCase().replace('@', '')).description
 			this.$data.troll = value;
 			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "RT", 'rgb(249, 233, 111)','#f9e96f');
-			this.$data.charts.replies = createChartData(this.$data.troll, "replies", 30, "Odgovori uporabniku", 'rgb(92, 134, 74)','#5c864a');
+			this.$data.charts.domains = createChartData(this.$data.troll, "domains", 30, "Domene", 'rgb(92, 134, 74)','#5c864a');
 			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 30, "Omembe", 'rgb(90, 164, 214)','#5aa4d6');
 			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 30, "Ključniki", 'rgb(234, 110, 51)','#ea6e33');
 
