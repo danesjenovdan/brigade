@@ -3,7 +3,7 @@
     <div class="head">
         <div class="left">
           <img v-if="text" alt="" :src="imageUrl" />
-          <img v-else alt="" class="userImage" :src="'/27TrolovProfilke/'+info.userName+'.jpg'">
+          <img v-else alt="" class="userImage" :src="'/27TrolovProfilke/'+info.userName.replace('@', '').toLowerCase()+'.jpg'">
         </div>
         <div v-if="text" class="right">
          <span class="title">{{title}}</span><br/>
