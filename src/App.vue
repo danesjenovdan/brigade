@@ -36,13 +36,13 @@
         <span class="buran" name="text">povej naprej!</span>
         <div class="container-icons">
           <icon >
-            <img class="facebook" src="/facebook.png" alt=""/>
+            <img class="icon" src="/facebook.svg" alt=""/>
           </icon>
           <icon >
-            <img class="icon" src="/twitter.png" alt=""/>
+            <img class="icon" src="/twitter.svg" alt=""/>
           </icon>
           <icon >
-            <img class="icon" src="/mail.png" alt=""/>
+            <img class="icon" src="/mail.svg" alt=""/>
           </icon>
 		  </div>
       </social-media-banner>

@@ -55,13 +55,13 @@ import text from '../../assets/text.js'
 	margin-top: 10px;
 }
 .background {
-		background-image:url('/yellow-rectangle.png');
+		background-image:url('/hover.svg');
     background-position:center;
     background-repeat: no-repeat;
     background-size: 111px 105px;
 }
 .no-background:hover {
-		background-image:url('/yellow-rectangle.png');
+		background-image:url('/hover.svg');
     background-position:center;
     background-repeat: no-repeat;
     background-size: 111px 105px;
