@@ -43,9 +43,25 @@ export default {
             const firstPoint = activePoints[0];
             const label = myChart.data.labels[firstPoint._index];
             const value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
-            const url = chartId === 'hashtags' ? 'https://twitter.com/hashtag/' : 'https://twitter.com/'
+            let url;
+            switch(true) {
+              case chartId.includes('hashtag'):
+                url = 'https://twitter.com/hashtag/'+label.substring(label.lastIndexOf("#") + 1, label.length);
+                break;
+              case chartId.includes('mentions'):
+                url = 'https://twitter.com/'+label
+                break;
+              case chartId.includes('retweets'):
+                url = 'https://twitter.com/'+label
+                break;
+              case chartId.includes('domains'):
+                url = 'https://'+label
+                break;
+              default:
+                // code block
+            }
             if (firstPoint !== undefined)
-            window.open(url+label, '_blank');
+            window.open(url, '_blank');
         };
       }
   },

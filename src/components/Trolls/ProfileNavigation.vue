@@ -80,7 +80,6 @@ export default {
 	methods: {
     onClickChild (value) {
       this.clickedName = value.name; // someValue
-			console.log("click child")
 			window.scroll({
 				top: window.pageYOffset+300,
 				left: 0,

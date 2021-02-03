@@ -15,6 +15,15 @@ export default {
       'December 2020'],
       datasets: [
         { // another line graph
+          label: 'Activity (number of tweets) by fake profiles',
+          // data: [2791, 3808, 5939, 3812, 3835, 4750, 5183, 3251, 3040, 4237, 3470, 3650],
+          data: [107.34615384615384, 146.46153846153845, 228.42307692307693, 146.6153846153846, 147.5, 182.69230769230768, 199.34615384615384, 125.03846153846153, 116.92307692307692, 162.96153846153845, 133.46153846153845, 140.3846153846154],
+          backgroundColor: 'rgb(234, 110, 51)',
+          borderColor: '#ea6e33',
+          borderWidth: 3,
+          id: 'fake'
+        },
+        { // another line graph
           label: 'Activity (number of tweets) by month of 500 NGO-supplied suspected trolls',
           // data: [72052, 86396, 133356, 118984, 118773, 101301, 103850, 92687, 99589, 145666, 169295, 204505],
           data: [144.104, 172.792, 266.712, 237.968, 237.546, 202.602, 207.7, 185.374, 199.178, 291.332, 338.59, 409.01],
@@ -31,15 +40,6 @@ export default {
           borderColor: '#5aa4d6',
           borderWidth: 3,
           id: 'politiki'
-        },
-        { // another line graph
-          label: 'Activity (number of tweets) by fake profiles',
-          // data: [2791, 3808, 5939, 3812, 3835, 4750, 5183, 3251, 3040, 4237, 3470, 3650],
-          data: [107.34615384615384, 146.46153846153845, 228.42307692307693, 146.6153846153846, 147.5, 182.69230769230768, 199.34615384615384, 125.03846153846153, 116.92307692307692, 162.96153846153845, 133.46153846153845, 140.3846153846154],
-          backgroundColor: 'rgb(234, 110, 51)',
-          borderColor: '#ea6e33',
-          borderWidth: 3,
-          id: 'fake'
         },
         { // another line graph
           label: 'Activity (number of tweets) by control goup',

@@ -35,9 +35,9 @@
           </div>
           <div class="container-link">
               <p class="buran-small">Analize</p>
-              <p class="container-link-text"><a href="#/mikro">Mikro pogled</a></p>
-              <p class="container-link-text"><a href="#/makro">Makro pogled</a></p>
-              <p class="container-link-text"><a href="#/prostorski">Prostorski pogled</a></p>
+              <p class="container-link-text"><a href="/mikro">Mikro pogled</a></p>
+              <p class="container-link-text"><a href="/makro">Makro pogled</a></p>
+              <p class="container-link-text"><a href="/prostorski">Prostorski pogled</a></p>
           </div>
             <div class="container-link">
               <p class="buran-small">Raziskave</p>
@@ -62,16 +62,18 @@
       </text-and-icon-banner-template>
         <text-and-icon-banner-template>
           <p class="footer-text">Želiš podpreti naše delo?</p>
-		      <div class="rectangle">
-				  <span class="buran-small"><a target="_blank" class="link-no-style" href="https://danesjenovdan.si/doniraj">Doniraj!</a></span>
-				  <img class="heart-icon" src="/heart.png" alt=""/>
-			</div>
+          <a target="_blank" class="link-no-style" href="https://danesjenovdan.si/doniraj">
+		        <div class="rectangle">
+				    <span class="buran-small">Doniraj!</span>
+				    <img class="heart-icon" src="/heart.png" alt=""/>
+            </div>
+          </a>
       </text-and-icon-banner-template>
       </div>
       <div class="credit-container">
         <credit>
         <p class="footer-text">Kampanjo smo na <span class="acumin"><a target="_blank" href="https://danesjenovdan.si/">Danes je nov dan</a></span>
-            pripravili v sodelovanju z sodelovanju z <a href="https://podcrto.si/" target="_blank">Pod črto</a>, <a href="https://twitter.com/ObjaveIzKleti" target="_blank">@ObjaveIzKleti</a> in <span class="acumin"><a href="http://virostatiq.com/">Virostatiq </a>.</span></p>
+            pripravili v sodelovanju z sodelovanju z <a href="https://podcrto.si/" target="_blank">Pod črto</a>, <a href="https://twitter.com/ObjaveIzKleti" target="_blank">@ObjaveIzKleti</a> in <span class="acumin"><a target="_blank" href="http://virostatiq.com/">Virostatiq </a>.</span></p>
         </credit>
         <credit>
           <p class="footer-text">Projekt je nastal s podporo</p>
@@ -268,7 +270,7 @@
   }
   	.rectangle {
     width: 250px;
-    height: 100px;
+    height: 80px;
     border: 3px solid #000000;
     display: flex;
     justify-content: center;

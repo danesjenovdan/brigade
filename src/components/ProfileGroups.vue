@@ -5,7 +5,7 @@
       class="flex-grid-item"
       title="Lažni profili"
       subtitle="25 profilov"
-      text="Skupina profilov, ki uporablja lažne profilne slike, širi politično propagando in za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej Mikro pogled).."
+      text="Skupina profilov, ki uporablja lažne profilne slike, širi politično propagando in za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej Mikro pogled)."
       imageUrl="/red.png">
     </profile>
     <profile
@@ -29,7 +29,7 @@
       class="flex-grid-item"
       title="Kontrolni vzorec"
       subtitle="~150 profilov"
-      text="Naključno izbran vzorec slovenskih uporabnikov omrežja Twitter. Vzorec je bil izbran s pomočjo metode XXX"
+      text="Naključno izbran vzorec slovenskih uporabnikov omrežja Twitter. Vzorec je bil izbran s pomočjo metode XXX."
       imageUrl="/yellow.png">
     </profile>
 	</div >
