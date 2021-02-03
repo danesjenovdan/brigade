@@ -31,8 +31,7 @@ Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfi
 				Top tvit
 			</template>
 		</body-content-text>
-		<div id="tweet" tweetID="515490786800963584"></div>
-			<blockquote class="twitter-tweet" data-dnt="true" data-theme="light"><a :href="tweet[0] ? tweet[0].LINK : null"></a></blockquote>
+		<tweet :tweetUrl="tweet ? tweet.LINK : null"> </tweet>
 		<body-content-text>
 		<template v-slot:title>
 			Top lestvice
@@ -63,8 +62,9 @@ import FakeRealImage from "./../../FakeRealImage.vue"
 import Bar from '../../Charts/Bar.vue'
 import createChartData from '../../Charts/createChartData'
 import trollImageText from '../../../../public/troll.json'
-// import tweets from '../../../../public/tweets.json'
+import tweets from '../../../../public/tweets.json'
 import BarCustom from '../../Charts/BarCustom.vue'
+import Tweet from '../../Tweet.vue'
 
 
 
@@ -77,7 +77,8 @@ export default {
 		FakeRealImage,
 		Bar,
 		trollImageText,
-		BarCustom
+		BarCustom,
+		Tweet
   },
 	data() {
 		return {
@@ -103,6 +104,8 @@ export default {
     onClickChild (value) {
 			this.$data.images = trollImageText.filter((element) => element.troll.toLowerCase().replace('@', '') === value.accountInfo.userName.toLowerCase().replace('@', ''))
 			this.$data.description = trollImageText.find((element) => element.troll.toLowerCase().replace('@', '') === value.accountInfo.userName.toLowerCase().replace('@', '')).description
+			this.$data.tweet = tweets.find((element) => element.USERNAME.toLowerCase().replace('@', '') === value.accountInfo.userName.toLowerCase().replace('@', ''))
+			console.log('tweet: ', this.$data.tweet);
 			this.$data.troll = value;
 			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "RT", 'rgb(249, 233, 111)','#f9e96f');
 			this.$data.charts.domains = createChartData(this.$data.troll, "domains", 30, "Domene", 'rgb(92, 134, 74)','#5c864a');

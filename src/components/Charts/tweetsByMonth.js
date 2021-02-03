@@ -2,7 +2,7 @@ export default {
     type: 'bar',
     data: {
       labels: ['Januar 2020',
-      'Februar 2020-02',
+      'Februar 2020',
       'Marec 2020',
       'April 2020',
       'Maj 2020',
