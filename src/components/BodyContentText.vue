@@ -19,7 +19,7 @@
 
   @media only screen and (min-width: 769px) {
     .container-text {
-        width: 60vw;
+        width: 50vwvw;
     }
   }
 
@@ -47,7 +47,7 @@
 	color: #000000;
 	font-family: acumin-pro, sans-serif;
 	font-size: 20px;
-	font-weight: 200;
+	font-weight: 300;
 	font-style: normal;
 	letter-spacing: normal;
 	line-height: 33.33px;

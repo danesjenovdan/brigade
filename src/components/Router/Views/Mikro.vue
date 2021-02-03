@@ -185,6 +185,7 @@ export default {
   }
 	.image-container {
 		margin-top: 20px;
+		margin-bottom: 50px;
 	}
 	.url {
 		/* Style for "Jordana Pa" */

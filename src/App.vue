@@ -24,24 +24,25 @@
       </div>
         <social-media-banner class="lean-banner">
           <span class="buran" name="text">Nadaljno <br/>branje</span>
-          <div class="container-link">
           <p class="container-link-text"><a target="_blank" href="#">Pod črto: Astroturfing 1. del</a></p>
-        </div>
         </social-media-banner>
       <views-navigation/>
       <router-view></router-view>
       <recap-banner>
-        <span class="buran" name="text">Ne spreglej</span>
-        <div class="container-link">
-            <p class="buran-small">Analize</p>
-            <p class="container-link-text"><a href="#/mikro">Mikro pogled</a></p>
-            <p class="container-link-text"><a href="#/makro">Makro pogled</a></p>
-            <p class="container-link-text"><a href="#/prostorski">Prostorski pogled</a></p>
-        </div>
+        <div class="recap-container">
           <div class="container-link">
-            <p class="buran-small">Raziskave</p>
-            <p class="container-link-text"><a target="_blank" href="#">Pod črto: Astroturfing 1. del</a></p>
-
+            <span class="buran" name="text">Ne spreglej</span>
+          </div>
+          <div class="container-link">
+              <p class="buran-small">Analize</p>
+              <p class="container-link-text"><a href="#/mikro">Mikro pogled</a></p>
+              <p class="container-link-text"><a href="#/makro">Makro pogled</a></p>
+              <p class="container-link-text"><a href="#/prostorski">Prostorski pogled</a></p>
+          </div>
+            <div class="container-link">
+              <p class="buran-small">Raziskave</p>
+              <p class="container-link-text"><a target="_blank" href="#">Pod črto: Astroturfing 1. del</a></p>
+            </div>
         </div>
       </recap-banner>
       <div class="footer-container">
@@ -157,10 +158,11 @@
     position: absolute;
   }
   .container-link {
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 20px;
     font-size: 20x;
     text-align: left;
+    width: 100%;
   }
   .container-body {
     display: flex; /* or inline-flex */
@@ -198,6 +200,7 @@
   .facebook:hover { transform: scale(1.2)}
   .footer-text {
     font-size: 16px;
+    text-align:center;
   }
   	.buran {
 		/* Style for "POVEJ NAPR" */
@@ -213,7 +216,7 @@
 		font-style: normal;
 		letter-spacing: 6.67px;
 		line-height: normal;
-		padding-left: 20px;
+    margin-right: 20px;
 	}
   .buran-small {
     color: #000000;
@@ -225,6 +228,8 @@
 		/* Text style for "POVEJ NAPR" */
 		font-style: normal;
 		line-height: normal;
+    margin: 5px;
+    padding-top: 25px;
     letter-spacing: 6px;
   }
   .body-text {
@@ -261,9 +266,6 @@
     letter-spacing: normal;
     line-height: normal;
   }
-  .container-link-text {
-    font-size: 150%;
-  }
   	.rectangle {
     width: 250px;
     height: 100px;
@@ -288,10 +290,28 @@
 	.body-text {
 		width: 90vw;
   }
+  .recap-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+  }
+  .container-link-text {
+    font-size: 24px;
+    margin: 5px;
+  }
+  .container-link-outer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+  }
   .credit-container {
     display: flex;
-    width: 70vw;
+    width: 90vw;
     align-items: center;
+    text-align: center;
     justify-content: center;
     flex-direction: column;
   }
@@ -322,13 +342,29 @@
     width: 50vw;
     margin-top: 20px;
     padding: 20px;
+
   }
 
+  .container-link-text {
+    font-size: 28px;
+    margin: 5px;
+  }
   .credit-container {
     display: flex;
     width: 70vw;
   }
-
+  .container-link-outer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .recap-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+  }
   .footer-container {
     display: flex;
     flex-wrap: wrap;

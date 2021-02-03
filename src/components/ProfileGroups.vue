@@ -54,6 +54,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-bottom: 100px;
   }
   	@media only screen and (max-width: 768px) {
     #profile {

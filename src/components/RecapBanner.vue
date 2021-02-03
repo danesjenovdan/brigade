@@ -22,6 +22,8 @@
 		.container-banner {
 			width: 78vw;
 			justify-content: space-evenly;
+			padding-top: 20px;
+			padding-bottom: 20px; 
 			}
 		}
 		.container-icons {

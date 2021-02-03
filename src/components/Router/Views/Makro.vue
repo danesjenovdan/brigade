@@ -6,8 +6,9 @@
     </template>
     Število tvitov in ritvitov, ustvarjenih skozi čas glede na skupino.
   </body-content-text>
-  <bar-with-custom-labels :data="tweetsByMonth" id="monthly"/>
-
+  <div class="visualisations-container">
+    <bar-with-custom-labels :data="tweetsByMonth" id="monthly"/>
+  </div>
   <!-- TOP HASHTAGS -->
   <body-content-text>
     <template v-slot:title>
@@ -206,6 +207,7 @@ export default {
     overflow: hidden;
     flex-wrap:  wrap ;
     width: 80vw;
+    margin-bottom: 50px;
   }
   .labels-container {
     display: flex;
