@@ -6,7 +6,7 @@
 			<div class="linkContainer">
 				<div class="link">
 					<img class="icon" alt="" src="/link.svg" />
-					<slot name="original"></slot>
+					<slot class="link-text" name="original"></slot>
 				</div>
 				<div class="link">
 					<img class="icon" alt="" src="/link.svg"/>
@@ -25,12 +25,15 @@ export default {
 @media only screen and (max-width: 768px) {
 	.link {
 		justify-content: start;
+		text-align: left;
 	  }
   }
 
   @media only screen and (min-width: 769px) {
 	  .link {
 		justify-content: center;
+		text-align: center;
+
 	  }
   }
 	.container {
@@ -43,6 +46,7 @@ export default {
 		width: 20px;
 		height: 20px;
 		align-items: center;
+		margin-right: 5px;
 	}
 	.linkContainer {
 		padding: 10px;
@@ -53,7 +57,7 @@ export default {
 		display: flex;
 		flex-direction: row;
 		width: 100%;
-		text-align: center;
 		align-items: center;
 	}
+
 </style>

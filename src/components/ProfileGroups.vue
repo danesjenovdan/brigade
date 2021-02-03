@@ -4,7 +4,7 @@
       id="profile"
       class="flex-grid-item"
       title="Lažni profili"
-      subtitle="~25 profilov"
+      subtitle="25 profilov"
       text="Skupina profilov, ki uporablja lažne profilne slike, širi politično propagando in za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej Mikro pogled).."
       imageUrl="/red.png">
     </profile>
@@ -13,7 +13,7 @@
       class="flex-grid-item"
       title="Brigada"
       subtitle="500 profilov"
-      text="Skupina 500 profilov, ki sledi vsaj 6 od 27 profilov, za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej <a href='#/mikro'>Mikro pogled</a></p>)."
+      text="Skupina 500 profilov, ki sledi vsaj 6 od 27 profilov, za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej Mikro pogled)."
       imageUrl="/green.png">
     </profile>
     <profile

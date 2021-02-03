@@ -34,16 +34,15 @@ import text from '../../assets/text.js'
 			}
   	},
 		mounted() {
-			console.log(this.info.name)
 			if(this.info.name.length > 13) {
 				let name = this.info.name
 				if (this.info.name.includes("#")) name = name.replace("#", " ")
 				const splitName = name.split(' ')
 				if (splitName.length === 3) this.$data.displayedName = splitName[0] + "\n"+splitName[1]+" " +splitName[2]
 			  else if (splitName.length === 2) this.$data.displayedName = splitName[0] + "\n"+splitName[1]
-				else this.$data.displayedName = splitName[0] + "\n"
+				else this.$data.displayedName = splitName[0] + "\n\xa0"
 			} else {
-				this.$data.displayedName = this.info.name + "\n"
+				this.$data.displayedName = this.info.name + "\n\xa0"
 			}
  		}
   }
@@ -53,6 +52,7 @@ import text from '../../assets/text.js'
 
 .image-container {
 	margin-top: 10px;
+	height: 100%;
 }
 .background {
 		background-image:url('/hover.svg');

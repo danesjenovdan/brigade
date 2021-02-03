@@ -11,28 +11,6 @@ Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfi
 	<div class="profile-container">
 		<troll-profile v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
 	</div>
-	<body-content-text>
-			<template v-slot:title>
-				Top tvit
-			</template>
-		</body-content-text>
-		<div id="tweet" tweetID="515490786800963584"></div>
-			<blockquote class="twitter-tweet" data-dnt="true" data-theme="light"><a :href="tweet[0] ? tweet[0].LINK : null"></a></blockquote>
-		<body-content-text>
-		<template v-slot:title>
-			Top lestvice
-		</template>
-	</body-content-text>
-	<div v-if="troll.accountInfo.name" class="visualisations-container">
-		<div class="visualisations-group"><bar-custom :data="charts.retweets" borderColor='rgb(249, 233, 111)'
-					fillColor='#f9e96f' id="retweets"/></div>
-			<div class="visualisations-group"><bar-custom :data="charts.mentions" borderColor='rgb(90, 164, 214)'
-				fillColor='#5aa4d6' id="mentions"/></div>
-			<div class="visualisations-group"><bar-custom :data="charts.domains" borderColor='rgb(234, 110, 51)'
-					fillColor='#ea6e33' id="domains"/></div>
-			<div class="visualisations-group"><bar-custom :data="charts.hashtags" borderColor='rgb(92, 134, 74)'
-				fillColor='#5c864a' id="hashtags"/></div>
-	</div>
 	<body-content-text>{{description}}</body-content-text>
 	<fake-real-image class="image-container" v-for="image in images">
 		<img class="image" alt="" :src="'/27Trolov' + image.src" />
@@ -48,6 +26,31 @@ Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfi
 				<i><a target="_blank" class="url" :href="image.rightLink">{{image.rightCaption}}</a></i>
 		</template>
 	</fake-real-image>
+	<body-content-text>
+			<template v-slot:title>
+				Top tvit
+			</template>
+		</body-content-text>
+		<div id="tweet" tweetID="515490786800963584"></div>
+			<blockquote class="twitter-tweet" data-dnt="true" data-theme="light"><a :href="tweet[0] ? tweet[0].LINK : null"></a></blockquote>
+		<body-content-text>
+		<template v-slot:title>
+			Top lestvice
+		</template>
+	</body-content-text>
+	<div v-if="troll.accountInfo.name && troll.mentions" class="visualisations-container">
+		<div class="visualisations-group"><bar-custom :data="charts.retweets" borderColor='rgb(249, 233, 111)'
+					fillColor='#f9e96f' id="retweets"/></div>
+			<div class="visualisations-group"><bar-custom :data="charts.mentions" borderColor='rgb(90, 164, 214)'
+				fillColor='#5aa4d6' id="mentions"/></div>
+			<div class="visualisations-group"><bar-custom :data="charts.domains" borderColor='rgb(234, 110, 51)'
+					fillColor='#ea6e33' id="domains"/></div>
+			<div class="visualisations-group"><bar-custom :data="charts.hashtags" borderColor='rgb(92, 134, 74)'
+				fillColor='#5c864a' id="hashtags"/></div>
+	</div>
+	<div v-else class="visualisations-container">
+		<body-content-text>Brez podatkov za leto 2020</body-content-text>
+	</div>
 
 </template>
 

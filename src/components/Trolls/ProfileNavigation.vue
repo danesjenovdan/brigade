@@ -27,7 +27,6 @@ import jurzeskyinfo from '../../assets/trolls/jurzeskyinfo.json'
 import kalofatinfo from '../../assets/trolls/kalofatinfo.json'
 import katarinamlakarinfo from '../../assets/trolls/katarinamlakarinfo.json'
 import krek_janjainfo from '../../assets/trolls/krek_janjainfo.json'
-import lenaradczikinfo from '../../assets/trolls/lenaradczikinfo.json'
 import lublanaceeinfo from '../../assets/trolls/lublanaceeinfo.json'
 import luka_bizjakinfo from '../../assets/trolls/luka_bizjakinfo.json'
 import majdakravanjainfo from '../../assets/trolls/majdakravanjainfo.json'
@@ -35,7 +34,6 @@ import matevz007info from '../../assets/trolls/matevz007info.json'
 import medenakimiinfo from '../../assets/trolls/medenakimiinfo.json'
 import ninalogar4info from '../../assets/trolls/ninalogar4info.json'
 import ostanekatarinainfo from '../../assets/trolls/ostanekatarinainfo.json'
-import punca9info from '../../assets/trolls/punca9info.json'
 import pusnikferdinandinfo from '../../assets/trolls/pusnikferdinandinfo.json'
 import jocarulesinfo from '../../assets/trolls/jocarulesinfo.json'
 
@@ -64,7 +62,6 @@ export default {
 				kalofatinfo,
 				katarinamlakarinfo,
 				krek_janjainfo,
-				lenaradczikinfo,
 				lublanaceeinfo,
 				luka_bizjakinfo,
 				majdakravanjainfo,
@@ -72,7 +69,6 @@ export default {
 				medenakimiinfo,
 				ninalogar4info,
 				ostanekatarinainfo,
-				punca9info,
 				pusnikferdinandinfo,
 			],
 			clickedName: "White Right 🇸🇮"

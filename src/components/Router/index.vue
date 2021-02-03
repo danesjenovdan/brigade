@@ -3,19 +3,19 @@
 		<img class="image" alt="Vue logo" src="/Layer-top.png" />
 		<div class="items">
         <div class="container-description">
-          <div id="2" :class="show === 2? 'background' : 'no-background'">
-            <p class="title" @click="show = 2;goTo('mikro')">
-            <span :class="show === 2? 'spacing' : null">Mikro pogled</span>
+          <div id="/mikro" :class="show.includes('mikro') ? 'background' : 'no-background'">
+            <p class="title" @click="show = 'mikro';goTo('mikro')">
+            <span :class="show.includes('mikro') ? 'spacing' : null">Mikro pogled</span>
             </p>
             </div>
           <div class="subtitle">
-            <p>Analize 27 profilov, za katere obstaja <br/>visoka verjetnost, da so lažni in del <br/>organizirane mreže</p>
+            <p>Analize 25 profilov, za katere obstaja <br/>visoka verjetnost, da so lažni in del <br/>organizirane mreže</p>
             </div>
         </div>
       <div class="container-description">
-        <div id="1" :class="show === 1? 'background' : 'no-background'" >
-          <p class="title"  @click="show = 1;goTo('makro')">
-            <span :class="show === 1? 'spacing' : null">Makro pogled</span>
+        <div id="/makro" :class="show.includes('makro') ? 'background' : 'no-background'" >
+          <p class="title"  @click="show = 'makro';goTo('makro')">
+            <span :class="show.includes('makro') ? 'spacing' : null">Makro pogled</span>
           </p>
         </div>
         <div class="subtitle">
@@ -23,9 +23,9 @@
         </div>
         </div>
         <div class="container-description">
-          <div id="3" :class="show === 3? 'background' : 'no-background'">
-            <p class="title" @click="show = 3;goTo('prostorski')">
-              <span :class="show === 3? 'spacing' : null">Prostorski pogled</span>
+          <div id="prostorski" :class="show.includes('prostorski') ? 'background' : 'no-background'">
+            <p class="title" @click="show = 'prostorski';goTo('prostorski')">
+              <span :class="show.includes('prostorski') ? 'spacing' : null">Prostorski pogled</span>
             </p>
           </div>
         <div class="subtitle">
@@ -41,15 +41,22 @@
 		export default {
 		data(){
 				return {
-					show: 2,
+					show: "",
 				}
 			},
     methods: {
 				goTo(route) {
 					this.$router.push(route);
 				}
-			}
+			},
+    computed: {
+        routeName(){
+           return this.$route.name
+      },
+    },
+
     }
+  
     </script>
 <style scoped>
   .background {
@@ -174,5 +181,7 @@
     background-position: center;
     padding: 15px;
   }
-
+  .invisible {
+    color:white;
+  }
 </style>

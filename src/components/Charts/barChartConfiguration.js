@@ -22,6 +22,7 @@ export const configue = (labels, label, data, backgroundColor, borderColor, id, 
       lineTension: 1,
       scales: {
         yAxes: [{
+          position: 'right',
           ticks: {
             beginAtZero: true,
             padding: 25,

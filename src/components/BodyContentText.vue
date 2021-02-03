@@ -25,7 +25,7 @@
 
 .container-text {
   margin: 0 auto;
-  margin-top: 70px;
+  margin-top: 20px;
   margin-bottom: 20px;
   display: flex; /* or inline-flex */
   flex-direction: column;

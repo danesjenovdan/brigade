@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { createWebHashHistory , createRouter } from "vue-router";
+import { createWebHistory , createRouter } from "vue-router";
 import App from './App.vue'
 import MakroView from './components/Router/Views/Makro.vue'
 import MikroView from './components/Router/Views/Mikro.vue'
@@ -30,7 +30,7 @@ const routes = [
   ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 })
 
