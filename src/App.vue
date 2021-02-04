@@ -24,7 +24,7 @@
       </div>
         <social-media-banner class="lean-banner">
           <span class="buran" name="text">Nadaljnje <br/>branje</span>
-          <p class="container-link-text"><a target="_blank" href="#">Pod črto: Astroturfing 1. del</a></p>
+          <p class="container-link-text"><a target="_blank" href="https://podcrto.si/astroturfing-1-del-lazni-twitter-profili-ki-napadajo-kritike-sds/">Pod črto: Astroturfing 1. del</a></p>
         </social-media-banner>
       <views-navigation/>
       <router-view></router-view>
@@ -39,7 +39,7 @@
           </div>
             <div class="container-link">
               <p class="buran-small min-size">Raziskave</p>
-              <p class="container-link-text"><a target="_blank" href="#">Pod črto: Astroturfing 1. del</a></p>
+              <p class="container-link-text"><a target="_blank" href="https://podcrto.si/astroturfing-1-del-lazni-twitter-profili-ki-napadajo-kritike-sds/">Pod črto: Astroturfing 1. del</a></p>
               <p class="container-link-text">&nbsp;</p>
               <p class="container-link-text">&nbsp;</p>
             </div>

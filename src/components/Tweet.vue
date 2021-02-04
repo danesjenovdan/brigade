@@ -1,6 +1,5 @@
 <template>
   <div id="the-tweet"></div>
-  <a :href="tweetUlr" target="_blank">{{ tweetUrl }}</a>
 </template>
 <script>
 import * as TwitterWidgetsLoader from 'twitter-widgets';

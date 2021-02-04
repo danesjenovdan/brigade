@@ -10,6 +10,10 @@ Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfi
 	</div>
 	<div class="profile-container">
 		<troll-profile v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
+		<div class="politicians-container">
+			<h1>Največkrat omenjen_a s strani naslednjih politikov:</h1>
+			<politicians v-if="troll.accountInfo.name" :troll="troll.accountInfo.userName" />
+		</div>
 	</div>
 	<body-content-text>{{description}}</body-content-text>
 	<fake-real-image class="image-container" v-for="image in images">
@@ -66,6 +70,7 @@ import trollImageText from '../../../../public/troll.json'
 import tweets from '../../../../public/tweets.json'
 import BarCustom from '../../Charts/BarCustom.vue'
 import Tweet from '../../Tweet.vue'
+import Politicians from '../../Charts/Politicians.vue';
 
 
 
@@ -79,7 +84,8 @@ export default {
 		Bar,
 		trollImageText,
 		BarCustom,
-		Tweet
+		Tweet,
+		Politicians,
   },
 	data() {
 		return {
@@ -207,5 +213,21 @@ export default {
     flex-shrink: 0;
     width: 90%;
     height: 90%
+}
+
+.politicians-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 80%;
+	padding-bottom: 10px;
+	margin: auto;
+}
+.politicians-container h1 {
+	width: 100%;
+	min-width: 100%;
+}
+.container-group {
+	margin: auto;
 }
 </style>
