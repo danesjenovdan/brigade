@@ -20,7 +20,7 @@
       id="profile"
       class="flex-grid-item"
       title="Politiki"
-      subtitle="~90 profilov"
+      subtitle="87 profilov"
       text="Skupina profilov trenutno aktivnih politikov funkcionarjev: poslancev, ministrov, predsednikov strank in državnih sekretarjev."
       imageUrl="/blue.png">
     </profile>

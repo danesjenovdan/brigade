@@ -6,7 +6,7 @@
 		<div class="donation-box">
 			<p>Želiš podpreti naše delo?</p>
 			<div class="rectangle">
-				<span class="buran"><a target="_blank" href="https://danesjenovdan.si/doniraj">Doniraj!</a></span>
+				<span class="buran"><a target="_blank" href="https://danesjenovdan.si/doniraj/placaj/mesecno">Doniraj!</a></span>
 				<img src="/heart.png" alt=""/>
 			</div>
 		</div>
