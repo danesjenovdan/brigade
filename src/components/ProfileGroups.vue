@@ -13,7 +13,7 @@
       class="flex-grid-item"
       title="Brigada"
       subtitle="500 profilov"
-      text="Skupina 500 profilov, ki sledi vsaj 6 od 27 profilov, za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej Mikro pogled)."
+      text="Skupina 500 profilov, ki sledi vsaj 5 od 27 profilov, za katere obstaja visoka verjetnost, da so lažni in del organizirane mreže (glej Mikro pogled)."
       imageUrl="/green.png">
     </profile>
     <profile
@@ -29,7 +29,7 @@
       class="flex-grid-item"
       title="Kontrolni vzorec"
       subtitle="~150 profilov"
-      text="Naključno izbran vzorec slovenskih uporabnikov omrežja Twitter. Vzorec je bil izbran s pomočjo metode XXX."
+      text="Naključno izbran vzorec slovenskih uporabnikov omrežja Twitter. Vzorec smo sestavili tako, da smo teden dni snemali 1 % aktivnosti na Twitterju, filtrirali uporabnike, ki pišejo v slovenščini in iz njih sestavili vzorec."
       imageUrl="/yellow.png">
     </profile>
 	</div >

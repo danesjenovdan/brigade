@@ -3,8 +3,8 @@
 		<img class="image" alt="Vue logo" src="/Layer-top.png" />
 		<div class="items">
         <div class="container-description">
-          <div id="/mikro" :class="show.includes('mikro') ? 'background' : 'no-background'">
-            <p class="title" @click="show = 'mikro';goTo('mikro')">
+          <div id="mikro" :class="show.includes('mikro') ? 'background' : 'no-background'">
+            <p class="title" @click="goTo('mikro')">
             <span :class="show.includes('mikro') ? 'spacing' : null">Mikro pogled</span>
             </p>
             </div>
@@ -13,8 +13,8 @@
             </div>
         </div>
       <div class="container-description">
-        <div id="/makro" :class="show.includes('makro') ? 'background' : 'no-background'" >
-          <p class="title"  @click="show = 'makro';goTo('makro')">
+        <div id="makro" :class="show.includes('makro') ? 'background' : 'no-background'" >
+          <p class="title"  @click="goTo('makro')">
             <span :class="show.includes('makro') ? 'spacing' : null">Makro pogled</span>
           </p>
         </div>
@@ -24,7 +24,7 @@
         </div>
         <div class="container-description">
           <div id="prostorski" :class="show.includes('prostorski') ? 'background' : 'no-background'">
-            <p class="title" @click="show = 'prostorski';goTo('prostorski')">
+            <p class="title" @click="goTo('prostorski')">
               <span :class="show.includes('prostorski') ? 'spacing' : null">Prostorski pogled</span>
             </p>
           </div>
@@ -37,27 +37,25 @@
 		<img class="image" alt="Vue logo" src="/Layer-bottom.png" />
   </div>
 </template>
-    <script> 
-		export default {
-		data(){
-				return {
-					show: "",
-				}
-			},
-    methods: {
-				goTo(route) {
-					this.$router.push(route);
-				}
-			},
-    computed: {
-        routeName(){
-           return this.$route.name
-      },
-    },
 
+<script> 
+export default {
+  data() {
+    return {
+      show: 'mikro',
     }
-  
-    </script>
+  },
+  mounted() {
+    this.show = document.location.href.split('/')[3];
+  },
+  methods: {
+    goTo(route) {
+      this.show = route;
+      this.$router.push(route);
+    }
+  },
+};
+</script>
 <style scoped>
   .background {
       background-image:url('/yellow-background.png');
@@ -135,7 +133,8 @@
       white-space: nowrap;
     }
     .subtitle {
-      font-size: 1.2vw;
+      font-size: 1vw;
+      margin-top: -20px;
     }
     .title {
       font-size: 1.9vw;

@@ -4,3 +4,4 @@
 ./generate_index.sh twint_politiki_tweets
 ./generate_index.sh twint_sample_tweets
 ./generate_index.sh twint_trolls_tweets
+./generate_index.sh all_tweets

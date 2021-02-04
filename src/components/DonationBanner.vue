@@ -1,7 +1,7 @@
 <template>
 	<div class="container-banner">
 		<p>Kampanjo smo na <span class="acumin"><a target="_blank" href="https://danesjenovdan.si/">Danes je nov dan</a></span>
-            pripravili v sodelovanju z <span class="acumin"><a href="http://virostatiq.com/">Virostatiq</a></span>
+            pripravili v sodelovanju z <span class="acumin"><a href="https://kontekst.io/">Marko Plahuta</a></span>
     </p>
 		<div class="donation-box">
 			<p>Želiš podpreti naše delo?</p>

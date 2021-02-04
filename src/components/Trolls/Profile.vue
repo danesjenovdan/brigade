@@ -36,9 +36,9 @@
     props: {
       text: { type: String },
       info: { type: Object },
-      title: { type: String, required: true },
-      subtitle: { type: String, required: true },
-      imageUrl: { type: String, required: true },
+      title: { type: String, default: '' },
+      subtitle: { type: String, default: '' },
+      imageUrl: { type: String, default: '' },
     },
     methods: {
         format_date(value){

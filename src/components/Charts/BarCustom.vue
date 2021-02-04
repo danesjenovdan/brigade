@@ -55,7 +55,8 @@ export default {
                 url = 'https://twitter.com/'+label
                 break;
               case chartId.includes('domains'):
-                url = 'https://'+label
+                // url = 'https://'+label
+                url = `https://twitter.com/search?q=${label}`;
                 break;
               default:
                 // code block
@@ -80,6 +81,7 @@ export default {
   },
     watch: {
     data(newVal) {
+      console.log(this.data);
       if (!this.$data.data && this.$data.data !== undefined)  {
         const configured = configure(this.data.data.labels,
         this.data.data.datasets[0].label,
@@ -93,6 +95,8 @@ export default {
       } else {
         this.$data.myChart.data.labels = newVal.data.labels;
         this.$data.myChart.data.datasets = newVal.data.datasets
+        this.$data.myChart.data.datasets[0].borderColor = this.borderColor;
+        this.$data.myChart.data.datasets[0].backgroundColor = this.fillColor;
         this.$data.myChart.update();
       }
       this.$data.data = newVal;

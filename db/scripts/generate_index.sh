@@ -1,8 +1,9 @@
-host="localhost"
+host="localhost:9200"
+# host="https://es.brigade.k8s.djnd.si"
 
-curl -XDELETE "$host:9200/$1?pretty" -H 'Content-Type: application/json'
+curl -XDELETE "$host/$1?pretty" -H 'Content-Type: application/json'
 
-curl -XPUT "$host:9200/$1?pretty" -H 'Content-Type: application/json' -d '
+curl -XPUT "$host/$1?pretty" -H 'Content-Type: application/json' -d '
 {
     "settings": {
         "analysis": {
@@ -20,7 +21,7 @@ curl -XPUT "$host:9200/$1?pretty" -H 'Content-Type: application/json' -d '
     }
 }'
 
-curl -XPUT "$host:9200/$1/_mapping?pretty" -H 'Content-Type: application/json' -d'
+curl -XPUT "$host/$1/_mapping?pretty" -H 'Content-Type: application/json' -d'
 {
     "dynamic": false,
     "properties": {

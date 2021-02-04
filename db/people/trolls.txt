@@ -1,6 +1,6 @@
 desnicarkam
 karolinasemjaz
-radovedna
+1radovedna
 bostjanseruga
 evaresnik
 hanavrabec
@@ -24,3 +24,4 @@ ninalogar4
 ostanekatarina
 punca9
 pusnikferdinand
+jocarules
