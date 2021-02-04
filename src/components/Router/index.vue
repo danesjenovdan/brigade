@@ -46,7 +46,8 @@ export default {
     }
   },
   mounted() {
-    this.show = document.location.href.split('/')[3];
+    const splitted = document.location.href.split('/')[3];
+    this.show = splitted === '' ? 'mikro' : splitted;
   },
   methods: {
     goTo(route) {

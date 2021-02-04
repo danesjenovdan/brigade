@@ -14,7 +14,7 @@
         </a>
         <span class="mentions-badge">{{ mentions[cleanTroll][politician].mentions }}</span>
     </div>
-    <h1 v-if="totalMentions === 0">Ni podatkov za leto 2020.</h1>
+    <h1 v-if="totalMentions === 0">Ni omemb v letu 2020.</h1>
 </template>
 
 <script>

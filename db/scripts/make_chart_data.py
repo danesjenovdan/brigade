@@ -47,7 +47,7 @@ def get_top_rt(index_name, username=None):
                 'must': [
                     {
                         'match': {
-                            'retweet': True
+                            'retweet': True,
                         }
                     },
                     {
@@ -59,15 +59,16 @@ def get_top_rt(index_name, username=None):
                             }
                         }
                     },
-                    ({
-                        'match': {
-                            'username': username
-                        }
-                    } if username else None)
                 ]
             }
         }
     }
+    if username:
+        query['query']['bool']['must'].append({
+                        'match': {
+                            'username': username
+                        }
+                    })
     tweets = es_connector.query_tweets(query=query, index=index_name)
     for tweet in tweets:
         retweeted_username = '@' + tweet['_source']['tweet'].split('RT @')[-1].split(':')[0]
@@ -95,15 +96,16 @@ def get_top_mentions(index_name, username=None):
                             }
                         }
                     },
-                    ({
-                        'match': {
-                            'username': username
-                        }
-                    } if username else None)
                 ]
             }
         }
     }
+    if username:
+        query['query']['bool']['must'].append({
+                        'match': {
+                            'username': username
+                        }
+                    })
     tweets = es_connector.query_tweets(query=query, index=index_name)
     for tweet in tweets:
         mentioned_username_pattern = re.compile(r'(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)')
@@ -133,18 +135,19 @@ def get_top_hashtags(index_name, username=None):
                             }
                         }
                     },
-                    ({
-                        'match': {
-                            'username': username
-                        }
-                    } if username else None)
                 ],
             }
         }
     }
+    if username:
+        query['query']['bool']['must'].append({
+                        'match': {
+                            'username': username
+                        }
+                    })
     tweets = es_connector.query_tweets(query=query, index=index_name)
     for tweet in tweets:
-        hashtag_pattern = re.compile(r'(?<=^|(?<=[^a-zA-Z0-9-_\.]))#([A-Za-z]+[A-Za-z0-9-_]+)')
+        hashtag_pattern = re.compile(r'(?<=^|(?<=[^a-zA-ZđšžćčĐŠŽĆČ0-9-_\.]))#([A-Za-zđšžćčĐŠŽĆČ]+[A-Za-z0-9-_đšžćčĐŠŽĆČ]+)')
         hashtag = hashtag_pattern.search(tweet['_source']['tweet'])
         if hashtag:
             hashtags_counter[hashtag[0].lower()] += 1
@@ -171,21 +174,22 @@ def get_top_domains(index_name, username=None):
                             }
                         }
                     },
-                    ({
-                        'match': {
-                            'username': username
-                        }
-                    } if username else None)
                 ],
             }
         }
     }
+    if username:
+        query['query']['bool']['must'].append({
+                        'match': {
+                            'username': username
+                        }
+                    })
     tweets = es_connector.query_tweets(query=query, index=index_name)
     for tweet in tweets:
         urls = tweet['_source']['urls']
         if len(urls) > 0:
             for url in urls:
-                domain = urlparse(url).netloc
+                domain = urlparse(url).netloc.split('www.')[-1]
                 domains_counter[domain.lower()] += 1
     
     return domains_counter
@@ -259,44 +263,56 @@ def make_troll_json(troll):
     with open(f'checks/trolls/{troll.split("@")[-1]}info.json', 'w') as outfile:
         json.dump(final, outfile)
 
-# # GET TOP RTs
-# make_json_from_counter(get_top_rt('twint_politiki_tweets'), 'politiki_RT.json')
-# make_json_from_counter(get_top_rt('twint_sample_tweets'), 'sample_RT.json')
-# make_json_from_counter(get_top_rt('twint_trolls_tweets'), 'trolls_RT.json')
-# make_json_from_counter(get_top_rt('twint_500_tweets'), '500_RT.json')
+# GET TOP RTs
+print('Doing RTs')
+make_json_from_counter(get_top_rt('twint_politiki_tweets'), 'politiki_RT.json')
+make_json_from_counter(get_top_rt('twint_sample_tweets'), 'sample_RT.json')
+make_json_from_counter(get_top_rt('twint_trolls_tweets'), 'trolls_RT.json')
+make_json_from_counter(get_top_rt('twint_500_tweets'), '500_RT.json')
+print('Done with RTs')
 
-# # GET TOP mentions
-# make_json_from_counter(get_top_mentions('twint_politiki_tweets'), 'politiki_mentions.json')
-# make_json_from_counter(get_top_mentions('twint_sample_tweets'), 'sample_mentions.json')
-# make_json_from_counter(get_top_mentions('twint_trolls_tweets'), 'trolls_mentions.json')
-# make_json_from_counter(get_top_mentions('twint_500_tweets'), '500_mentions.json')
+# GET TOP mentions
+print('Doing mentions')
+make_json_from_counter(get_top_mentions('twint_politiki_tweets'), 'politiki_mentions.json')
+make_json_from_counter(get_top_mentions('twint_sample_tweets'), 'sample_mentions.json')
+make_json_from_counter(get_top_mentions('twint_trolls_tweets'), 'trolls_mentions.json')
+make_json_from_counter(get_top_mentions('twint_500_tweets'), '500_mentions.json')
+print('Done with mentions')
 
-# # GET TOP hashtags
-# make_json_from_counter(get_top_hashtags('twint_politiki_tweets'), 'politiki_hashtags.json')
-# make_json_from_counter(get_top_hashtags('twint_sample_tweets'), 'sample_hashtags.json')
-# make_json_from_counter(get_top_hashtags('twint_trolls_tweets'), 'trolls_hashtags.json')
-# make_json_from_counter(get_top_hashtags('twint_500_tweets'), '500_hashtags.json')
+# GET TOP hashtags
+print('Doing hashtags')
+make_json_from_counter(get_top_hashtags('twint_politiki_tweets'), 'politiki_hashtags.json')
+make_json_from_counter(get_top_hashtags('twint_sample_tweets'), 'sample_hashtags.json')
+make_json_from_counter(get_top_hashtags('twint_trolls_tweets'), 'trolls_hashtags.json')
+make_json_from_counter(get_top_hashtags('twint_500_tweets'), '500_hashtags.json')
+print('Done with hashtags')
 
-# # GET TOP domains
-# make_json_from_counter(get_top_domains('twint_politiki_tweets'), 'politiki_domains.json')
-# make_json_from_counter(get_top_domains('twint_sample_tweets'), 'sample_domains.json')
-# make_json_from_counter(get_top_domains('twint_trolls_tweets'), 'trolls_domains.json')
-# make_json_from_counter(get_top_domains('twint_500_tweets'), '500_domains.json')
+# GET TOP domains
+print('Doing domains')
+make_json_from_counter(get_top_domains('twint_politiki_tweets'), 'politiki_domains.json')
+make_json_from_counter(get_top_domains('twint_sample_tweets'), 'sample_domains.json')
+make_json_from_counter(get_top_domains('twint_trolls_tweets'), 'trolls_domains.json')
+make_json_from_counter(get_top_domains('twint_500_tweets'), '500_domains.json')
+print('Done with domains')
 
 # GET monthly activity
-# make_json_from_counters(
-#     {
-#         'politiki': get_monthly_activity('twint_politiki_tweets', 87),
-#         'sample': get_monthly_activity('twint_sample_tweets', 120),
-#         'trolls': get_monthly_activity('twint_trolls_tweets', 26),
-#         '500': get_monthly_activity('twint_500_tweets', 500)
-#     },
-#     [f'2020-{"0" if len(str(i + 1)) == 1 else ""}{i + 1}' for i in range(12)],
-#     'monthly.json'
-# )
+print('Doing monthly')
+make_json_from_counters(
+    {
+        'politiki': get_monthly_activity('twint_politiki_tweets', 87),
+        'sample': get_monthly_activity('twint_sample_tweets', 120),
+        'trolls': get_monthly_activity('twint_trolls_tweets', 26),
+        '500': get_monthly_activity('twint_500_tweets', 500)
+    },
+    [f'2020-{"0" if len(str(i + 1)) == 1 else ""}{i + 1}' for i in range(12)],
+    'monthly.json'
+)
+print('Done with monthly')
 
 # GENERATE troll data
+print('Doing trolls')
 with open('../people/trolls.txt', 'r') as infile:
     for line in infile.readlines():
         # print(f'Handling {line.strip()}')
         make_troll_json(line.strip())
+print('Done with trolls')
