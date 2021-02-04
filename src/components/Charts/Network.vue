@@ -1,84 +1,114 @@
 <template>
   <div class="network">
-    <div class="col-3 sptop" id="graphctrl">
-        <div class="row" style="width: 60%; float: left; text-align: left;">
-
-            <div class="col-12 sptop nopad small" >
-                <button @click="setRtThreshold(0)">Uporabniki ne glede na RT</button>
-                <button @click="setRtThreshold(0.5)">Uporabniki, ki vsaj pol časa ritvitajo</button>
-                <button @click="setRtThreshold(0.75)">Uporabniki, ki vsaj tri četrt časa ritvitajo</button>
-            </div>
-            <div class="col-12 sptop" id="rtslider"></div>
-            <div class="col-12 sptop nopad small" >
-                Registriran leta <b>{{ registrationYear }}</b> ali kasneje.
-                <vue-slider :v-data="years" v-model="registrationYear" @drag-end="setRegistrationThreshold(registrationYear)" />
-            </div>
-            <div class="col-12 sptop" id="dateslider"></div>
-        </div>
-        <div class="row" style="width: 40%; float: left;">
-            <div class="col-12 nopad">
-                <button class="btn btn-sm btn-primary" @click="toggle_graph()" style="width: 60%; height: 60px; display: inline-block; border-radius: 0;">Klikni za experimentalni prikaz političnih osi</button>
-                <div class="full" v-if="graph_type">
-                    Barve: <span class="badge badge-primary" style="background-color:#4575b4;width:100px">Left wing {{lr.left}}</span>,
-                    <span class="badge badge-primary" style="background-color:#d73027;width:150px">Right wing {{lr.right}}</span>,
-                    <span class="badge badge-primary" style="background-color:#000000;width:100px">Others</span>,
-                </div>
-            </div>
-        </div>
+    <div class="body-text">
+      <p>Spodaj lahko raziskuješ Twitter prostor, ki ga ustvarja ~6000 uporabniških računov. Nastavljaš lahko razmerje med
+        originalnimi tviti in ritviti ter datum registracije, posamezne skupine pa lahko dodatno raziščeš tako, da klikneš
+        nanje.</p>
+      <p>Omrežje je sestavljeno na podlagi stronje analize tvitov posameznih uporabnikov. Za vsakega uporabnika izračunamo število
+        omemb domen, drugih uporabnikov, ključnikov in posameznih besed (če so se le-ti v celotnem korpusu pojavili več
+        kot petkrat). Dobimo matriko kjer vsakega uporabnika opisuje nekaj čez 2600 parametrov (številk). Slednje z
+        algoritmom UMAP (z evklidsko inicializacijo) pretvorimo v koordinate v dvodimenzionalnem prostoru. Ko imamo
+        koordinate vseh uporabnikov jih z algoritmom HDBSCAN ločimo v kategorije, ki so obarvane na grafu.</p>
+      <p>Ob kliku na kategorijo se pod omrežjem izpišejo najpogostejše omembe, domene in ključniki za izbrano kategorijo.</p>
+      <p><b>Opozorilo:</b> kategorij je ~200, razločljivih barv pa občutno manj. V isto kategorijo na vizualizaciji spadajo
+        uporabniki ki so iste barve in blizu v koordinatnem prostoru.</p>
+      <p>Eksperimentalna kategorizacija med "levo" in "desno" temelji na ročno definiranem naboru "zagotovo levičarskih"
+        in "zagotovo desničarskih" uporabniških računov, na podlagi katerega se trenira prediktivni model. Trening
+        zaključimo, ko model postane več kot 81 % "zanesljiv".</p>
     </div>
-    <div id="graph">
-        <div id="graph-overlay"></div>
+    <div class="controls-container">
+      <div class="left-hand-container lhc-50">
+        <div class="slider-container">
+          <h1 class="title">Razmerje med originalnimi in poobjavljenimi tviti: <b>{{ rt_threshold.toString().replace('.', ',') }}</b>.</h1>
+          <vue-slider
+            :v-data="rtThresholds"
+            @change="val => rt_threshold = val / 4"
+            @drag-end="refreshGraph()"
+            :dot-size="20"
+            tooltip="none"
+          />
+        </div>
+      </div>
+      <div class="right-hand-container rhc-50">
+        <div class="slider-container">
+          <h1 class="title" style="min-height: 86px">Registrirani leta <b>{{ registrationYear }}</b> ali kasneje.<br/></h1>
+          <vue-slider
+            :marks="[2006, 2014, 2021]"
+            :v-data="years"
+            v-model="registrationYear"
+            @drag-end="setRegistrationThreshold(registrationYear)"
+            :dot-size="20"
+            tooltip="none"
+          />
+        </div>
+      </div>
     </div>
-    <div class="table-container">
-        <p style="text-align: center; background: rgba(255, 0, 0, 0.3); padding: 10px;">Klikni na obarvano skupino v omrežju da vidiš njene člane.</p>
-        <table>
-            <thead>
+    <div class="controls-container">
+      <div class="left-hand-container">
+        <div id="graph"></div>
+      </div>
+      <div class="right-hand-container table-container">
+        <table class="header-table">
+          <thead>
             <tr>
-                <th scope="col" style="text-align: left; width: 10rem;">
-                Username
-                </th>
-                <th scope="col" style="text-align: left; width: 10rem;">
-                Registration
-                </th>
-                <th scope="col" style="text-align: left; width: 10rem;">
-                RT/OC
-                </th>
-                <th scope="col" style="text-align: left; width: 10rem;">
-                Politična klasifikacija
-                </th>
+              <th scope="col" style="text-align: left; width: 10rem;">
+                Uporabniško ime
+              </th>
+              <th scope="col" style="text-align: left; width: 10rem;">
+                Datum registracije
+              </th>
+              <th scope="col" style="text-align: left; width: 10rem;">
+                RT razmerje
+              </th>
             </tr>
-            </thead>
-            <tbody>
-                <tr v-for="user in cluster_users" :key="user.id">
-                <td><a :href="`https://twitter.com/${user.label}`" target="_blank">{{user.label}}</a></td>
-                <td>{{ new Date(user.date).toLocaleDateString('sl') }}</td>
-                <td>{{ (user.rt + "").slice(0, 5) }}</td>
-                <td>{{ user.lefty ? 'Morda "levičar"' : 'Morda "desničar"' }}</td>
-                </tr>
-            </tbody>
+          </thead>
         </table>
+        <div class="body-table-container">
+          <table class="body-table">
+            <tbody>
+              <tr v-for="user in cluster_users" :key="user.id">
+                <td><a :href="`https://twitter.com/${user.label}`" target="_blank">{{user.label}}</a></td>
+                <td>{{ new Date(user.date).toLocaleDateString('sl')}}</td>
+                <td>{{ user.rt ? (user.rt + "").slice(0, 5) : '???' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="controls-container">
+        <button @click="toggle_graph()">
+          {{ graph_type ? 'Izklopi' : 'Vklopi' }} experimentalni prikaz "levih"/"desnih"
+        </button>
+    </div>
+    <div class="controls-container">
+        <div class="body-text" v-if="graph_type">
+          Bolj ko so uporabniki modre barve, bolj so "levičarji", bolj ko so rdeče barve bolj so "desničarji". Če so črne barve najverjetneje ne govorijo slovensko ali jih kako drugače nismo znali klasificirati.
+        </div>
+        <!-- <p style="text-align: center; background: rgba(255, 0, 0, 0.3); padding: 10px;">
+          Klikni na obarvano skupino vomrežju da vidiš njene člane.
+        </p> -->
     </div>
     <div id="charts">
-        <div class="chart-container">
-            <network-bar-chart :data="group_hashtags" :id="'hashtags'" :color="currentColor" />
-        </div>
-        <div class="chart-container">
-            <network-bar-chart :data="group_urls" :id="'urls'" :color="currentColor" />
-        </div>
-        <div class="chart-container">
-            <network-bar-chart :data="group_rts" :id="'rts'" :color="currentColor" />
-        </div>
+      <div class="chart-container">
+        <network-bar-chart :data="group_urls" :id="'urls'" :color="currentColor" />
+      </div>
+      <div class="chart-container">
+        <network-bar-chart :data="group_hashtags" :id="'hashtags'" :color="currentColor" />
+      </div>
+      <div class="chart-container">
+        <network-bar-chart :data="group_rts" :id="'rts'" :color="currentColor" />
+      </div>
     </div>
     <div class="col-8 sptop" id="dists">
-    <div id="tooltip"></div>
+      <div id="tooltip"></div>
     </div>
   </div>
 </template>
 
 <script>
 import * as d3 from 'd3';
-import * as noUiSlider from 'nouislider';
-import * as sigma from 'sigma';
+import Sigma from 'sigma';
 import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/antd.css'
 
@@ -89,6 +119,13 @@ export default {
   components: { NetworkBarChart, VueSlider },
   data() {
       return {
+        rtThresholds: {
+          0: '0',
+          1: '1/4',
+          2: '1/2',
+          3: '3/4',
+          4: '1'
+        },
         years: [
             2006,
             2007,
@@ -160,21 +197,12 @@ export default {
         "July", "August", "September", "October", "November", "December"
     ];
     let tooltip = d3.select("#tooltip")
-    let rtslider = document.getElementById('rtslider');
-    let dateslider = document.getElementById('dateslider');
-    noUiSlider.create(rtslider, {
-        start: [0],
-        connect: true,
-        range: {
-            'min': 0.0,
-            'max': 1.0
-        }
-    });
 
     this.load_graph()
   },
   methods: {
     refreshGraph() {
+      console.log(this.rt_threshold);
         this.sigma.graph.nodes()
             .forEach(d => {
                 if (d.v[0] < this.rt_threshold) d.hidden = true
@@ -207,6 +235,7 @@ export default {
     },
     setRtThreshold(newThreshold) {
         this.rt_threshold = newThreshold;
+        console.log(rt_threshold);
         this.refreshGraph();
     },
     goToTwitter(e) {
@@ -236,16 +265,7 @@ export default {
                 if (d.lefty) this.lr.left += 1
             })
 
-        noUiSlider.create(dateslider, {
-            start: [mindate],
-            connect: true,
-            range: {
-                'min': mindate,
-                'max': maxdate
-            }
-        });
-
-        this.sigma = new sigma(
+        this.sigma = new Sigma(
             {
                 renderer: {
                     container: document.getElementById("graph"),
@@ -279,53 +299,6 @@ export default {
         this.sigma.bind('clickNode', (e) => {
             this.goToTwitter(e)
         })
-        rtslider.noUiSlider.on('end', (values, handle) => {
-            this.rt_threshold= values[handle];
-            this.sigma.graph.nodes()
-                .forEach(d => {
-                    if (d.v[0] < values[handle]) d.hidden = true
-                    else d.hidden = false
-                })
-            this.sigma.refresh();
-            this.cluster_users = this.sigma.graph.nodes()
-                .filter(d => d.cluster === this.cluster)
-                .filter(d => d.date > this.date_threshold_date)
-                .filter(d => d.v[0] > values[handle])
-            this.lr.left = this.sigma.graph.nodes()
-                .filter(d => d.date > this.date_threshold_date)
-                .filter(d => d.v[0] > values[handle])
-                .filter(d => d.lefty).length
-            this.lr.right = this.sigma.graph.nodes()
-                .filter(d => d.date > this.date_threshold_date)
-                .filter(d => d.v[0] > values[handle])
-                .filter(d => d.troll).length
-            this.$apply()
-        });
-        dateslider.noUiSlider.on('end', (values, handle) => {
-            this.date_threshold_date= new Date(Math.floor(values[handle]));
-            //console.log(this.date_threshold)
-            this.date_threshold = this.monthNames[this.date_threshold_date.getMonth()] + "-" + this.date_threshold_date.getFullYear()
-            this.sigma.graph.nodes()
-                .forEach(d => {
-                    if (d.date < values[handle]) d.hidden = true
-                    else d.hidden = false
-                })
-            this.sigma.refresh();
-            this.cluster_users = this.sigma.graph.nodes()
-                .filter(d => d.date > this.date_threshold_date)
-                .filter(d => d.cluster === this.cluster)
-                .filter(d => d.v[0] > this.rt_threshold)
-
-            this.lr.left = this.sigma.graph.nodes()
-                .filter(d => d.date > this.date_threshold_date)
-                .filter(d => d.v[0] > this.rt_threshold)
-                .filter(d => d.lefty).length
-            this.lr.right = this.sigma.graph.nodes()
-                .filter(d => d.date > this.date_threshold_date)
-                .filter(d => d.v[0] > this.rt_threshold)
-                .filter(d => d.troll).length
-            this.$apply()
-        });
 
         this.toggle_graph();
     },
@@ -391,6 +364,44 @@ export default {
 </script>
 
 <style>
+#charts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.chart-container {
+  width: 33%;
+}
+.title {
+      /* Style for "Prostorski" */
+  color: #000000;
+  font-family: "buran_ussrregular";
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  letter-spacing: 2.3px;
+  line-height: normal;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  text-align: left;
+}
+.controls-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.slider-container {
+  padding: 40px;
+}
+.left-hand-container {
+  width: 65%;
+}
+.right-hand-container {
+  width: 35%;
+}
+
 .full {
     width: 100%;
 }
@@ -398,21 +409,11 @@ export default {
     width: 100%;
 }
 #graph {
-    width: 70%;
+    width: calc(100% - 4px);
     height: 700px;
     position: relative;
     overflow: hidden;
     float: left;
-}
-#graph-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    background: rgba(0, 0, 0, 0);
-    z-index: 2;
     border: 2px solid #000000;
 }
 #graph canvas {
@@ -420,20 +421,162 @@ export default {
     z-index: 1;
 }
 
-.chart-container {
-    width: 33%;
-    float: left;
+.body-text {
+    /* Style for "Lorem ipsu" */
+    color: #000000;
+    font-family: acumin-pro, sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 33.33px;
+    text-align: left;
+    /* Text style for "Lorem ipsu" */
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0 auto;
+    width: 90vw;
+  }
+
+@media only screen and (min-width: 769px) {
+  .body-text {
+		width: 50vw;
+  }
 }
+
 .users {
     width: 100%;
 }
 
 .table-container {
-    width: 25%;
     max-height: 700px;
-    overflow-y: auto;
     text-align: left;
     float: left;
-    padding-left: 20px;
+    padding: 0;
+    border: 2px solid #000000;
+    border-left: none;
+    position: relative;
+    overflow: hidden;
+}
+table {
+  position: relative;
+  width: 100%;
+  table-layout: fixed;
+  font-family: acumin-pro, sans-serif;
+}
+table a {
+  color: #000000;
+  font-weight: bold;
+  padding-left: 4px;
+}
+.table-container td:nth-child(2),
+.table-container td:nth-child(3) {
+  text-align: right;
+  padding-right: 10px;
+}
+.header-table {
+  background-color: #ffffff;
+  border-bottom: 2px solid #000000;
+}
+.body-table-container {
+  overflow-y: auto;
+  height: 100%;
+}
+.body-table {
+  padding-bottom: 5px;
+}
+
+.lhc-50, .rhc-50 {
+  width: 50%;
+  max-width: 50%;
+}
+
+/* slider */
+.vue-slider-mark-label, button {
+  color: #000000;
+  font-family: "buran_ussrregular";
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  letter-spacing: 2.3px;
+  line-height: normal;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+}
+
+button {
+  height: 60px;
+  border-radius: 0;
+  border: 2px solid #000000;
+  box-shadow: none;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #f9e96f;
+}
+
+.vue-slider-rail,
+.vue-slider:hover .vue-slider-rail {
+  background-color: #000000;
+}
+.vue-slider-process,
+.vue-slider:hover .vue-slider-process {
+  background-color: #f9e96f;
+}
+.vue-slider-mark-step {
+  box-shadow: 0 0 0 2px #000000;
+}
+.vue-slider-mark-step-active,
+.vue-slider:hover .vue-slider-mark-step-active {
+  /* border-color: #000000; */
+  box-shadow: 0 0 0 2px #000000;
+}
+.vue-slider-dot-handle,
+.vue-slider-dot-handle:hover,
+.vue-slider:hover .vue-slider-dot-handle {
+  border-color: #000000;
+}
+.vue-slider-dot-handle-focus,
+.vue-slider-process:hover .vue-slider-dot-handle-focus,
+.vue-slider-dot-handle-focus:hover,
+.vue-slider:hover .vue-slider-dot-handle:hover {
+  border-color: #000000;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 1200px) {
+  .controls-container {
+    flex-wrap: wrap;
+  }
+  .left-hand-container, .right-hand-container {
+    width: 100%;
+    max-width: 100%;
+  }
+  #graph {
+    height: 400px;
+  }
+  .table-container {
+    border-left: 2px solid #000000;
+    height: 400px;
+  }
+  .chart-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  th:nth-child(3),
+  td:nth-child(3) {
+    display: none;
+  }
 }
 </style>
