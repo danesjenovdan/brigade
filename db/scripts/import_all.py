@@ -12,6 +12,7 @@ def grouper(n, iterable):
         yield chunk
 
 def transform_tweet_dict(tweet_dict):
+    print(tweet_dict)
     return {
         'cashtags': '',
         'conversation_id': 0,
@@ -40,14 +41,14 @@ def transform_tweet_dict(tweet_dict):
                 'user_id': 0
         },
         'retweet': 'true' if 'RT @' in tweet_dict['text'] else 'false',
-        'retweet_date': tweet_dict['pub_date'].replace('T', ' ').split('+')[0] if 'RT @' in tweet_dict['text'] else None,
-        'retweet_id': tweet_dict['tweet_id'],
+        # 'retweet_date': tweet_dict['source_pub_date'].replace('T', ' ').split('+')[0] if 'RT @' in tweet_dict['text'] else None,
+        # 'retweet_id': tweet_dict['source_id_str'] if 'RT @' in tweet_dict['text'] else None,
         'tweet': tweet_dict['text'],
         'urls': tweet_dict['urls'],
         'username': tweet_dict['screen_name']
     }
 
-def import_500(file_name='full_index_dump.csv', index_name=''):
+def import_all(file_name='../fixed_full_index_dump.csv', index_name='all_tweets'):
     with open(file_name, 'r') as infile:
         reader = csv.DictReader(infile, delimiter=';', quotechar='|')
         for i, batch in enumerate(grouper(10000, reader)):
@@ -56,7 +57,20 @@ def import_500(file_name='full_index_dump.csv', index_name=''):
                 map(
                     transform_tweet_dict,
                     batch
-                )
+                ),
+                index_name
             )
 
-import_500()
+def preview_import(file_name='../fixed_full_index_dump.csv', index_name='all_tweets'):
+    with open(file_name, 'r') as infile:
+        reader = csv.DictReader(infile, delimiter=';', quotechar='|')
+        for i, row in enumerate(reader):
+            tweet = transform_tweet_dict(row)
+            print(i)
+            print('RT @' in tweet['tweet'])
+            print()
+            if i > 15:
+                return
+
+# import_all()
+preview_import()

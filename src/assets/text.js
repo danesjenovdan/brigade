@@ -10,7 +10,7 @@ export default {
         <p>Twitter se je skozi medijsko reprezentacijo vzpostavil kot ključen kanal za komuniciranje z javnostjo. Tradicionalni mediji se v svojih poročanjih redno sklicujejo na Twitter kot vir informacij, izjav, odzivov in dogodkov ter pomagajo ustvarjati percepcijo omrežja kot centraliziranega pulza javnega mnenja. Twitter objave so pogosto neposredno vdelane v spletne članke ali navedene pri medijskem poročanju. Čeprav je število aktivnih uporabnikov omrežja Twitter relativno malo, ima dogajanje na omrežju zaradi tega mnogo večji doseg in učinek na splošno javnost.</p>
         <p>Dobro informirana javnost je ključnega pomena za zdravo demokracijo. Ne smemo dovoliti, da javni spletni prostori, v katerih se oblikuje dominantni politični diskurz, prepustimo organiziranim skupinam, ki ga poskušajo zlorabiti.</p>
         <h1>Raziskava</h1>
-        <p>Spodaj predstavljamo izsledke raziskave, ki smo jo opravili v drugi polovici leta 2020 v sodelovanju z novinarji Pod Črto in ob pomoči uporabnice @Objaveizkleti ter raziskovalca podatkov Virostatiq.</p>
+        <p>Spodaj predstavljamo izsledke raziskave, ki smo jo opravili v drugi polovici leta 2020 v sodelovanju z novinarji Pod Črto in ob pomoči uporabnice @Objaveizkleti ter Marka Plahute.</p>
         <h2>Priporočamo</h2>
         <p><a target="_blank" href="#">Pod Črto: Twitter brigade 1. del</a></p>
     `,

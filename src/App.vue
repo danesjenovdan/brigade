@@ -19,20 +19,18 @@
           <p>Marsikateri uporabnik se ob napadih glasne Twitter večine počuti ogroženega ali utišanega, izvaja samocenzuro ali pa je nad sodelovanjem v debatah na omrežju preprosto obupal in prostor prepušča glasnejšim in bolj agresivnim komentatorjem. Posamezni uporabniki so pogosto tudi tarče organizanirah napadov in diskreditacij, kar jim otežuje, da bi svobodno izražali mnenja. Takemu procesu smo že bili priča pri popolni razgradnji kultivirane debate v komentarjih na spletnih mestih tradicionalnih medijev.</p>
         <p>Dobro informirana javnost je ključnega pomena za zdravo demokracijo. Javnih spletnih prostorov, v katerih se oblikuje dominantni politični diskurz, ne smemo prepustiti organiziranim skupinam, ki ga poskušajo zlorabiti.</p>
         <h1>Raziskava</h1>
-        <p>Predstavljamo izsledke raziskave, ki smo jo opravili v drugi polovici leta 2020 v sodelovanju z novinarji <a href="https://podcrto.si/" target="_blank">Pod črto</a> in ob pomoči Twitter uporabnice <a href="https://twitter.com/ObjaveIzKleti" target="_blank">@ObjaveIzKleti</a> ter raziskovalca podatkov <a href=" http://virostatiq.com/" target="_blank">Virostatiq</a>.</p>
+        <p>Predstavljamo izsledke raziskave, ki smo jo opravili v drugi polovici leta 2020 v sodelovanju s <a href="https://podcrto.si/" target="_blank">Pod črto</a> in ob pomoči Twitter uporabnice <a href="https://twitter.com/ObjaveIzKleti" target="_blank">@ObjaveIzKleti</a> ter <a href=" https://kontekst.io/" target="_blank">Marka Plahute</a>.</p>
         <p>Zajeti podatki prikazujejo leto 2020.</p>
       </div>
         <social-media-banner class="lean-banner">
-          <span class="buran" name="text">Nadaljno <br/>branje</span>
+          <span class="buran" name="text">Nadaljnje <br/>branje</span>
           <p class="container-link-text"><a target="_blank" href="#">Pod črto: Astroturfing 1. del</a></p>
         </social-media-banner>
       <views-navigation/>
       <router-view></router-view>
       <recap-banner>
         <div class="recap-container">
-          <div class="container-link">
-            <span class="buran" name="text">Ne spreglej</span>
-          </div>
+          <span class="buran min-size line-height" name="text">Ne spreglej</span>
           <div class="container-link">
               <p class="buran-small">Analize</p>
               <p class="container-link-text"><a href="/mikro">Mikro pogled</a></p>
@@ -40,8 +38,10 @@
               <p class="container-link-text"><a href="/prostorski">Prostorski pogled</a></p>
           </div>
             <div class="container-link">
-              <p class="buran-small">Raziskave</p>
+              <p class="buran-small min-size">Raziskave</p>
               <p class="container-link-text"><a target="_blank" href="#">Pod črto: Astroturfing 1. del</a></p>
+              <p class="container-link-text">&nbsp;</p>
+              <p class="container-link-text">&nbsp;</p>
             </div>
         </div>
       </recap-banner>
@@ -49,22 +49,22 @@
       <text-and-icon-banner-template>
         <span class="buran-small" name="text">povej naprej!</span>
         <div class="container-icons">
-          <icon >
+          <icon :url="getFacebookUrl()" >
             <img class="icon" src="/facebook.svg" alt=""/>
           </icon>
-          <icon >
+          <icon :url="getTwitterUrl()">
             <img class="icon" src="/twitter.svg" alt=""/>
           </icon>
-          <icon >
+          <icon :url="getMailtoUrl()">
             <img class="icon" src="/mail.svg" alt=""/>
           </icon>
 		  </div>
       </text-and-icon-banner-template>
         <text-and-icon-banner-template>
-          <p class="footer-text">Želiš podpreti naše delo?</p>
+          <p class="buran-small">Podpri nas!</p>
           <a target="_blank" class="link-no-style" href="https://danesjenovdan.si/doniraj">
 		        <div class="rectangle">
-				    <span class="buran-small">Doniraj!</span>
+				    <span class="buran-small doniraj">Doniraj!</span>
 				    <img class="heart-icon" src="/heart.png" alt=""/>
             </div>
           </a>
@@ -73,7 +73,7 @@
       <div class="credit-container">
         <credit>
         <p class="footer-text">Kampanjo smo na <span class="acumin"><a target="_blank" href="https://danesjenovdan.si/">Danes je nov dan</a></span>
-            pripravili v sodelovanju z sodelovanju z <a href="https://podcrto.si/" target="_blank">Pod črto</a>, <a href="https://twitter.com/ObjaveIzKleti" target="_blank">@ObjaveIzKleti</a> in <span class="acumin"><a target="_blank" href="http://virostatiq.com/">Virostatiq </a>.</span></p>
+            pripravili v sodelovanju z sodelovanju z <a href="https://podcrto.si/" target="_blank">Pod črto</a>, <a href="https://twitter.com/ObjaveIzKleti" target="_blank">@ObjaveIzKleti</a> in <span class="acumin"><a target="_blank" href="http://kontekst.io/">Markom Plahuto </a>.</span></p>
         </credit>
         <credit>
           <p class="footer-text">Projekt je nastal s podporo</p>
@@ -114,11 +114,29 @@
     },
     data() {
       return text
+    },
+    methods: {
+      getFacebookUrl() {
+        return `https://www.facebook.com/dialog/feed?app_id=767436690847470&redirect_uri=${encodeURIComponent(document.location.href)}&link=${encodeURIComponent(document.location.href)}&ref=responsive&name=Twitter brigade`;
+      },
+      getTwitterUrl() {
+        return `https://twitter.com/intent/tweet?text=${encodeURIComponent(document.location.href)}`;
+      },
+      getMailtoUrl() {
+        return `mailto:?subject=${encodeURIComponent('Twitter brigade')}&body=${encodeURIComponent(document.location.href)}`;
+      }
     }
   }
 </script>
 
 <style scoped>
+.min-size {
+  min-width: 300px;
+}
+.line-height {
+  padding-top: 40px;
+  margin-left: 20px;
+}
   h1 {
     /* Style for "Activity (" */
     color: #000000;
@@ -234,6 +252,9 @@
     padding-top: 25px;
     letter-spacing: 6px;
   }
+  .buran-small.doniraj {
+    padding-top: 0;
+  }
   .body-text {
     /* Style for "Lorem ipsu" */
     color: #000000;
@@ -284,6 +305,14 @@
 		margin: 50px
 
   }
+
+  .container-link-text a {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+
   @media only screen and (max-width: 768px) {
   .lean-banner {
     width: 90vw;
@@ -298,15 +327,16 @@
     align-items: center;
     justify-content: center;
     margin-left: 20px;
+    width: 90%;
   }
   .container-link-text {
     font-size: 24px;
-    margin: 5px;
+    margin: 2px;
   }
   .container-link-outer {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 100%;
   }
   .credit-container {
@@ -349,7 +379,7 @@
 
   .container-link-text {
     font-size: 28px;
-    margin: 5px;
+    margin: 2px;
   }
   .credit-container {
     display: flex;
@@ -358,14 +388,15 @@
   .container-link-outer {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
   }
   .recap-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding-bottom: 20px;
+    width: 90%;
   }
   .footer-container {
     display: flex;

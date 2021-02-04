@@ -49,22 +49,24 @@ import text from '../../assets/text.js'
 
 </script>
 <style scoped>
-
+.item {
+	width: 110px;
+}
 .image-container {
 	margin-top: 10px;
 	height: 100%;
 }
 .background {
-		background-image:url('/hover.svg');
-    background-position:center;
+	background-image:url('/hover.svg');
+    background-position: top center;
     background-repeat: no-repeat;
-    background-size: 111px 105px;
+    background-size: 110px 87px;
 }
 .no-background:hover {
-		background-image:url('/hover.svg');
-    background-position:center;
+	background-image:url('/hover.svg');
+    background-position: top center;
     background-repeat: no-repeat;
-    background-size: 111px 105px;
+    background-size: 110px 87px;
 }
 	.item {
     display: flex;

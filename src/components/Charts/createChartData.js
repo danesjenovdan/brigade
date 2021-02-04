@@ -1,5 +1,4 @@
 export default (troll = {}, type = "", size = 0, label="", backgroundColor, borderColor) => {
-  console.log(troll, type);
 	troll = Object.entries(troll[type]);
 	troll.sort(function (a, b) {
 		return b[1] - a[1];

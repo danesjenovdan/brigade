@@ -1,7 +1,7 @@
 <template>
-	<div>
+	<a :href="url" target="_blank">
     <slot></slot>
-	</div>
+	</a>
 </template>
 
 <script>
@@ -14,7 +14,7 @@
 </script>
 
 <style scoped>
-  div {
+  a {
         /* Style for "Rectangle" */
     width: 78px;
     height: 78px;

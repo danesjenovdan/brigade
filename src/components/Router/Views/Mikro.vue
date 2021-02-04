@@ -30,6 +30,7 @@ Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfi
 			<template v-slot:title>
 				Top tvit
 			</template>
+			<p>Najbolj všečkan tvit v zadnjem letu.</p>
 		</body-content-text>
 		<tweet :tweetUrl="tweet ? tweet.LINK : null"> </tweet>
 		<body-content-text>
@@ -188,7 +189,7 @@ export default {
   }
 	.image-container {
 		margin-top: 20px;
-		margin-bottom: 50px;
+		margin-bottom: 80px;
 	}
 	.url {
 		/* Style for "Jordana Pa" */

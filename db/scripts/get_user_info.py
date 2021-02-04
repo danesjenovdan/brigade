@@ -23,3 +23,4 @@ def get_person(username):
 # get_group('sample')
 # get_group('brigade')
 # get_group('v2_errored')
+get_group('trolls')

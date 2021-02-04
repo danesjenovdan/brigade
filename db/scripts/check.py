@@ -1,9 +1,12 @@
 from elasticsearch import Elasticsearch, helpers
 from datetime import datetime, timedelta
 
+host = 'localhost:9200'
+# host = 'https://es.brigade.k8s.djnd.si'
+
 class Checks(object):
   def __init__(self):
-    self.es = Elasticsearch()
+    self.es = Elasticsearch(host)
 
   def get_oldest_tweets(self, index='twint_sample_tweets', username=None):
     query = {
@@ -66,6 +69,68 @@ class Checks(object):
       tweets.append(t)
     return sorted(tweets, key=lambda tweet: tweet['_source']['date'])
 
+  def get_most_tweets(self, index='twint_sample_tweets', username=None, retweet=False, metric='nlikes'):
+    query = {
+      "query": {
+        "bool": {
+          "must": [
+            {
+              "match": {
+                "username": username,
+              }
+            },
+            {
+              "match": {
+                "retweet": retweet,
+              }
+            }
+          ]
+        }
+      },
+      "sort": [{
+        metric: {
+          "order": "asc"
+        }
+      }, ],
+    }
+    res = helpers.scan(self.es, index=index, query=query)
+    tweets = list()
+    for t in res:
+      tweets.append(t)
+    sorted_tweets = sorted(tweets, key=lambda tweet: int(tweet['_source'][metric]))
+    sorted_tweets.reverse()
+    return sorted_tweets
+
+  def get_political_mentions(self, index='twint_politiki_tweets', politician=None, username=None):
+    query = {
+      'query': {
+        "bool": {
+          "must": {
+            'bool': {
+              'must': [{
+                "match": {
+                  "username": politician,
+                }
+              },
+              {
+                'regexp': {
+                  'tweet': f'.*{username}.*'
+                }
+              }]
+            },
+          }
+        },
+      }
+    }
+    res = helpers.scan(self.es, index=index, query=query)
+    tweets = list()
+    for t in res:
+      tweets.append(t)
+    # sorted_tweets = sorted(tweets, key=lambda tweet: int(tweet['_source'][metric]))
+    # return sorted_tweets
+    return tweets
+
+
 checks = Checks()
 
 def find_joined_date(username):
@@ -120,7 +185,70 @@ def check_group(group_name, index):
                 print(f'FAILED RETWEET HOLE with {username}, {tweet_date}, {joined_date}')
             # print(tweet['_source']['date'], retweet['_source']['retweet_date'])
 
-check_group('politiki', 'twint_politiki_tweets')
-check_group('sample', 'twint_sample_tweets')
-check_group('trolls', 'twint_trolls_tweets')
+def get_most_liked_original_tweets(group_name, index):
+  with open(f'../people/{group_name}.txt', 'r') as infile:
+    with open(f'checks/localhost_{group_name}_likest.tsv', 'w') as outfile:
+      for i, line in enumerate(infile.readlines()):
+        username = line.strip()
+        most_liked = checks.get_most_tweets(username=username, index=index, metric='nlikes')
+        if len(most_liked) > 0:
+        # outfile.write(f'{username}\t{most_liked[0]["_source"]["nlikes"]}\thttps://twitter.com/{username}/{most_liked[0]["_source"]["id"]}\n')
+          output = f'{username}\t{most_liked[0]["_source"]["nlikes"]}\thttps://twitter.com/{username}/status/{most_liked[0]["_source"]["id"]}\n'
+        else:
+          output = f'{username}\tN/A\tN/A\n'
+
+        outfile.write(output)
+
+def get_most_rted_original_tweets(group_name, index):
+  with open(f'../people/{group_name}.txt', 'r') as infile:
+    with open(f'checks/localhost_{group_name}_RTest.tsv', 'w') as outfile:
+      for i, line in enumerate(infile.readlines()):
+        username = line.strip()
+        most_liked = checks.get_most_tweets(username=username, index=index, metric='nretweets')
+        if len(most_liked) > 0:
+        # outfile.write(f'{username}\t{most_liked[0]["_source"]["nlikes"]}\thttps://twitter.com/{username}/{most_liked[0]["_source"]["id"]}\n')
+          output = f'{username}\t{most_liked[0]["_source"]["nlikes"]}\thttps://twitter.com/{username}/status/{most_liked[0]["_source"]["id"]}\n'
+        else:
+          output = f'{username}\tN/A\tN/A\n'
+
+        outfile.write(output)
+
+def get_most_rted_retweets(group_name, index):
+  with open(f'../people/{group_name}.txt', 'r') as infile:
+    with open(f'checks/localhost_{group_name}_likest_RT.tsv', 'w') as outfile:
+      for i, line in enumerate(infile.readlines()):
+        username = line.strip()
+        most_liked = checks.get_most_tweets(username=username, index=index, retweet=True, metric='nretweets')
+        if len(most_liked) > 0:
+        # outfile.write(f'{username}\t{most_liked[0]["_source"]["nlikes"]}\thttps://twitter.com/{username}/{most_liked[0]["_source"]["id"]}\n')
+          output = f'{username}\t{most_liked[0]["_source"]["nretweets"]}\thttps://twitter.com/{username}/status/{most_liked[0]["_source"]["id"]}\n'
+        else:
+          output = f'{username}\tN/A\tN/A\n'
+
+        outfile.write(output)
+
+def get_political_mentions(group_name):
+  with open(f'checks/localhost_{group_name}_politicians.tsv', 'w') as outfile:
+    with open('../people/politiki.txt', 'r') as polfile:
+      for i, poline in enumerate(polfile.readlines()):
+        mentions = {}
+        politician = poline.strip()
+        with open(f'../people/{group_name}.txt', 'r') as infile:
+          for userline in infile.readlines():
+            username = userline.strip()
+            mentions[username] = len(checks.get_political_mentions(username=username, politician=politician))
+          if i == 0:
+            outfile.write(f'politician\t{"	".join(sorted(mentions.keys()))}\n')
+          else:
+            values = [politician] + [str(mentions[key]) for key in sorted(mentions.keys())]
+            outfile.write(f'{"	".join(values)}\n')
+
+# check_group('politiki', 'twint_politiki_tweets')
+# check_group('sample', 'twint_sample_tweets')
+# check_group('trolls', 'twint_trolls_tweets')
 # check_group('brigade', 'twint_500_tweets')
+# check_group('all', 'all_tweets')
+
+get_most_liked_original_tweets('trolls', 'twint_trolls_tweets')
+get_most_rted_original_tweets('trolls', 'twint_trolls_tweets')
+get_political_mentions('trolls')

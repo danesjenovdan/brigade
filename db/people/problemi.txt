@@ -11,6 +11,8 @@ ziebane
 jolandab88
 jirikocica
 
+dnevnelazi -> suspended
+
 
 AlenkaJerajSDS -> ni vseh RTjev
 

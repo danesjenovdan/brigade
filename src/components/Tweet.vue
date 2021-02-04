@@ -1,40 +1,34 @@
 <template>
-  <div>
-		<blockquote class="twitter-tweet">
-      <a :href="tweetUrl">
-      </a>
-    </blockquote>
-    </div>
+  <div id="the-tweet"></div>
+  <a :href="tweetUlr" target="_blank">{{ tweetUrl }}</a>
 </template>
 <script>
-  import moment from 'moment'
-
+import * as TwitterWidgetsLoader from 'twitter-widgets';
   export default {
     props: [
       'tweetUrl',
     ],
-    methods: {
-        methodThatForcesUpdate() {
-          // ...
-          console.log("force update")
-          this.$forceUpdate();  // Notice we have to use a $ here
-          // ...
-        }
-    },
     watch: { 
       tweetUrl: async function(newVal, oldVal) { // watch it
-          this.methodThatForcesUpdate()
-        /*const headers = { 
-          'Access-Control-Allow-Origin' : '*',
-          'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        }
-        const result = await axios(`https://publish.twitter.com/oembed?url=${newVal}`,{
-          method: "GET", 
-          headers: headers,
-        })
-        console.log('result: ', result);*/
-        
-        }
+        document.getElementById('the-tweet').innerHTML = '';
+        TwitterWidgetsLoader.load((err, twttr) => {
+          twttr.widgets.createTweet(
+            this.tweetUrl.split('/')[5],
+            document.getElementById('the-tweet'),
+            {
+              align: 'middle'
+            }
+          );
+        });
       }
+    }
   }
 </script>
+
+<style scoped>
+#the-tweet {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+</style>
