@@ -1,1 +1,9 @@
-{"data": {"labels": ["nova24tv.si", "twitter.com", "youtu.be", "siol.net", "demokracija.si", "youtube.com", "rtvslo.si", "24ur.com", "fllwrs.com", "facebook.com", "bit.ly", "slovenskenovice.si", "casnik.si", "reporter.si", "reut.rs", "horoskop.si", "domovina.je", "delo.si", "zurnal24.si", "vecer.com"], "datasets": [{"label": "500_domains.json", "data": [11724, 9832, 5060, 4931, 3916, 3721, 3352, 3203, 3081, 2807, 2223, 1866, 1453, 1342, 1045, 877, 819, 778, 748, 718]}]}}
+{
+    "data": {
+        "labels": ["nova24tv.si", "twitter.com", "youtu.be", "siol.net", "demokracija.si", "youtube.com", "rtvslo.si", "24ur.com", "fllwrs.com", "facebook.com", "bit.ly", "slovenskenovice.si", "casnik.si", "reporter.si", "reut.rs", "horoskop.si", "domovina.je", "delo.si", "zurnal24.si", "vecer.com"],
+        "datasets": [{
+            "label": "\u0160tevilo pojavitev",
+            "data": [11724, 9832, 5060, 4931, 3916, 3721, 3352, 3203, 3081, 2807, 2223, 1866, 1453, 1342, 1045, 877, 819, 778, 748, 718]
+        }]
+    }
+}

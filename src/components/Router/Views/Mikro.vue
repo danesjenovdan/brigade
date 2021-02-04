@@ -226,6 +226,7 @@ export default {
 	max-width: 80%;
 	padding-bottom: 10px;
 	margin: auto;
+	font-family: acumin-pro, sans-serif;
 }
 .politicians-container h1,
 .politicians-container p {
