@@ -176,6 +176,9 @@
     justify-content: center;
     top: 0;
     position: absolute;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
   }
   .container-link {
     margin-left: 20px;

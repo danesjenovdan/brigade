@@ -11,13 +11,16 @@ Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfi
 	<div class="profile-container">
 		<troll-profile v-if="troll.accountInfo.name" :info="troll.accountInfo"/>
 		<div class="politicians-container">
-			<h1>Največkrat omenjen_a s strani naslednjih politikov:</h1>
+			<h1>Omembe pri politikih:</h1>
+			<p>Kolikokrat je bil profil omenjen oziroma ritvtivan s strani politikov (prikazujemo do 5 politikov).</p>
 			<politicians v-if="troll.accountInfo.name" :troll="troll.accountInfo.userName" />
 		</div>
 	</div>
 	<body-content-text>{{description}}</body-content-text>
 	<fake-real-image class="image-container" v-for="image in images">
-		<img class="image" alt="" :src="'/27Trolov' + image.src" />
+		<a target="_blank" class="url" :href="`/27Trolov${image.src}`">
+			<img class="image" alt="" :src="'/27Trolov' + image.src" />
+		</a>
 			<template v-slot:original>
 					<i v-if="image.src.includes('/desnicarkaM-1.jpg')">
 					<a target="_blank" class="url" :href="image.leftLink.split(',')[0]">{{image.leftCaption.split(',')[0]}},<br/></a>
@@ -41,6 +44,7 @@ Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfi
 		<template v-slot:title>
 			Top lestvice
 		</template>
+		<p>Koga izbrani profil najbolj pogosto ritvtiva, omenja in katere ključnike in domene najbolj objavlja. Klik na graf je povezava.</p>
 	</body-content-text>
 	<div v-if="troll.accountInfo.name && troll.mentions" class="visualisations-container">
 		<div class="visualisations-group"><bar-custom :data="charts.retweets" borderColor='rgb(249, 233, 111)'
@@ -223,9 +227,24 @@ export default {
 	padding-bottom: 10px;
 	margin: auto;
 }
-.politicians-container h1 {
+.politicians-container h1,
+.politicians-container p {
 	width: 100%;
 	min-width: 100%;
+}
+.politicians-container p {
+	margin-top: -20px;
+	margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+	.politicians-container h1 {
+		font-size: 20px;
+		margin-top: 50px;
+	}
+	.politicians-container p {
+		margin-top: 0;
+		margin-bottom: 40px;
+	}
 }
 .container-group {
 	margin: auto;

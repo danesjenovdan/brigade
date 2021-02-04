@@ -1,5 +1,6 @@
 <template>
   <div class="network">
+    <div class="container-body">
     <div class="body-text">
       <p>Spodaj lahko raziskuješ Twitter prostor, ki ga ustvarja ~6000 uporabniških računov. Nastavljaš lahko razmerje med
         originalnimi tviti in ritviti ter datum registracije, posamezne skupine pa lahko dodatno raziščeš tako, da klikneš
@@ -15,6 +16,7 @@
       <p>Eksperimentalna kategorizacija med "levo" in "desno" temelji na ročno definiranem naboru "zagotovo levičarskih"
         in "zagotovo desničarskih" uporabniških računov, na podlagi katerega se trenira prediktivni model. Trening
         zaključimo, ko model postane več kot 81 % "zanesljiv".</p>
+    </div>
     </div>
     <div class="controls-container">
       <div class="left-hand-container lhc-50">
@@ -364,6 +366,13 @@ export default {
 </script>
 
 <style>
+.container-body {
+  display: flex; /* or inline-flex */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 68px;
+}
 #charts {
   display: flex;
   flex-wrap: wrap;
@@ -437,6 +446,7 @@ export default {
     line-height: normal;
     margin: 0 auto;
     width: 90vw;
+    max-width: 100%;
   }
 
 @media only screen and (min-width: 769px) {
