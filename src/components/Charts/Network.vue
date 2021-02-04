@@ -2,8 +2,8 @@
   <div class="network">
     <div class="container-body">
     <div class="body-text">
-      <p>Spodaj lahko raziskuješ Twitter prostor, ki ga ustvarja več kot 6000 uporabniških računov. Nastavljaš lahko razmerje med
-        originalnimi tviti in ritviti ter datum registracijeSkupine uporabnikov, ki so si sorodne, so obarvane z isto barve in se nahajajo bližje v prostoru. Več informacij o skupini dobiš s klikom na njenega pripadnika.</p>
+      <p>Spodaj lahko raziskuješ Twitter prostor, ki ga ustvarja več kot 6000 uporabniških računov. Ti pripadajo tako resničnim ljudem, kot neavtentičnim manipulatorjem. Nastavljaš lahko razmerje med
+        originalnimi tviti in ritviti ter datum registracije. Skupine uporabnikov, ki so si sorodne, so obarvane z isto barve in se nahajajo bližje v prostoru. Več informacij o skupini dobiš s klikom na njenega pripadnika.</p>
       <p>Omrežje je sestavljeno na podlagi strojne analize tvitov posameznih uporabnikov. Za vsakega uporabnika izračunamo število
         omemb domen, drugih uporabnikov, ključnikov in posameznih besed (če so se le-ti v celotnem korpusu pojavili več
         kot petkrat). Dobimo matriko kjer vsakega uporabnika opisuje nekaj čez 2600 parametrov (številk). Slednje z
@@ -12,9 +12,10 @@
       <p>Ob kliku na kategorijo se pod omrežjem izpišejo najpogostejše omembe, domene in ključniki za izbrano kategorijo.</p>
       <p><b>Opozorilo:</b> kategorij je čez 200, razločljivih barv pa občutno manj. V isto kategorijo na vizualizaciji spadajo
         uporabniki ki so iste barve in blizu v koordinatnem prostoru.</p>
+      <p>Večji kot je krog, več tvitov je uporabnik_ca sproduciral_a (kvadratni koren števila tvitov).</p>
       <p>Eksperimentalna kategorizacija med "levo" in "desno" temelji na ročno definiranem naboru "zagotovo levičarskih"
         in "zagotovo desničarskih" uporabniških računov, na podlagi katerega se trenira prediktivni model. Trening
-        zaključimo, ko model postane več kot 81 % "zanesljiv".</p>
+        zaključimo, ko model postane več kot 81 % (kar seveda ni dovolj) "zanesljiv".</p>
     </div>
     </div>
     <div class="controls-container">
@@ -92,13 +93,13 @@
     </div>
     <div id="charts">
       <div class="chart-container">
-        <network-bar-chart :data="group_urls" :id="'urls'" :color="currentColor" />
+        <network-bar-chart :data="group_urls" :id="'urls'" :color="currentColor" datasetName="Top domene" />
       </div>
       <div class="chart-container">
-        <network-bar-chart :data="group_hashtags" :id="'hashtags'" :color="currentColor" />
+        <network-bar-chart :data="group_hashtags" :id="'hashtags'" :color="currentColor" datasetName="Top ključniki" />
       </div>
       <div class="chart-container">
-        <network-bar-chart :data="group_rts" :id="'rts'" :color="currentColor" />
+        <network-bar-chart :data="group_rts" :id="'rts'" :color="currentColor" datasetName="Top ritviti" />
       </div>
     </div>
     <div class="col-8 sptop" id="dists">
@@ -442,7 +443,6 @@ export default {
     /* Text style for "Lorem ipsu" */
     font-style: normal;
     letter-spacing: normal;
-    line-height: normal;
     margin: 0 auto;
     width: 90vw;
     max-width: 100%;

@@ -62,7 +62,7 @@
       </text-and-icon-banner-template>
         <text-and-icon-banner-template>
           <p class="buran-small">Podpri nas!</p>
-          <a target="_blank" class="link-no-style" href="https://danesjenovdan.si/doniraj">
+          <a target="_blank" class="link-no-style" href="https://danesjenovdan.si/doniraj/placaj/mesecno">
 		        <div class="rectangle">
 				    <span class="buran-small doniraj">Doniraj!</span>
 				    <img class="heart-icon" src="/heart.png" alt=""/>
@@ -117,7 +117,7 @@
     },
     methods: {
       getFacebookUrl() {
-        return `https://www.facebook.com/dialog/feed?app_id=767436690847470&redirect_uri=${encodeURIComponent(document.location.href)}&link=${encodeURIComponent(document.location.href)}&ref=responsive&name=Twitter brigade`;
+        return `https://www.facebook.com/dialog/feed?app_id=381430693089489&redirect_uri=${encodeURIComponent(document.location.href)}&link=${encodeURIComponent(document.location.href)}&ref=responsive&name=Twitter brigade`;
       },
       getTwitterUrl() {
         return `https://twitter.com/intent/tweet?text=${encodeURIComponent(document.location.href)}`;

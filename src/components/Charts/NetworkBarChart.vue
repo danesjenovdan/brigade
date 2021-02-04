@@ -3,7 +3,8 @@
         :data="transformedData"
         :id="id"
         :borderColor="color"
-        :fillColor="color" />
+        :fillColor="color"
+    />
 </template>
 
 <script>
@@ -22,6 +23,9 @@ export default {
         color: {
             default: '#000000',
         },
+        datasetName: {
+            default: 'podatki',
+        },
     },
     mounted() {
         console.log(this.data);
@@ -39,7 +43,7 @@ export default {
                     labels,
                     datasets: [
                         {
-                            label: this.id,
+                            label: this.datasetName,
                             data,
                         }
                     ]
