@@ -30,7 +30,7 @@
           </div>
         <div class="subtitle">
           <p>Vizualizacija uporabnikov Twitter omrežja<br/>
-          razporejenih s pomočjo strojnega klasifikatorja,<br/> ki upošteva vsebine meta podatke profilov,<br/> povezanost profilov in vsebine njihovih objav.</p>
+          razporejenih s pomočjo strojnega klasifikatorja,<br/> ki upošteva meta podatke profilov,<br/> povezanost profilov in vsebine njihovih objav.</p>
         </div>
         </div>
 		</div>
