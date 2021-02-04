@@ -26,7 +26,7 @@ import * as TwitterWidgetsLoader from 'twitter-widgets';
 
 <style scoped>
 #the-tweet {
-  width: 100%;
+  width: 80%;
   max-width: 600px;
   margin: auto;
 }

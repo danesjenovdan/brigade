@@ -98,6 +98,7 @@ export default {
 		max-width: 80vw;
 		display: flex;
 		overflow-x: auto;
+		min-height: 180px;
   }
 }
 @media only screen and (min-width: 769px) {
