@@ -120,10 +120,10 @@
         return `https://www.facebook.com/dialog/feed?app_id=381430693089489&redirect_uri=${encodeURIComponent(document.location.href)}&link=${encodeURIComponent(document.location.href)}&ref=responsive&name=Twitter brigade`;
       },
       getTwitterUrl() {
-        return `https://twitter.com/intent/tweet?text=${encodeURIComponent(document.location.href)}`;
+        return `https://twitter.com/intent/tweet?text=${encodeURIComponent('Kako deluje ustvarjanje lažne javnosti na Twitterju? Spoznaj 25 lažnih profilov in vsebine, ki jih razširja z njimi povezana mreža. #twitterbrigade' + document.location.href)}`;
       },
       getMailtoUrl() {
-        return `mailto:?subject=${encodeURIComponent('Twitter brigade')}&body=${encodeURIComponent(document.location.href)}`;
+        return `mailto:?subject=${encodeURIComponent('Kako deluje ustvarjanje lažne javnosti na Twitterju?')}&body=${encodeURIComponent(document.location.href)}`;
       }
     }
   }
