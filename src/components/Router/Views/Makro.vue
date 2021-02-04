@@ -4,7 +4,7 @@
     <template v-slot:title>
       Aktivnost
     </template>
-    Število tvitov in ritvitov, ustvarjenih skozi čas glede na skupino.
+    Povprečno število tvitov in ritvitov na uporabnika, ustvarjenih skozi čas glede na skupino.
   </body-content-text>
   <div class="visualisations-container">
     <bar-with-custom-labels :data="tweetsByMonth" id="monthly"/>

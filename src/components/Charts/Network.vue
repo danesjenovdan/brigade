@@ -2,16 +2,15 @@
   <div class="network">
     <div class="container-body">
     <div class="body-text">
-      <p>Spodaj lahko raziskuješ Twitter prostor, ki ga ustvarja ~6000 uporabniških računov. Nastavljaš lahko razmerje med
-        originalnimi tviti in ritviti ter datum registracije, posamezne skupine pa lahko dodatno raziščeš tako, da klikneš
-        nanje.</p>
+      <p>Spodaj lahko raziskuješ Twitter prostor, ki ga ustvarja več kot 6000 uporabniških računov. Nastavljaš lahko razmerje med
+        originalnimi tviti in ritviti ter datum registracijeSkupine uporabnikov, ki so si sorodne, so obarvane z isto barve in se nahajajo bližje v prostoru. Več informacij o skupini dobiš s klikom na njenega pripadnika.</p>
       <p>Omrežje je sestavljeno na podlagi strojne analize tvitov posameznih uporabnikov. Za vsakega uporabnika izračunamo število
         omemb domen, drugih uporabnikov, ključnikov in posameznih besed (če so se le-ti v celotnem korpusu pojavili več
         kot petkrat). Dobimo matriko kjer vsakega uporabnika opisuje nekaj čez 2600 parametrov (številk). Slednje z
         algoritmom UMAP (z evklidsko inicializacijo) pretvorimo v koordinate v dvodimenzionalnem prostoru. Ko imamo
         koordinate vseh uporabnikov jih z algoritmom HDBSCAN ločimo v kategorije, ki so obarvane na grafu.</p>
       <p>Ob kliku na kategorijo se pod omrežjem izpišejo najpogostejše omembe, domene in ključniki za izbrano kategorijo.</p>
-      <p><b>Opozorilo:</b> kategorij je ~200, razločljivih barv pa občutno manj. V isto kategorijo na vizualizaciji spadajo
+      <p><b>Opozorilo:</b> kategorij je čez 200, razločljivih barv pa občutno manj. V isto kategorijo na vizualizaciji spadajo
         uporabniki ki so iste barve in blizu v koordinatnem prostoru.</p>
       <p>Eksperimentalna kategorizacija med "levo" in "desno" temelji na ročno definiranem naboru "zagotovo levičarskih"
         in "zagotovo desničarskih" uporabniških računov, na podlagi katerega se trenira prediktivni model. Trening
@@ -54,10 +53,10 @@
           <thead>
             <tr>
               <th scope="col" style="text-align: left; width: 10rem;">
-                Uporabniško ime
+                Profil
               </th>
               <th scope="col" style="text-align: left; width: 10rem;">
-                Datum registracije
+                Registracija
               </th>
               <th scope="col" style="text-align: left; width: 10rem;">
                 RT razmerje
@@ -80,7 +79,7 @@
     </div>
     <div class="controls-container">
         <button @click="toggle_graph()">
-          {{ graph_type ? 'Izklopi' : 'Vklopi' }} experimentalni prikaz "levih"/"desnih"
+          {{ graph_type ? 'Izklopi' : 'Vklopi' }} eksperimentalni prikaz "levih"/"desnih"
         </button>
     </div>
     <div class="controls-container">

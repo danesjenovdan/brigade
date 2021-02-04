@@ -31,7 +31,6 @@
   </div>
 </template>
 <script>
-  import moment from 'moment'
   export default {
     props: {
       text: { type: String },
@@ -42,9 +41,7 @@
     },
     methods: {
         format_date(value){
-         if (value) {
-           return moment(String(value)).format('DD.MM.YYYY')
-          }
+          return new Date(value.split(' ')[0]).toLocaleDateString('sl');
       },
     }
   }
