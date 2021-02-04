@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img class ='header-image' alt="Vue logo" src="/twitter-brigade.png" />
+    <img class ='header-image' alt="Twitter brigade - naslovna slika" src="/twitter-brigade.jpg" />
     <div class="container-body">
       <div class='body-text'>
         <p>Pomen Twitterja v družbi se je v zadnjih letih močno okrepil. To družbeno omrežje vse bolj zavzema vlogo javne sfere oziroma prostora, ki uokvirja družbenopolitični diskurz. Twitter se je skozi medijsko reprezentacijo vzpostavil kot centraliziran utrip javnega mnenja. Večina politikov in strank ima svoje Twitter profile, na katerih obveščajo javnost, izražajo svoja politična stališča, med sabo javno debatirajo in polemizirajo o aktualnih temah. V času, ko se tradicionalni mediji soočajo s krizo svojih poslovnih modelov, obenem pa se njihov vpliv ruši pod težo številnih političnih pritiskov in kadrovskih zamenjav, spletni javni prostor pridobiva na pomembnosti. Tradicionalni mediji se v svojih poročanjih redno sklicujejo na Twitter kot vir informacij, izjav, odzivov in dogodkov. Čeprav je število aktivnih uporabnikov Twitterja relativno majhno, ima dogajanje na omrežju zaradi tega mnogo večji doseg in učinek na splošno javnost.</p>
@@ -73,7 +73,7 @@
       <div class="credit-container">
         <credit>
         <p class="footer-text">Kampanjo smo na <span class="acumin"><a target="_blank" href="https://danesjenovdan.si/">Danes je nov dan</a></span>
-            pripravili v sodelovanju z sodelovanju z <a href="https://podcrto.si/" target="_blank">Pod črto</a>, <a href="https://twitter.com/ObjaveIzKleti" target="_blank">@ObjaveIzKleti</a> in <span class="acumin"><a target="_blank" href="http://kontekst.io/">Markom Plahuto </a>.</span></p>
+            pripravili v sodelovanju s <a href="https://podcrto.si/" target="_blank">Pod črto</a>, <a href="https://twitter.com/ObjaveIzKleti" target="_blank">@ObjaveIzKleti</a> in <span class="acumin"><a target="_blank" href="http://kontekst.io/">Markom Plahuto</a>.</span></p>
         </credit>
         <credit>
           <p class="footer-text">Projekt je nastal s podporo</p>

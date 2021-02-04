@@ -1,6 +1,9 @@
 from elasticsearch import Elasticsearch, helpers
 from datetime import datetime, timedelta
 
+import json
+from collections import Counter
+
 host = 'localhost:9200'
 # host = 'https://es.brigade.k8s.djnd.si'
 
@@ -227,6 +230,12 @@ def get_most_rted_retweets(group_name, index):
 
         outfile.write(output)
 
+def get_user_info(troll):
+    with open('../people/user_info.txt', 'r') as infile:
+        for line in infile.readlines():
+            if troll.lower() in line.lower():
+                return [thing.strip() for thing in line.split('|')]
+
 def get_political_mentions(group_name):
   with open(f'checks/localhost_{group_name}_politicians.tsv', 'w') as outfile:
     with open('../people/politiki.txt', 'r') as polfile:
@@ -243,12 +252,41 @@ def get_political_mentions(group_name):
             values = [politician] + [str(mentions[key]) for key in sorted(mentions.keys())]
             outfile.write(f'{"	".join(values)}\n')
 
+def get_political_mentions_json(group_name):
+  output = {}
+  with open(f'checks/localhost_{group_name}_politicians.json', 'w') as outfile:
+    with open(f'../people/{group_name}.txt', 'r') as infile:
+      for userline in infile.readlines():
+        username = userline.strip()
+        output[username] = {}
+        with open('../people/politiki.txt', 'r') as polfile:
+          for i, poline in enumerate(polfile.readlines()):
+            politician = poline.strip()
+            output[username][politician] = len(checks.get_political_mentions(username=username, politician=politician))
+          # if i == 0:
+          #   outfile.write(f'politician\t{"	".join(sorted(mentions.keys()))}\n')
+          # else:
+          #   values = [politician] + [str(mentions[key]) for key in sorted(mentions.keys())]
+          #   outfile.write(f'{"	".join(values)}\n')
+      json.dump(
+        {
+          username: {
+            politician[0]: {
+              'mentions': politician[1],
+              'imageUrl': get_user_info(politician[0])[14].split('Avatar: ')[-1]
+            } for politician in Counter(output[username]).most_common(5)
+          } for username in output.keys()
+        },
+        outfile
+      )
+
 # check_group('politiki', 'twint_politiki_tweets')
 # check_group('sample', 'twint_sample_tweets')
 # check_group('trolls', 'twint_trolls_tweets')
 # check_group('brigade', 'twint_500_tweets')
 # check_group('all', 'all_tweets')
 
-get_most_liked_original_tweets('trolls', 'twint_trolls_tweets')
-get_most_rted_original_tweets('trolls', 'twint_trolls_tweets')
-get_political_mentions('trolls')
+# get_most_liked_original_tweets('trolls', 'twint_trolls_tweets')
+# get_most_rted_original_tweets('trolls', 'twint_trolls_tweets')
+# get_political_mentions('trolls')
+get_political_mentions_json('trolls')

@@ -53,7 +53,7 @@ Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfi
 				fillColor='#5c864a' id="hashtags"/></div>
 	</div>
 	<div v-else class="visualisations-container">
-		<body-content-text>Brez podatkov za leto 2020</body-content-text>
+		<body-content-text>Ni aktivnosti v letu 2020</body-content-text>
 	</div>
 
 </template>

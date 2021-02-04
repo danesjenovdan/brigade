@@ -4,7 +4,7 @@
       <p>Spodaj lahko raziskuješ Twitter prostor, ki ga ustvarja ~6000 uporabniških računov. Nastavljaš lahko razmerje med
         originalnimi tviti in ritviti ter datum registracije, posamezne skupine pa lahko dodatno raziščeš tako, da klikneš
         nanje.</p>
-      <p>Omrežje je sestavljeno na podlagi stronje analize tvitov posameznih uporabnikov. Za vsakega uporabnika izračunamo število
+      <p>Omrežje je sestavljeno na podlagi strojne analize tvitov posameznih uporabnikov. Za vsakega uporabnika izračunamo število
         omemb domen, drugih uporabnikov, ključnikov in posameznih besed (če so se le-ti v celotnem korpusu pojavili več
         kot petkrat). Dobimo matriko kjer vsakega uporabnika opisuje nekaj čez 2600 parametrov (številk). Slednje z
         algoritmom UMAP (z evklidsko inicializacijo) pretvorimo v koordinate v dvodimenzionalnem prostoru. Ko imamo
