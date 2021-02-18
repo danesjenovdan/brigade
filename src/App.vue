@@ -24,7 +24,11 @@
       </div>
         <social-media-banner class="lean-banner">
           <span class="buran" name="text">Nadaljnje <br/>branje</span>
-          <p class="container-link-text"><a target="_blank" href="https://podcrto.si/astroturfing-1-del-lazni-twitter-profili-ki-napadajo-kritike-sds/">Pod črto: Astroturfing 1. del</a></p>
+          <div class="lean-banner-container-link">
+            <p class="container-link-text"><a target="_blank" href="https://podcrto.si/astroturfing-1-del-lazni-twitter-profili-ki-napadajo-kritike-sds/">Pod črto: Astroturfing 1. del</a></p>
+            <p class="container-link-text"><a target="_blank" href="https://podcrto.si/astroturfing-2-del-kako-potekajo-napadi-na-kritike-stranke-sds/">Pod črto: Astroturfing 2. del</a></p>
+            <p class="container-link-text"><a target="_blank" href="https://podcrto.si/astroturfing-3-del-sovrastvo-pod-taktirko-politikov-in-mnenjskih-voditeljev-sds/">Pod črto: Astroturfing 3. del</a></p>
+          </div>
         </social-media-banner>
       <views-navigation/>
       <router-view></router-view>
@@ -40,8 +44,8 @@
             <div class="container-link">
               <p class="buran-small min-size">Raziskave</p>
               <p class="container-link-text"><a target="_blank" href="https://podcrto.si/astroturfing-1-del-lazni-twitter-profili-ki-napadajo-kritike-sds/">Pod črto: Astroturfing 1. del</a></p>
-              <p class="container-link-text">&nbsp;</p>
-              <p class="container-link-text">&nbsp;</p>
+              <p class="container-link-text"><a target="_blank" href="https://podcrto.si/astroturfing-2-del-kako-potekajo-napadi-na-kritike-stranke-sds/">Pod črto: Astroturfing 2. del</a></p>
+              <p class="container-link-text"><a target="_blank" href="https://podcrto.si/astroturfing-3-del-sovrastvo-pod-taktirko-politikov-in-mnenjskih-voditeljev-sds/">Pod črto: Astroturfing 3. del</a></p>
             </div>
         </div>
       </recap-banner>
@@ -315,6 +319,10 @@
     line-height: 24px;
   }
 
+  .lean-banner-container-link {
+    display: flex;
+    flex-direction: column;
+  }
 
   @media only screen and (max-width: 768px) {
   .lean-banner {
