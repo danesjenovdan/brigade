@@ -13,7 +13,7 @@ Spodnje analize nam služijo kot vpogled v različne oblike in metode astroturfi
 		<div class="politicians-container">
 			<h1>Omembe pri politikih:</h1>
 			<p>Kolikokrat je bil profil omenjen oziroma ritvtivan s strani politikov (prikazujemo do 5 politikov).</p>
-			<politicians v-if="troll.accountInfo.name" :troll="troll.accountInfo.userName" />
+			<politicians v-if="troll.accountInfo.name" :troll="troll.dataUserName" />
 		</div>
 	</div>
 	<body-content-text>{{description}}</body-content-text>
@@ -113,15 +113,29 @@ export default {
 	},
 		methods: {
     onClickChild (value) {
-			this.$data.images = trollImageText.filter((element) => element.troll.toLowerCase().replace('@', '') === value.accountInfo.userName.toLowerCase().replace('@', ''))
-			this.$data.description = trollImageText.find((element) => element.troll.toLowerCase().replace('@', '') === value.accountInfo.userName.toLowerCase().replace('@', '')).description
-			this.$data.tweet = tweets.find((element) => element.USERNAME.toLowerCase().replace('@', '') === value.accountInfo.userName.toLowerCase().replace('@', ''))
-			console.log('tweet: ', this.$data.tweet);
-			this.$data.troll = value;
-			this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "RT", 'rgb(249, 233, 111)','#f9e96f');
-			this.$data.charts.domains = createChartData(this.$data.troll, "domains", 30, "Domene", 'rgb(92, 134, 74)','#5c864a');
-			this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 30, "Omembe", 'rgb(90, 164, 214)','#5aa4d6');
-			this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 30, "Ključniki", 'rgb(234, 110, 51)','#ea6e33');
+		let currentTrollName = '';
+		if (value.accountInfo.searchUserName) {
+			currentTrollName = value.accountInfo.searchUserName.toLowerCase().replace('@', '')	
+		} else {
+			currentTrollName = value.accountInfo.userName.toLowerCase().replace('@', '')
+			this.$data.troll.dataUserName = value.accountInfo.userName;
+		}
+		console.log(currentTrollName);
+		console.log(value);
+		this.$data.images = trollImageText.filter((element) => element.troll.toLowerCase().replace('@', '') === currentTrollName)
+		this.$data.description = trollImageText.find((element) => element.troll.toLowerCase().replace('@', '') === currentTrollName).description
+		this.$data.tweet = tweets.find((element) => element.USERNAME.toLowerCase().replace('@', '') === currentTrollName)
+		console.log('tweet: ', this.$data.tweet);
+		this.$data.troll = value;
+		if (value.accountInfo.searchUserName) {
+			this.$data.troll.dataUserName = value.accountInfo.searchUserName;
+		} else {
+			this.$data.troll.dataUserName = value.accountInfo.userName;
+		}
+		this.$data.charts.retweets = createChartData(this.$data.troll, "retweets", 30, "RT", 'rgb(249, 233, 111)','#f9e96f');
+		this.$data.charts.domains = createChartData(this.$data.troll, "domains", 30, "Domene", 'rgb(92, 134, 74)','#5c864a');
+		this.$data.charts.mentions = createChartData(this.$data.troll, "mentions", 30, "Omembe", 'rgb(90, 164, 214)','#5aa4d6');
+		this.$data.charts.hashtags = createChartData(this.$data.troll, "hashtags", 30, "Ključniki", 'rgb(234, 110, 51)','#ea6e33');
 
     },
 		createChartData

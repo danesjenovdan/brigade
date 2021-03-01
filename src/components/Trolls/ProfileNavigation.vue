@@ -71,7 +71,7 @@ export default {
 				ostanekatarinainfo,
 				pusnikferdinandinfo,
 			],
-			clickedName: "White Right 🇸🇮"
+			clickedName: "Metka 🇸🇮"
 		}
 	},
 	mounted() {
