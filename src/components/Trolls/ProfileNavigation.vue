@@ -23,7 +23,7 @@ import janezr2info from '../../assets/trolls/janezr2info.json'
 import japelj62962info from '../../assets/trolls/japelj62962info.json'
 import jern3jinfo from '../../assets/trolls/jern3jinfo.json'
 import jurebregarinfo from '../../assets/trolls/jurebregarinfo.json'
-import jurzeskyinfo from '../../assets/trolls/jurzeskyinfo.json'
+// import jurzeskyinfo from '../../assets/trolls/jurzeskyinfo.json'
 import kalofatinfo from '../../assets/trolls/kalofatinfo.json'
 import katarinamlakarinfo from '../../assets/trolls/katarinamlakarinfo.json'
 import krek_janjainfo from '../../assets/trolls/krek_janjainfo.json'
@@ -58,7 +58,7 @@ export default {
 				japelj62962info,
 				jern3jinfo,
 				jurebregarinfo,
-				jurzeskyinfo,
+				// jurzeskyinfo,
 				kalofatinfo,
 				katarinamlakarinfo,
 				krek_janjainfo,
