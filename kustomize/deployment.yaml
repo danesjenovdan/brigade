@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brigade
+  labels:
+    app: brigade
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: brigade
+  template:
+    metadata:
+      labels:
+        app: brigade
+    spec:
+      containers:
+        - name: brigade
+          image: brigade
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: 50Mi
+              cpu: 50m
+            limits:
+              memory: 50Mi
+              cpu: 50m
