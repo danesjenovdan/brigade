@@ -8,4 +8,4 @@ resources:
 images:
   - name: brigade
     newName: rg.fr-par.scw.cloud/djnd/brigade
-    newTag: 'c5e4b4336319f151c493718d9d1aeb5cd08d6bc1'
+    newTag: 'e64237662dc3346f9729a4ab6b725166eb8154fe'
